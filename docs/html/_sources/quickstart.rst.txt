@@ -1,3 +1,5 @@
+.. _quickstart:
+
 Quick Start
 ===========
 This is a short examples how to analyse vcf files.
