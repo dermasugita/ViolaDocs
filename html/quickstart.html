@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Quick Start &mdash; PySgt 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="test" href="sources/test.html" />
+    <link rel="prev" title="Installation" href="install.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> PySgt
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#import-pysgt-to-your-script">Import PySgt to your script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#read-the-vcf-file">Read the vcf file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#viewing-the-contents-of-sgtcore-object">Viewing the contents of SgtCore object</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sources/test.html">test</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PySgt</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Quick Start</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/quickstart.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="quick-start">
+<h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
+<p>This is a short examples how to analyse vcf files.</p>
+<p>When you read this page, you can</p>
+<ul class="simple">
+<li><p>Import PySgt package to your script.</p></li>
+<li><p>Read vcf file to create PySgt core object.</p></li>
+<li><p>Convert the vcf file into a bedpe file, with any features you want such as INFO fields, and FORMAT fields.</p></li>
+<li><p>Filter the SVs by any features, including genomic positions, INFO fields, and FORMAT fields.</p></li>
+</ul>
+<div class="section" id="import-pysgt-to-your-script">
+<h2>Import PySgt to your script<a class="headerlink" href="#import-pysgt-to-your-script" title="Permalink to this headline">¶</a></h2>
+<p>How to import PySgt package is as follow:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">sgt</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="read-the-vcf-file">
+<h2>Read the vcf file<a class="headerlink" href="#read-the-vcf-file" title="Permalink to this headline">¶</a></h2>
+<p>In order to use PySgt’s features, you must first import a vcf file to create an SgtCore object.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="n">sgt_object</span> <span class="o">=</span> <span class="n">sgt</span><span class="o">.</span><span class="n">read_vcf</span><span class="p">(</span><span class="s1">&#39;tutorial.vcf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now you’re ready to perform a number of functions that the PySgt package has.</p>
+</div>
+<div class="section" id="viewing-the-contents-of-sgtcore-object">
+<h2>Viewing the contents of SgtCore object<a class="headerlink" href="#viewing-the-contents-of-sgtcore-object" title="Permalink to this headline">¶</a></h2>
+<p>You may want to view the content of SgtCore objects after creating them.
+To do so, you have three options.</p>
+<ol class="arabic simple">
+<li><p>Simply print the object.</p></li>
+</ol>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="nb">print</span><span class="p">(</span><span class="n">sgt_object</span><span class="p">)</span>
+<span class="go">INFO=imprecise,svtype,svlen,end,cipos,ciend,cigar,mateid,event,homlen,homseq,svinslen,svinsseq,left_svinsseq,right_svinsseq,contig,bnd_depth,mate_bnd_depth,somatic,somaticscore,junction_somaticscore,inv3,inv5</span>
+<span class="go">      id                          pos strand  qual svtype</span>
+<span class="go">0  test1  chr1:82550461-chr1:82554225     +-  None    DEL</span>
+<span class="go">1  test2  chr1:22814216-chr1:92581131     ++  None    INV</span>
+<span class="go">2  test3  chr1:60567906-chr1:60675940     +-  None    DEL</span>
+<span class="go">3  test4  chr1:69583190-chr1:69590947     +-  None    DEL</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Generate bedpe like pandas.DataFrame.</p></li>
+</ol>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">sgt_bedpe_like</span> <span class="o">=</span> <span class="n">sgt_object</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">()</span>
+
+<span class="gp">In [5]: </span><span class="nb">print</span><span class="p">(</span><span class="n">sgt_bedpe_like</span><span class="p">)</span>
+<span class="go">  chrom1    start1      end1 chrom2    start2      end2   name score strand1 strand2</span>
+<span class="go">0   chr1  82550461  82550462   chr1  82554225  82554226  test1  None       +       -</span>
+<span class="go">1   chr1  22814216  22814217   chr1  92581131  92581132  test2  None       +       +</span>
+<span class="go">2   chr1  60567906  60567907   chr1  60675940  60675941  test3  None       +       -</span>
+<span class="go">3   chr1  69583190  69583191   chr1  69590947  69590948  test4  None       +       -</span>
+</pre></div>
+</div>
+<p>The way to add INFO, FILTER, and FORMAT to this bedpe-like DataFrame is explained <a class="reference internal" href="bedpe_generation.html#bedpe-generation"><span class="std std-ref">here</span></a> (no link for now).</p>
+<ol class="arabic simple" start="3">
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">get_table()</span></code> method to get individual tables composing the SgtCore object.</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sources/test.html" class="btn btn-neutral float-right" title="test" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="install.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Itsuki Sugita
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
