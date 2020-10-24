@@ -96,6 +96,17 @@
 <li class="toctree-l4"><a class="reference internal" href="api/sgt.core.db.SgtCore.html">sgt.core.db.SgtCore</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#attributes">Attributes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/sgt.core.db.SgtCore.sv_count.html">sgt.core.db.SgtCore.sv_count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/sgt.core.db.SgtCore.table_list.html">sgt.core.db.SgtCore.table_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/sgt.core.db.SgtCore.ids.html">sgt.core.db.SgtCore.ids</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#accessing-the-tables">Accessing the Tables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/sgt.core.db.SgtCore.get_table.html">sgt.core.db.SgtCore.get_table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/sgt.core.db.SgtCore.to_bedpe_like.html">sgt.core.db.SgtCore.to_bedpe_like</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -179,6 +190,43 @@
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/sgt.core.db.SgtCore.html#sgt.core.db.SgtCore" title="sgt.core.db.SgtCore"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SgtCore</span></code></a>(df_svpos, df_filters, dict_df_info, …)</p></td>
 <td><p>Relational database-like object containing SV position dataframes, FILTER dataframe, INFO dataframes, FORMAT dataframe, and HEADER dataframes.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/sgt.core.db.SgtCore.sv_count.html#sgt.core.db.SgtCore.sv_count" title="sgt.core.db.SgtCore.sv_count"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SgtCore.sv_count</span></code></a></p></td>
+<td><p>Return number of SV records.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/sgt.core.db.SgtCore.table_list.html#sgt.core.db.SgtCore.table_list" title="sgt.core.db.SgtCore.table_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SgtCore.table_list</span></code></a></p></td>
+<td><p>Return a list of names of all tables in the object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/sgt.core.db.SgtCore.ids.html#sgt.core.db.SgtCore.ids" title="sgt.core.db.SgtCore.ids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SgtCore.ids</span></code></a></p></td>
+<td><p>Return all SV ids as list.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="accessing-the-tables">
+<h2>Accessing the Tables<a class="headerlink" href="#accessing-the-tables" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/sgt.core.db.SgtCore.get_table.html#sgt.core.db.SgtCore.get_table" title="sgt.core.db.SgtCore.get_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SgtCore.get_table</span></code></a>(table_name)</p></td>
+<td><p>Return a table specified in the argument as pandas DataFrame object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/sgt.core.db.SgtCore.to_bedpe_like.html#sgt.core.db.SgtCore.to_bedpe_like" title="sgt.core.db.SgtCore.to_bedpe_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SgtCore.to_bedpe_like</span></code></a>([custom_infonames])</p></td>
+<td><p>Return a DataFrame in bedpe-like format.</p></td>
 </tr>
 </tbody>
 </table>
