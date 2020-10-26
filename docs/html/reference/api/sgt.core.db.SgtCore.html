@@ -98,6 +98,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../sgt_core.html#attributes">Attributes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sgt_core.html#accessing-the-tables">Accessing the Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sgt_core.html#filtering">Filtering</a></li>
 </ul>
 </li>
 </ul>
@@ -243,10 +244,10 @@ The (‘id’, ‘sample’, ‘format’) are the foreign key coming from
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_info_table</span></code>(table_name, table, number, …)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter</span></code>(ls_query, query_logic)</p></td>
-<td><p>Filter SgtSimple object by the list of queries.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="sgt.core.db.SgtCore.filter.html#sgt.core.db.SgtCore.filter" title="sgt.core.db.SgtCore.filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter</span></code></a>(ls_query, query_logic)</p></td>
+<td><p>Filter SgtCore object by the list of queries.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_by_id</span></code>(arrlike_id)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="sgt.core.db.SgtCore.filter_by_id.html#sgt.core.db.SgtCore.filter_by_id" title="sgt.core.db.SgtCore.filter_by_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_by_id</span></code></a>(arrlike_id)</p></td>
 <td><p>Filter SgtCore object according to the list of SV ids.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_detail_svtype</span></code>([criteria])</p></td>
@@ -267,7 +268,7 @@ The (‘id’, ‘sample’, ‘format’) are the foreign key coming from
 <tr class="row-odd"><td><p><a class="reference internal" href="sgt.core.db.SgtCore.to_bedpe_like.html#sgt.core.db.SgtCore.to_bedpe_like" title="sgt.core.db.SgtCore.to_bedpe_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_bedpe_like</span></code></a>([custom_infonames])</p></td>
 <td><p>Return a DataFrame in bedpe-like format.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_vcf_like</span></code>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="sgt.core.db.SgtCore.to_vcf_like.html#sgt.core.db.SgtCore.to_vcf_like" title="sgt.core.db.SgtCore.to_vcf_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_vcf_like</span></code></a>()</p></td>
 <td><p>Return a vcf-formatted DataFrame.</p></td>
 </tr>
 </tbody>
