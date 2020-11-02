@@ -4,12 +4,10 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta content="noindex" name="robots" />
-<meta content="nofollow" name="robots" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API Reference &mdash; PySgt 0.1 documentation</title>
+  <title>PySgt’s Data Structure &mdash; PySgt 0.1 documentation</title>
   
 
   
@@ -40,8 +38,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Input/Output" href="io.html" />
-    <link rel="prev" title="Quick Start" href="../quickstart.html" /> 
+    <link rel="prev" title="User Guide" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,13 +87,18 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="io.html">Input/Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sgt_simple.html">SgtSimple</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sgt_core.html">SgtCore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">PySgt’s Data Structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tables-composing-sgtcore-object">Tables composing SgtCore object</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#positions-table">positions table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#filters-table">filters table</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">User Guide</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
             
@@ -143,13 +145,15 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>API Reference</li>
+          <li><a href="index.html">User Guide</a> &raquo;</li>
+        
+      <li>PySgt’s Data Structure</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/reference/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/userguide/data_structure.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -162,30 +166,73 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <span class="target" id="api-reference"></span><div class="section" id="id1">
-<h1>API Reference<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="io.html">Input/Output</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="io.html#vcf-file">VCF file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="io.html#bedpe-file">BEDPE file</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="sgt_simple.html">SgtSimple</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sgt_simple.html#constructor">Constructor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sgt_simple.html#attributes">Attributes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sgt_simple.html#accessing-the-tables">Accessing the Tables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sgt_simple.html#filtering">Filtering</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="sgt_core.html">SgtCore</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sgt_core.html#constructor">Constructor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sgt_core.html#attributes">Attributes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sgt_core.html#accessing-the-tables">Accessing the Tables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sgt_core.html#filtering">Filtering</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="pysgt-s-data-structure">
+<span id="data-structure"></span><h1>PySgt’s Data Structure<a class="headerlink" href="#pysgt-s-data-structure" title="Permalink to this headline">¶</a></h1>
+<p>PySgt employs relational database like structure to enable flexible data proccessing.</p>
+<div class="section" id="tables-composing-sgtcore-object">
+<h2>Tables composing SgtCore object<a class="headerlink" href="#tables-composing-sgtcore-object" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="positions-table">
+<h3>positions table<a class="headerlink" href="#positions-table" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 82%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>Identifiers of SV records</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>chrom1</p></td>
+<td><p>Chromosome of the first breakend</p></td>
+</tr>
+<tr class="row-odd"><td><p>pos1</p></td>
+<td><p>Position of the first breakend</p></td>
+</tr>
+<tr class="row-even"><td><p>chrom2</p></td>
+<td><p>Chromosome of the second breakend</p></td>
+</tr>
+<tr class="row-odd"><td><p>pos2</p></td>
+<td><p>Position of the second breakend</p></td>
+</tr>
+<tr class="row-even"><td><p>strand1</p></td>
+<td><p>Strand of the first breakend</p></td>
+</tr>
+<tr class="row-odd"><td><p>strand2</p></td>
+<td><p>Strand of the second breakend</p></td>
+</tr>
+<tr class="row-even"><td><p>ref</p></td>
+<td><p>Reference nucleotides in the chrom1:pos1</p></td>
+</tr>
+<tr class="row-odd"><td><p>alt</p></td>
+<td><p>Details about the alteration</p></td>
+</tr>
+<tr class="row-even"><td><p>svtype</p></td>
+<td><p>SV type of the event</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="filters-table">
+<h3>filters table<a class="headerlink" href="#filters-table" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 79%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>Identifiers of SV records</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>filters</p></td>
+<td><p>Filters assigned to the id</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 
@@ -197,10 +244,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="io.html" class="btn btn-neutral float-right" title="Input/Output" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="../quickstart.html" class="btn btn-neutral float-left" title="Quick Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
