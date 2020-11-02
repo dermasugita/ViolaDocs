@@ -192,7 +192,9 @@
 <div class="section" id="read-the-vcf-file">
 <h2>Read the vcf file<a class="headerlink" href="#read-the-vcf-file" title="Permalink to this headline">¶</a></h2>
 <p>In order to use PySgt’s features, you must first run <a class="reference internal" href="reference/api/sgt.io.parser.read_vcf.html"><span class="doc">read_vcf</span></a> to create an <a class="reference internal" href="reference/sgt_core.html#core"><span class="std std-ref">SgtCore</span></a> object.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="n">sgt_object</span> <span class="o">=</span> <span class="n">sgt</span><span class="o">.</span><span class="n">read_vcf</span><span class="p">(</span><span class="s1">&#39;tutorial.vcf&#39;</span><span class="p">)</span> <span class="c1"># filepath, url, and file-like object are acceptable.</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://dermasugita.github.io/PySgtDocs/docs/html/_static/tutorial.vcf&#39;</span>
+
+<span class="gp">In [3]: </span><span class="n">sgt_object</span> <span class="o">=</span> <span class="n">sgt</span><span class="o">.</span><span class="n">read_vcf</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="c1"># filepath, url, and file-like object are acceptable.</span>
 </pre></div>
 </div>
 <p>Now you’re ready to perform a number of functions that the PySgt package has.</p>
@@ -203,7 +205,7 @@
 To do so, you have three options.</p>
 <div class="section" id="simply-print-the-object">
 <h3>1) Simply print the object.<a class="headerlink" href="#simply-print-the-object" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="nb">print</span><span class="p">(</span><span class="n">sgt_object</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="nb">print</span><span class="p">(</span><span class="n">sgt_object</span><span class="p">)</span>
 <span class="go">INFO=imprecise,svtype,svlen,end,cipos,ciend,cigar,mateid,event,homlen,homseq,svinslen,svinsseq,left_svinsseq,right_svinsseq,contig,bnd_depth,mate_bnd_depth,somatic,somaticscore,junction_somaticscore,inv3,inv5</span>
 <span class="go">      id                          pos strand  qual svtype</span>
 <span class="go">0  test1  chr1:82550461-chr1:82554225     +-  None    DEL</span>
@@ -215,9 +217,9 @@ To do so, you have three options.</p>
 </div>
 <div class="section" id="generate-bedpe-like-pandas-dataframe">
 <h3>2) Generate bedpe like pandas.DataFrame.<a class="headerlink" href="#generate-bedpe-like-pandas-dataframe" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">sgt_bedpe_like</span> <span class="o">=</span> <span class="n">sgt_object</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">()</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">sgt_bedpe_like</span> <span class="o">=</span> <span class="n">sgt_object</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">()</span>
 
-<span class="gp">In [5]: </span><span class="nb">print</span><span class="p">(</span><span class="n">sgt_bedpe_like</span><span class="p">)</span>
+<span class="gp">In [6]: </span><span class="nb">print</span><span class="p">(</span><span class="n">sgt_bedpe_like</span><span class="p">)</span>
 <span class="go">  chrom1    start1      end1 chrom2    start2      end2   name score strand1 strand2</span>
 <span class="go">0   chr1  82550461  82550462   chr1  82554225  82554226  test1  None       +       -</span>
 <span class="go">1   chr1  22814216  22814217   chr1  92581131  92581132  test2  None       +       +</span>
@@ -229,8 +231,8 @@ To do so, you have three options.</p>
 </div>
 <div class="section" id="use-the-get-table-method-to-get-individual-tables-composing-the-sgtcore-object">
 <h3>3) Use the <a class="reference internal" href="reference/api/sgt.core.db.SgtCore.get_table.html"><span class="doc">get_table()</span></a> method to get individual tables composing the SgtCore object.<a class="headerlink" href="#use-the-get-table-method-to-get-individual-tables-composing-the-sgtcore-object" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">sgt_object</span><span class="o">.</span><span class="n">get_table</span><span class="p">(</span><span class="s1">&#39;positions&#39;</span><span class="p">)</span>
-<span class="gh">Out[6]: </span><span class="go"></span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">sgt_object</span><span class="o">.</span><span class="n">get_table</span><span class="p">(</span><span class="s1">&#39;positions&#39;</span><span class="p">)</span>
+<span class="gh">Out[7]: </span><span class="go"></span>
 <span class="go">      id chrom1      pos1 chrom2      pos2  ... strand2 ref    alt  qual svtype</span>
 <span class="go">0  test1   chr1  82550461   chr1  82554225  ...       -   G  &lt;DEL&gt;  None    DEL</span>
 <span class="go">1  test2   chr1  22814216   chr1  92581131  ...       +   T  &lt;INV&gt;  None    INV</span>
@@ -241,8 +243,8 @@ To do so, you have three options.</p>
 </pre></div>
 </div>
 <p>The names of all the tables in <code class="docutils literal notranslate"><span class="pre">sgt_object</span></code> are stored in the <a class="reference internal" href="reference/api/sgt.core.db.SgtCore.table_list.html"><span class="doc">table_list</span></a> attribute:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">sgt_object</span><span class="o">.</span><span class="n">table_list</span>
-<span class="gh">Out[7]: </span><span class="go"></span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">sgt_object</span><span class="o">.</span><span class="n">table_list</span>
+<span class="gh">Out[8]: </span><span class="go"></span>
 <span class="go">[&#39;positions&#39;,</span>
 <span class="go"> &#39;filters&#39;,</span>
 <span class="go"> &#39;imprecise&#39;,</span>
@@ -278,8 +280,8 @@ To do so, you have three options.</p>
 </pre></div>
 </div>
 <p>You can get any table you want.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">sgt_object</span><span class="o">.</span><span class="n">get_table</span><span class="p">(</span><span class="s1">&#39;formats_meta&#39;</span><span class="p">)</span> <span class="c1"># get header information of FORMAT field</span>
-<span class="gh">Out[8]: </span><span class="go"></span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">sgt_object</span><span class="o">.</span><span class="n">get_table</span><span class="p">(</span><span class="s1">&#39;formats_meta&#39;</span><span class="p">)</span> <span class="c1"># get header information of FORMAT field</span>
+<span class="gh">Out[9]: </span><span class="go"></span>
 <span class="go">   id number     type                    description</span>
 <span class="go">0  PR   None  Integer  Spanning paired-read suppo...</span>
 <span class="go">1  SR   None  Integer  Split reads for the ref an...</span>
@@ -300,13 +302,13 @@ SgtCore object provides an intuitive way to filter SV in almost any item.</p>
 <h3>1) Filter with queries<a class="headerlink" href="#filter-with-queries" title="Permalink to this headline">¶</a></h3>
 <p>The query system is somewhat specific to this package, but still easy to understand since they are very simple.</p>
 <p>First, let’s look at a couple of examples.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">query1</span> <span class="o">=</span> <span class="s1">&#39;svtype == DEL&#39;</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">query1</span> <span class="o">=</span> <span class="s1">&#39;svtype == DEL&#39;</span>
 
-<span class="gp">In [10]: </span><span class="n">sgt_object_deletion</span> <span class="o">=</span> <span class="n">sgt_object</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">query1</span><span class="p">)</span>
+<span class="gp">In [11]: </span><span class="n">sgt_object_deletion</span> <span class="o">=</span> <span class="n">sgt_object</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">query1</span><span class="p">)</span>
 
-<span class="gp">In [11]: </span><span class="n">df_out</span> <span class="o">=</span> <span class="n">sgt_object_deletion</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">custom_infonames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;svtype&#39;</span><span class="p">,</span> <span class="s1">&#39;svlen&#39;</span><span class="p">])</span>
+<span class="gp">In [12]: </span><span class="n">df_out</span> <span class="o">=</span> <span class="n">sgt_object_deletion</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">custom_infonames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;svtype&#39;</span><span class="p">,</span> <span class="s1">&#39;svlen&#39;</span><span class="p">])</span>
 
-<span class="gp">In [12]: </span><span class="nb">print</span><span class="p">(</span><span class="n">df_out</span><span class="p">)</span>
+<span class="gp">In [13]: </span><span class="nb">print</span><span class="p">(</span><span class="n">df_out</span><span class="p">)</span>
 <span class="go">  chrom1    start1      end1 chrom2    start2  ...  score strand1 strand2 svtype_0 svlen_0</span>
 <span class="go">0   chr1  82550461  82550462   chr1  82554225  ...   None       +       -      DEL   -3764</span>
 <span class="go">1   chr1  60567906  60567907   chr1  60675940  ...   None       +       -      DEL -108034</span>
@@ -316,15 +318,15 @@ SgtCore object provides an intuitive way to filter SV in almost any item.</p>
 </pre></div>
 </div>
 <p>Query can be a list.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">query2_1</span> <span class="o">=</span> <span class="s1">&#39;svlen &lt; -4000&#39;</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="n">query2_1</span> <span class="o">=</span> <span class="s1">&#39;svlen &lt; -4000&#39;</span>
 
-<span class="gp">In [14]: </span><span class="n">query2_2</span> <span class="o">=</span> <span class="s1">&#39;svlen &gt; -10000&#39;</span>
+<span class="gp">In [15]: </span><span class="n">query2_2</span> <span class="o">=</span> <span class="s1">&#39;svlen &gt; -10000&#39;</span>
 
-<span class="gp">In [15]: </span><span class="n">sgt_object_filter_len</span> <span class="o">=</span> <span class="n">sgt_object</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="n">query2_1</span><span class="p">,</span> <span class="n">query2_2</span><span class="p">],</span> <span class="n">query_logic</span><span class="o">=</span><span class="s1">&#39;and&#39;</span><span class="p">)</span>
+<span class="gp">In [16]: </span><span class="n">sgt_object_filter_len</span> <span class="o">=</span> <span class="n">sgt_object</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="n">query2_1</span><span class="p">,</span> <span class="n">query2_2</span><span class="p">],</span> <span class="n">query_logic</span><span class="o">=</span><span class="s1">&#39;and&#39;</span><span class="p">)</span>
 
-<span class="gp">In [16]: </span><span class="n">df_out</span> <span class="o">=</span> <span class="n">sgt_object_filter_len</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">custom_infonames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;svtype&#39;</span><span class="p">,</span> <span class="s1">&#39;svlen&#39;</span><span class="p">])</span>
+<span class="gp">In [17]: </span><span class="n">df_out</span> <span class="o">=</span> <span class="n">sgt_object_filter_len</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">custom_infonames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;svtype&#39;</span><span class="p">,</span> <span class="s1">&#39;svlen&#39;</span><span class="p">])</span>
 
-<span class="gp">In [17]: </span><span class="nb">print</span><span class="p">(</span><span class="n">df_out</span><span class="p">)</span>
+<span class="gp">In [18]: </span><span class="nb">print</span><span class="p">(</span><span class="n">df_out</span><span class="p">)</span>
 <span class="go">  chrom1    start1      end1 chrom2    start2  ...  score strand1 strand2 svtype_0 svlen_0</span>
 <span class="go">0   chr1  69583190  69583191   chr1  69590947  ...   None       +       -      DEL   -7757</span>
 
