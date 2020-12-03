@@ -246,7 +246,7 @@
 <col style="width: 79%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>id</p></th>
+<tr class="row-odd"><th class="head"><p>id(FK)</p></th>
 <th class="head"><p>Identifiers of SV records</p></th>
 </tr>
 <tr class="row-even"><th class="head"><p>filters</p></th>
@@ -259,6 +259,12 @@
 </tr>
 </tbody>
 </table>
+<div class="line-block">
+<div class="line">Forein keys:</div>
+<div class="line-block">
+<div class="line">id: “positions” table</div>
+</div>
+</div>
 </div>
 <div class="section" id="info-tables">
 <h3>info tables<a class="headerlink" href="#info-tables" title="Permalink to this headline">¶</a></h3>
@@ -271,7 +277,7 @@ Here, we show the ‘svlen’ table as an example of info tables.</p>
 <col style="width: 91%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>id</p></th>
+<tr class="row-odd"><th class="head"><p>id(FK)</p></th>
 <th class="head"><p>Identifiers of SV records</p></th>
 </tr>
 <tr class="row-even"><th class="head"><p>value_idx</p></th>
@@ -284,23 +290,29 @@ Here, we show the ‘svlen’ table as an example of info tables.</p>
 </tr>
 </tbody>
 </table>
+<div class="line-block">
+<div class="line">Forein keys:</div>
+<div class="line-block">
+<div class="line">id: “positions” table</div>
+</div>
+</div>
 </div>
 <div class="section" id="formats-table">
 <h3>formats table<a class="headerlink" href="#formats-table" title="Permalink to this headline">¶</a></h3>
 <p>Name of the table: “formats”</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 26%" />
-<col style="width: 74%" />
+<col style="width: 32%" />
+<col style="width: 68%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>id</p></th>
+<tr class="row-odd"><th class="head"><p>id(FK)</p></th>
 <th class="head"><p>Identifiers of SV records</p></th>
 </tr>
-<tr class="row-even"><th class="head"><p>sample</p></th>
+<tr class="row-even"><th class="head"><p>sample(FK)</p></th>
 <th class="head"><p>Sample name</p></th>
 </tr>
-<tr class="row-odd"><th class="head"><p>formats</p></th>
+<tr class="row-odd"><th class="head"><p>formats(FK)</p></th>
 <th class="head"><p>Name of the FORMAT</p></th>
 </tr>
 <tr class="row-even"><th class="head"><p>value_idx</p></th>
@@ -313,6 +325,14 @@ Here, we show the ‘svlen’ table as an example of info tables.</p>
 </tr>
 </tbody>
 </table>
+<div class="line-block">
+<div class="line">Foreign keys:</div>
+<div class="line-block">
+<div class="line">id: “positions” table</div>
+<div class="line">sample: “samples_meta” table</div>
+<div class="line">formats: “formats_meta” table</div>
+</div>
+</div>
 </div>
 <div class="section" id="contigs-meta-table">
 <h3>contigs_meta table<a class="headerlink" href="#contigs-meta-table" title="Permalink to this headline">¶</a></h3>

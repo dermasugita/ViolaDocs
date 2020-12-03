@@ -47,11 +47,15 @@ filters table
 Name of the table: "filters"
 
 ======= ==========================
-id      Identifiers of SV records
+id(FK)  Identifiers of SV records
 ------- --------------------------
 filters Filters assigned to the id
 ======= ==========================
 ======= ==========================
+
+| Forein keys:
+|    id: "positions" table
+
 
 ~~~~~~~~~~~~~~
 info tables
@@ -63,12 +67,15 @@ Here, we show the 'svlen' table as an example of info tables.
 Name of the table: "svlen"
 
 ========= =============================================================================================
-id        Identifiers of SV records
+id(FK)    Identifiers of SV records
 --------- ---------------------------------------------------------------------------------------------
 value_idx 0 origin index (this column is necessary since some INFOs have multiple values such as CIPOS)
 ========= =============================================================================================
 svlen     Length of SV
 ========= =============================================================================================
+
+| Forein keys:
+|    id: "positions" table
 
 ~~~~~~~~~~~~~~
 formats table
@@ -76,17 +83,22 @@ formats table
 
 Name of the table: "formats"
 
-========= ==========================
-id        Identifiers of SV records
---------- --------------------------
-sample    Sample name
---------- --------------------------
-formats   Name of the FORMAT
---------- --------------------------
-value_idx 0 origin index 
-========= ==========================
-value     Value of the FORMAT
-========= ==========================
+============ ==========================
+id(FK)       Identifiers of SV records
+------------ --------------------------
+sample(FK)   Sample name
+------------ --------------------------
+formats(FK)  Name of the FORMAT
+------------ --------------------------
+value_idx    0 origin index 
+============ ==========================
+value        Value of the FORMAT
+============ ==========================
+
+| Foreign keys:
+|    id: "positions" table
+|    sample: "samples_meta" table
+|    formats: "formats_meta" table
 
 ~~~~~~~~~~~~~~~~~~~
 contigs_meta table

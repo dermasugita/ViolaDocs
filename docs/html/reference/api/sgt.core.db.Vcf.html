@@ -233,55 +233,58 @@ The (‘id’, ‘sample’, ‘format’) are the foreign key coming from
 <tr class="row-odd"><td><p><a class="reference internal" href="#sgt.core.db.Vcf.__init__" title="sgt.core.db.Vcf.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(df_svpos, df_filters, dict_df_info, …)</p></td>
 <td><p>Initialize self.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">annotate_bed</span></code>(bed, annotation[, suffix, …])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_info_table</span></code>(table_name, df)</p></td>
+<td><p>Add a new INFO table to self.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">annotate_bed</span></code>(bed, annotation[, suffix, …])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_filters</span></code>(base_df[, left_on])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_filters</span></code>(base_df[, left_on])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_formats</span></code>(base_df[, left_on])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_formats</span></code>(base_df[, left_on])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_infos</span></code>(base_df, ls_tablenames[, …])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_infos</span></code>(base_df, ls_tablenames[, …])</p></td>
 <td><p>Append INFO tables to the right of the base_df, based on the SV id columns.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">change_repr_config</span></code>(key, value)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">change_repr_config</span></code>(key, value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">classify_manual_svtype</span></code>(ls_conditions, ls_names)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">classify_manual_svtype</span></code>(ls_conditions, ls_names)</p></td>
 <td><p>Classify SV records by user-defined criteria.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_info_table</span></code>(table_name, table, number, …)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_info_table</span></code>(table_name, table, number, …)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="sgt.core.db.Vcf.filter.html#sgt.core.db.Vcf.filter" title="sgt.core.db.Vcf.filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter</span></code></a>(ls_query, query_logic)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="sgt.core.db.Vcf.filter.html#sgt.core.db.Vcf.filter" title="sgt.core.db.Vcf.filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter</span></code></a>(ls_query, query_logic)</p></td>
 <td><p>Filter Vcf object by the list of queries.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="sgt.core.db.Vcf.filter_by_id.html#sgt.core.db.Vcf.filter_by_id" title="sgt.core.db.Vcf.filter_by_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_by_id</span></code></a>(arrlike_id)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="sgt.core.db.Vcf.filter_by_id.html#sgt.core.db.Vcf.filter_by_id" title="sgt.core.db.Vcf.filter_by_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_by_id</span></code></a>(arrlike_id)</p></td>
 <td><p>Filter Vcf object according to the list of SV ids.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_feature_count_as_series</span></code>([feature, ls_order])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_feature_count_as_series</span></code>([feature, ls_order])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ids</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ids</span></code>()</p></td>
 <td><p>Return all SV ids as the set type.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="sgt.core.db.Vcf.get_table.html#sgt.core.db.Vcf.get_table" title="sgt.core.db.Vcf.get_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_table</span></code></a>(table_name)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="sgt.core.db.Vcf.get_table.html#sgt.core.db.Vcf.get_table" title="sgt.core.db.Vcf.get_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_table</span></code></a>(table_name)</p></td>
 <td><p>Return a table specified in the argument as pandas DataFrame object.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_unique_events</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_unique_events</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_reciprocal</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_reciprocal</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="sgt.core.db.Vcf.to_bedpe_like.html#sgt.core.db.Vcf.to_bedpe_like" title="sgt.core.db.Vcf.to_bedpe_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_bedpe_like</span></code></a>([custom_infonames])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="sgt.core.db.Vcf.to_bedpe_like.html#sgt.core.db.Vcf.to_bedpe_like" title="sgt.core.db.Vcf.to_bedpe_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_bedpe_like</span></code></a>([custom_infonames])</p></td>
 <td><p>Return a DataFrame in bedpe-like format.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="sgt.core.db.Vcf.to_vcf_like.html#sgt.core.db.Vcf.to_vcf_like" title="sgt.core.db.Vcf.to_vcf_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_vcf_like</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="sgt.core.db.Vcf.to_vcf_like.html#sgt.core.db.Vcf.to_vcf_like" title="sgt.core.db.Vcf.to_vcf_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_vcf_like</span></code></a>()</p></td>
 <td><p>Return a vcf-formatted DataFrame.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code>(custom_infonames, return_as_dataframe)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code>(custom_infonames, return_as_dataframe)</p></td>
 <td><p>Quick view function of the Vcf object.</p></td>
 </tr>
 </tbody>
