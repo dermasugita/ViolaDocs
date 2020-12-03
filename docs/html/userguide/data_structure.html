@@ -95,8 +95,12 @@
 <li class="toctree-l4"><a class="reference internal" href="#filters-table">filters table</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#info-tables">info tables</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#formats-table">formats table</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#contig-meta-table">contig_meta table</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#filter-meta-table">filter_meta table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#contigs-meta-table">contigs_meta table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alts-meta-table">alts_meta table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#filters-meta-table">filters_meta table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#infos-meta-table">infos_meta table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#formats-meta-table">formats_meta table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#samples-meta-table">samples_meta table</a></li>
 </ul>
 </li>
 </ul>
@@ -172,16 +176,23 @@
             
   <div class="section" id="pysgt-s-data-structure">
 <span id="data-structure"></span><h1>PySgt’s Data Structure<a class="headerlink" href="#pysgt-s-data-structure" title="Permalink to this headline">¶</a></h1>
-<p>PySgt employs relational database like structure to enable flexible data proccessing.</p>
+<div class="line-block">
+<div class="line">PySgt employs relational-database-like structure to enable flexible data proccessing.</div>
+<div class="line">Here, we explain the specific data structure of Bedpe and Vcf class.</div>
+</div>
 <div class="section" id="tables-composing-vcf-object">
 <h2>Tables composing Vcf object<a class="headerlink" href="#tables-composing-vcf-object" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">In the following description tables, the primary keys are in bold.</div>
+<div class="line">If the table has a foreign key (FK), the dependencies are noted below the table.</div>
+</div>
 <div class="section" id="positions-table">
 <h3>positions table<a class="headerlink" href="#positions-table" title="Permalink to this headline">¶</a></h3>
 <p>Name of the table: “positions”</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 18%" />
-<col style="width: 82%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>id</p></th>
@@ -189,13 +200,13 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>chrom1</p></td>
+<tr class="row-even"><td><p>chrom1(FK)</p></td>
 <td><p>Chromosome of the first breakend</p></td>
 </tr>
 <tr class="row-odd"><td><p>pos1</p></td>
 <td><p>Position of the first breakend</p></td>
 </tr>
-<tr class="row-even"><td><p>chrom2</p></td>
+<tr class="row-even"><td><p>chrom2(FK)</p></td>
 <td><p>Chromosome of the second breakend</p></td>
 </tr>
 <tr class="row-odd"><td><p>pos2</p></td>
@@ -210,7 +221,7 @@
 <tr class="row-even"><td><p>ref</p></td>
 <td><p>Reference nucleotides in the chrom1:pos1</p></td>
 </tr>
-<tr class="row-odd"><td><p>alt</p></td>
+<tr class="row-odd"><td><p>alt(FK)</p></td>
 <td><p>Details about the alteration</p></td>
 </tr>
 <tr class="row-even"><td><p>svtype</p></td>
@@ -218,6 +229,13 @@
 </tr>
 </tbody>
 </table>
+<div class="line-block">
+<div class="line">Forein keys:</div>
+<div class="line-block">
+<div class="line">chrom1: “contigs_meta” table</div>
+<div class="line">chrom2: “contigs_meta” table</div>
+</div>
+</div>
 </div>
 <div class="section" id="filters-table">
 <h3>filters table<a class="headerlink" href="#filters-table" title="Permalink to this headline">¶</a></h3>
@@ -296,10 +314,10 @@ Here, we show the ‘svlen’ table as an example of info tables.</p>
 </tbody>
 </table>
 </div>
-<div class="section" id="contig-meta-table">
-<h3>contig_meta table<a class="headerlink" href="#contig-meta-table" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="contigs-meta-table">
+<h3>contigs_meta table<a class="headerlink" href="#contigs-meta-table" title="Permalink to this headline">¶</a></h3>
 <p>This table corresponds to the CONTIG section in header of vcf files.</p>
-<p>Name of the table: “contig_meta”</p>
+<p>Name of the table: “contigs_meta”</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 16%" />
@@ -307,7 +325,7 @@ Here, we show the ‘svlen’ table as an example of info tables.</p>
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>id</p></th>
-<th class="head"><p>Name of the contig (in most case, chromosome)</p></th>
+<th class="head"><p>Name of a contig (in most case, chromosome)</p></th>
 </tr>
 </thead>
 <tbody>
@@ -321,9 +339,9 @@ Here, we show the ‘svlen’ table as an example of info tables.</p>
 <div class="line">In this table, “id” doesn’t mean the “SV ID” but means the “identifier of the contigs”.</div>
 </div>
 </div>
-<div class="section" id="filter-meta-table">
-<h3>filter_meta table<a class="headerlink" href="#filter-meta-table" title="Permalink to this headline">¶</a></h3>
-<p>Name of the table: “filter_meta”</p>
+<div class="section" id="alts-meta-table">
+<h3>alts_meta table<a class="headerlink" href="#alts-meta-table" title="Permalink to this headline">¶</a></h3>
+<p>Name of the table: “alts_meta”</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 19%" />
@@ -331,12 +349,117 @@ Here, we show the ‘svlen’ table as an example of info tables.</p>
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>id</p></th>
-<th class="head"><p>Name of the FILTER</p></th>
+<th class="head"><p>Name of an ALT</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>description</p></td>
-<td><p>Description of FILTER</p></td>
+<td><p>Description of the ALT</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="filters-meta-table">
+<h3>filters_meta table<a class="headerlink" href="#filters-meta-table" title="Permalink to this headline">¶</a></h3>
+<p>Name of the table: “filters_meta”</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 81%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>Name of a FILTER</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>description</p></td>
+<td><p>Description of the FILTER</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="infos-meta-table">
+<h3>infos_meta table<a class="headerlink" href="#infos-meta-table" title="Permalink to this headline">¶</a></h3>
+<p>Name of the table: “infos_meta”</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 81%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>Name of a INFO</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>number</p></td>
+<td><p>Number of values included with the INFO</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p>Type of the value of the INFO</p></td>
+</tr>
+<tr class="row-even"><td><p>description</p></td>
+<td><p>Description of the INFO</p></td>
+</tr>
+<tr class="row-odd"><td><p>source</p></td>
+<td><p>Source of the annotation (e.g. “dbsnp”)</p></td>
+</tr>
+<tr class="row-even"><td><p>version</p></td>
+<td><p>Version of the source (e.g. “138”)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="formats-meta-table">
+<h3>formats_meta table<a class="headerlink" href="#formats-meta-table" title="Permalink to this headline">¶</a></h3>
+<p>Name of the table: “formats_meta”</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 81%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>Name of a FORMAT</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>number</p></td>
+<td><p>Number of values included with the FORMAT</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p>Type of the value of the FORMTA</p></td>
+</tr>
+<tr class="row-even"><td><p>description</p></td>
+<td><p>Description of the FORMAT</p></td>
+</tr>
+<tr class="row-odd"><td><p>source</p></td>
+<td><p>Source of the annotation (e.g. “dbsnp”)</p></td>
+</tr>
+<tr class="row-even"><td><p>version</p></td>
+<td><p>Version of the source (e.g. “138”)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="samples-meta-table">
+<h3>samples_meta table<a class="headerlink" href="#samples-meta-table" title="Permalink to this headline">¶</a></h3>
+<p>This table has only a single column.</p>
+<p>Name of the table: “samples_meta”</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 81%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>Name of a sample</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
