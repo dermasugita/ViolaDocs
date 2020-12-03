@@ -90,9 +90,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../reference/index.html">API Reference</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">User Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">PySgt’s Data Structure</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#tables-composing-sgtcore-object">Tables composing SgtCore object</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tables-composing-vcf-object">Tables composing Vcf object</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#positions-table">positions table</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#filters-table">filters table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#info-tables">info tables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#formats-table">formats table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#contig-meta-table">contig_meta table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#filter-meta-table">filter_meta table</a></li>
 </ul>
 </li>
 </ul>
@@ -169,10 +173,11 @@
   <div class="section" id="pysgt-s-data-structure">
 <span id="data-structure"></span><h1>PySgt’s Data Structure<a class="headerlink" href="#pysgt-s-data-structure" title="Permalink to this headline">¶</a></h1>
 <p>PySgt employs relational database like structure to enable flexible data proccessing.</p>
-<div class="section" id="tables-composing-sgtcore-object">
-<h2>Tables composing SgtCore object<a class="headerlink" href="#tables-composing-sgtcore-object" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tables-composing-vcf-object">
+<h2>Tables composing Vcf object<a class="headerlink" href="#tables-composing-vcf-object" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="positions-table">
 <h3>positions table<a class="headerlink" href="#positions-table" title="Permalink to this headline">¶</a></h3>
+<p>Name of the table: “positions”</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 18%" />
@@ -216,6 +221,7 @@
 </div>
 <div class="section" id="filters-table">
 <h3>filters table<a class="headerlink" href="#filters-table" title="Permalink to this headline">¶</a></h3>
+<p>Name of the table: “filters”</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 21%" />
@@ -225,10 +231,112 @@
 <tr class="row-odd"><th class="head"><p>id</p></th>
 <th class="head"><p>Identifiers of SV records</p></th>
 </tr>
+<tr class="row-even"><th class="head"><p>filters</p></th>
+<th class="head"><p>Filters assigned to the id</p></th>
+</tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>filters</p></td>
-<td><p>Filters assigned to the id</p></td>
+<tr class="row-odd"><td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="info-tables">
+<h3>info tables<a class="headerlink" href="#info-tables" title="Permalink to this headline">¶</a></h3>
+<p>Vcf object contains the same number of info tables as the number of INFO (e.g. SVLEN, CIPOS, IMPRECISE, …) in the original vcf file.
+Here, we show the ‘svlen’ table as an example of info tables.</p>
+<p>Name of the table: “svlen”</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 91%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>Identifiers of SV records</p></th>
+</tr>
+<tr class="row-even"><th class="head"><p>value_idx</p></th>
+<th class="head"><p>0 origin index (this column is necessary since some INFOs have multiple values such as CIPOS)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td><p>svlen</p></td>
+<td><p>Length of SV</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="formats-table">
+<h3>formats table<a class="headerlink" href="#formats-table" title="Permalink to this headline">¶</a></h3>
+<p>Name of the table: “formats”</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 74%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>Identifiers of SV records</p></th>
+</tr>
+<tr class="row-even"><th class="head"><p>sample</p></th>
+<th class="head"><p>Sample name</p></th>
+</tr>
+<tr class="row-odd"><th class="head"><p>formats</p></th>
+<th class="head"><p>Name of the FORMAT</p></th>
+</tr>
+<tr class="row-even"><th class="head"><p>value_idx</p></th>
+<th class="head"><p>0 origin index</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td><p>value</p></td>
+<td><p>Value of the FORMAT</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="contig-meta-table">
+<h3>contig_meta table<a class="headerlink" href="#contig-meta-table" title="Permalink to this headline">¶</a></h3>
+<p>This table corresponds to the CONTIG section in header of vcf files.</p>
+<p>Name of the table: “contig_meta”</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 84%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>Name of the contig (in most case, chromosome)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>length</p></td>
+<td><p>Length of the contig</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line">Note:</div>
+<div class="line">In this table, “id” doesn’t mean the “SV ID” but means the “identifier of the contigs”.</div>
+</div>
+</div>
+<div class="section" id="filter-meta-table">
+<h3>filter_meta table<a class="headerlink" href="#filter-meta-table" title="Permalink to this headline">¶</a></h3>
+<p>Name of the table: “filter_meta”</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 81%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>Name of the FILTER</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>description</p></td>
+<td><p>Description of FILTER</p></td>
 </tr>
 </tbody>
 </table>

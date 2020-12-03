@@ -92,14 +92,14 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#import-pysgt-to-your-script">Import PySgt to your script</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#read-the-vcf-file">Read the vcf file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#viewing-the-contents-of-sgtcore-object">Viewing the contents of SgtCore object</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#viewing-the-contents-of-vcf-object">Viewing the contents of Vcf object</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#simply-print-the-object">1) Simply print the object.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#generate-bedpe-like-pandas-dataframe">2) Generate bedpe like pandas.DataFrame.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#use-the-get-table-method-to-get-individual-tables-composing-the-sgtcore-object">3) Use the <span class="xref std std-doc">get_table()</span> method to get individual tables composing the SgtCore object.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-the-get-table-method-to-get-individual-tables-composing-the-vcf-object">3) Use the <span class="xref std std-doc">get_table()</span> method to get individual tables composing the Vcf object.</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#export-as-vcf-bedpe-file">Export as VCF/BEDPE file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#filter-sgtcore-object">Filter SgtCore object</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#filter-vcf-object">Filter Vcf object</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#filter-with-queries">1) Filter with queries</a></li>
 </ul>
 </li>
@@ -174,7 +174,7 @@
             
   <span class="target" id="quickstart"></span><div class="section" id="quick-start">
 <h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
-<p>This is a short examples how to analyse vcf files.</p>
+<p>This is a short example how to analyse vcf files.</p>
 <p>After you have read this page, you can</p>
 <ul class="simple">
 <li><p>Import PySgt package to your script.</p></li>
@@ -191,7 +191,7 @@
 </div>
 <div class="section" id="read-the-vcf-file">
 <h2>Read the vcf file<a class="headerlink" href="#read-the-vcf-file" title="Permalink to this headline">¶</a></h2>
-<p>In order to use PySgt’s features, you must first run <a class="reference internal" href="reference/api/sgt.io.parser.read_vcf.html"><span class="doc">read_vcf</span></a> to create an <a class="reference internal" href="reference/sgt_core.html#core"><span class="std std-ref">SgtCore</span></a> object.</p>
+<p>In order to use PySgt’s features, you must first run <a class="reference internal" href="reference/api/sgt.io.parser.read_vcf.html"><span class="doc">read_vcf</span></a> to create an <a class="reference internal" href="reference/vcf.html#core"><span class="std std-ref">Vcf</span></a> object.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://dermasugita.github.io/PySgtDocs/docs/html/_static/tutorial.vcf&#39;</span>
 
 <span class="gp">In [3]: </span><span class="n">sgt_object</span> <span class="o">=</span> <span class="n">sgt</span><span class="o">.</span><span class="n">read_vcf</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="c1"># filepath, url, and file-like object are acceptable.</span>
@@ -199,19 +199,19 @@
 </div>
 <p>Now you’re ready to perform a number of functions that the PySgt package has.</p>
 </div>
-<div class="section" id="viewing-the-contents-of-sgtcore-object">
-<h2>Viewing the contents of SgtCore object<a class="headerlink" href="#viewing-the-contents-of-sgtcore-object" title="Permalink to this headline">¶</a></h2>
-<p>You may want to view the content of SgtCore objects after creating them.
+<div class="section" id="viewing-the-contents-of-vcf-object">
+<h2>Viewing the contents of Vcf object<a class="headerlink" href="#viewing-the-contents-of-vcf-object" title="Permalink to this headline">¶</a></h2>
+<p>You may want to view the content of Vcf objects after creating them.
 To do so, you have three options.</p>
 <div class="section" id="simply-print-the-object">
 <h3>1) Simply print the object.<a class="headerlink" href="#simply-print-the-object" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="nb">print</span><span class="p">(</span><span class="n">sgt_object</span><span class="p">)</span>
 <span class="go">INFO=imprecise,svtype,svlen,end,cipos,ciend,cigar,mateid,event,homlen,homseq,svinslen,svinsseq,left_svinsseq,right_svinsseq,contig,bnd_depth,mate_bnd_depth,somatic,somaticscore,junction_somaticscore,inv3,inv5</span>
-<span class="go">      id                          pos strand  qual svtype</span>
-<span class="go">0  test1  chr1:82550461-chr1:82554225     +-  None    DEL</span>
-<span class="go">1  test2  chr1:22814216-chr1:92581131     ++  None    INV</span>
-<span class="go">2  test3  chr1:60567906-chr1:60675940     +-  None    DEL</span>
-<span class="go">3  test4  chr1:69583190-chr1:69590947     +-  None    DEL</span>
+<span class="go">      id            bp1            bp2 strand  qual svtype</span>
+<span class="go">0  test1  chr1:82550461  chr1:82554225     +-  None    DEL</span>
+<span class="go">1  test2  chr1:22814216  chr1:92581131     ++  None    INV</span>
+<span class="go">2  test3  chr1:60567906  chr1:60675940     +-  None    DEL</span>
+<span class="go">3  test4  chr1:69583190  chr1:69590947     +-  None    DEL</span>
 </pre></div>
 </div>
 </div>
@@ -229,8 +229,8 @@ To do so, you have three options.</p>
 </div>
 <p>The way to add INFO, FILTER, and FORMAT to this bedpe-like DataFrame is explained <a class="reference internal" href="bedpe_generation.html#bedpe-generation"><span class="std std-ref">here</span></a> (no link for now).</p>
 </div>
-<div class="section" id="use-the-get-table-method-to-get-individual-tables-composing-the-sgtcore-object">
-<h3>3) Use the <a class="reference internal" href="reference/api/sgt.core.db.SgtCore.get_table.html"><span class="doc">get_table()</span></a> method to get individual tables composing the SgtCore object.<a class="headerlink" href="#use-the-get-table-method-to-get-individual-tables-composing-the-sgtcore-object" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="use-the-get-table-method-to-get-individual-tables-composing-the-vcf-object">
+<h3>3) Use the <a class="reference internal" href="reference/api/sgt.core.db.Vcf.get_table.html"><span class="doc">get_table()</span></a> method to get individual tables composing the Vcf object.<a class="headerlink" href="#use-the-get-table-method-to-get-individual-tables-composing-the-vcf-object" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">sgt_object</span><span class="o">.</span><span class="n">get_table</span><span class="p">(</span><span class="s1">&#39;positions&#39;</span><span class="p">)</span>
 <span class="gh">Out[7]: </span><span class="go"></span>
 <span class="go">      id chrom1      pos1 chrom2      pos2  ... strand2 ref    alt  qual svtype</span>
@@ -242,7 +242,7 @@ To do so, you have three options.</p>
 <span class="go">[4 rows x 11 columns]</span>
 </pre></div>
 </div>
-<p>The names of all the tables in <code class="docutils literal notranslate"><span class="pre">sgt_object</span></code> are stored in the <a class="reference internal" href="reference/api/sgt.core.db.SgtCore.table_list.html"><span class="doc">table_list</span></a> attribute:</p>
+<p>The names of all the tables in <code class="docutils literal notranslate"><span class="pre">sgt_object</span></code> are stored in the <a class="reference internal" href="reference/api/sgt.core.db.Vcf.table_list.html"><span class="doc">table_list</span></a> attribute:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">sgt_object</span><span class="o">.</span><span class="n">table_list</span>
 <span class="gh">Out[8]: </span><span class="go"></span>
 <span class="go">[&#39;positions&#39;,</span>
@@ -293,10 +293,10 @@ To do so, you have three options.</p>
 <h2>Export as VCF/BEDPE file<a class="headerlink" href="#export-as-vcf-bedpe-file" title="Permalink to this headline">¶</a></h2>
 <p>Under Programming</p>
 </div>
-<div class="section" id="filter-sgtcore-object">
-<h2>Filter SgtCore object<a class="headerlink" href="#filter-sgtcore-object" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="filter-vcf-object">
+<h2>Filter Vcf object<a class="headerlink" href="#filter-vcf-object" title="Permalink to this headline">¶</a></h2>
 <p>Filtering vcf file is an essential step of bioinformatics study.
-SgtCore object provides an intuitive way to filter SV in almost any item.</p>
+Vcf object provides an intuitive way to filter SV in almost any item.</p>
 <p>You have two options for filtering.</p>
 <div class="section" id="filter-with-queries">
 <h3>1) Filter with queries<a class="headerlink" href="#filter-with-queries" title="Permalink to this headline">¶</a></h3>
