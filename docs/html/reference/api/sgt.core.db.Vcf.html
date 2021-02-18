@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>sgt.core.db.Vcf &mdash; PySgt 0.1 documentation</title>
   
@@ -18,7 +18,10 @@
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
   
+
   
+  
+
   
 
   
@@ -31,7 +34,6 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -53,7 +55,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> PySgt
+            <a href="../../index.html" class="icon icon-home"> PySgt
           
 
           
@@ -88,9 +90,11 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../signature_analysis.html">Signature Analysis Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../io.html">Input/Output</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bedpe.html">Bedpe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multi_bedpe.html">MultiBedpe</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../vcf.html">Vcf</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../vcf.html#constructor">Constructor</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">sgt.core.db.Vcf</a></li>
@@ -144,6 +148,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -159,7 +165,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/reference/api/sgt.core.db.Vcf.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -177,7 +183,7 @@
 <h1>sgt.core.db.Vcf<a class="headerlink" href="#sgt-core-db-vcf" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="sgt.core.db.Vcf">
-<em class="property">class </em><code class="sig-name descname">Vcf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df_svpos</span></em>, <em class="sig-param"><span class="n">df_filters</span></em>, <em class="sig-param"><span class="n">dict_df_info</span></em>, <em class="sig-param"><span class="n">df_formats</span></em>, <em class="sig-param"><span class="n">dict_df_headers</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sgt.core.db.Vcf" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Vcf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_svpos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_filters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">odict_df_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_formats</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">odict_df_headers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sgt.core.db.Vcf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Relational database-like object containing SV position dataframes,
 FILTER dataframe, INFO dataframes, FORMAT dataframe, and HEADER dataframes.
 The instances of this class have information equal to the VCF files.</p>
@@ -200,7 +206,7 @@ Columns of the input DataFrame should be following:
 [‘id’, ‘filter’]
 Main Key is the combination of (‘id’, ‘filter’). Each column is the foreign key from
 df_svpos, and filters_meta table, respectively.</p></li>
-<li><p><strong>dict_df_info</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>DataFrame</em><em>]</em>) – Dictionary of DataFrames which contain additional information on SV record (equivalent to INFO field of vcf).
+<li><p><strong>odict_df_info</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>DataFrame</em><em>]</em>) – OrderedDict of DataFrames which contain additional information on SV record (equivalent to INFO field of vcf).
 Each item of the dictionary contains single INFO.
 The dictionary key is the name of each INFO and should be in lowercase.
 Columns of the DataFrame should be following:
@@ -219,7 +225,7 @@ The (‘id’, ‘sample’, ‘format’) are the foreign key coming from
 </dl>
 <dl class="py method">
 <dt id="sgt.core.db.Vcf.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df_svpos</span></em>, <em class="sig-param"><span class="n">df_filters</span></em>, <em class="sig-param"><span class="n">dict_df_info</span></em>, <em class="sig-param"><span class="n">df_formats</span></em>, <em class="sig-param"><span class="n">dict_df_headers</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sgt.core.db.Vcf.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_svpos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_filters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">odict_df_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_formats</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">odict_df_headers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sgt.core.db.Vcf.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -230,14 +236,14 @@ The (‘id’, ‘sample’, ‘format’) are the foreign key coming from
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sgt.core.db.Vcf.__init__" title="sgt.core.db.Vcf.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(df_svpos, df_filters, dict_df_info, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sgt.core.db.Vcf.__init__" title="sgt.core.db.Vcf.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(df_svpos, df_filters, …[, …])</p></td>
 <td><p>Initialize self.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_info_table</span></code>(table_name, df)</p></td>
 <td><p>Add a new INFO table to self.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">annotate_bed</span></code>(bed, annotation[, suffix, …])</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">annotate_bed</span></code>(bed, annotation[, suffix])</p></td>
+<td><p>Annotate SV breakpoints using Bed class object.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_filters</span></code>(base_df[, left_on])</p></td>
 <td><p></p></td>
@@ -269,14 +275,20 @@ The (‘id’, ‘sample’, ‘format’) are the foreign key coming from
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ids</span></code>()</p></td>
 <td><p>Return all SV ids as the set type.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="sgt.core.db.Vcf.get_table.html#sgt.core.db.Vcf.get_table" title="sgt.core.db.Vcf.get_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_table</span></code></a>(table_name)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_microhomology</span></code>(fasta[, max_homlen])</p></td>
+<td><p>Infer microhomology length and sequence in each breakpoint.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="sgt.core.db.Vcf.get_table.html#sgt.core.db.Vcf.get_table" title="sgt.core.db.Vcf.get_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_table</span></code></a>(table_name)</p></td>
 <td><p>Return a table specified in the argument as pandas DataFrame object.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_unique_events</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_unique_events</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_reciprocal</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_reciprocal</span></code>()</p></td>
 <td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace_table</span></code>(table_name, table)</p></td>
+<td><p>Replace existing table into new table.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="sgt.core.db.Vcf.to_bedpe_like.html#sgt.core.db.Vcf.to_bedpe_like" title="sgt.core.db.Vcf.to_bedpe_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_bedpe_like</span></code></a>([custom_infonames])</p></td>
 <td><p>Return a DataFrame in bedpe-like format.</p></td>
@@ -322,37 +334,29 @@ The (‘id’, ‘sample’, ‘format’) are the foreign key coming from
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="sgt.core.db.Vcf.sv_count.html" class="btn btn-neutral float-right" title="sgt.core.db.Vcf.sv_count" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../vcf.html" class="btn btn-neutral float-left" title="Vcf" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="sgt.core.db.Vcf.sv_count.html" class="btn btn-neutral float-right" title="sgt.core.db.Vcf.sv_count" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../vcf.html" class="btn btn-neutral float-left" title="Vcf" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Itsuki Sugita
+        &#169; Copyright 2020, Itsuki Sugita.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

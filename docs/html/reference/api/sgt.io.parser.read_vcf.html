@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>sgt.io.parser.read_vcf &mdash; PySgt 0.1 documentation</title>
   
@@ -18,7 +18,10 @@
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
   
+
   
+  
+
   
 
   
@@ -31,15 +34,12 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="sgt.io.parser.read_bedpe" href="sgt.io.parser.read_bedpe.html" />
-    <link rel="prev" title="Input/Output" href="../io.html" /> 
+    <link rel="search" title="Search" href="../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -53,7 +53,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> PySgt
+            <a href="../../index.html" class="icon icon-home"> PySgt
           
 
           
@@ -85,22 +85,11 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick Start</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../io.html">Input/Output</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../io.html#vcf-file">VCF file</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">sgt.io.parser.read_vcf</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../io.html#bedpe-file">BEDPE file</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../bedpe.html">Bedpe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../vcf.html">Vcf</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../signature_analysis.html">Signature Analysis Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">User Guide</a></li>
 </ul>
 
@@ -142,22 +131,20 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="../index.html">API Reference</a> &raquo;</li>
-        
-          <li><a href="../io.html">Input/Output</a> &raquo;</li>
-        
       <li>sgt.io.parser.read_vcf</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/reference/api/sgt.io.parser.read_vcf.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -175,7 +162,7 @@
 <h1>sgt.io.parser.read_vcf<a class="headerlink" href="#sgt-io-parser-read-vcf" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="sgt.io.parser.read_vcf">
-<code class="sig-name descname">read_vcf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filepath_or_buffer</span></em>, <em class="sig-param"><span class="n">variant_callser</span><span class="o">=</span><span class="default_value">'manta'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sgt.io.parser.read_vcf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">read_vcf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath_or_buffer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variant_callser</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'manta'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sgt.io.parser.read_vcf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read vcf file of SV and return Vcf object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -203,37 +190,25 @@ Only “manta” is supported for now.</p></li>
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="sgt.io.parser.read_bedpe.html" class="btn btn-neutral float-right" title="sgt.io.parser.read_bedpe" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../io.html" class="btn btn-neutral float-left" title="Input/Output" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Itsuki Sugita
+        &#169; Copyright 2020, Itsuki Sugita.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

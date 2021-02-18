@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <meta content="noindex" name="robots" />
 <meta content="nofollow" name="robots" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Flexible BEDPE generation &mdash; PySgt 0.1 documentation</title>
   
@@ -20,7 +20,10 @@
   
     <link rel="shortcut icon" href="_static/favicon.ico"/>
   
+
   
+  
+
   
 
   
@@ -33,7 +36,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -53,7 +55,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> PySgt
+            <a href="index.html" class="icon icon-home"> PySgt
           
 
           
@@ -88,6 +90,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signature_analysis.html">Signature Analysis Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference/index.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="userguide/index.html">User Guide</a></li>
 </ul>
@@ -130,6 +133,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -141,7 +146,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/bedpe_generation.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -169,10 +174,10 @@ The most simple code is like:</p>
 
 <span class="gp">In [4]: </span><span class="nb">print</span><span class="p">(</span><span class="n">sgt_bedpe_like</span><span class="p">)</span>
 <span class="go">  chrom1    start1      end1 chrom2    start2      end2   name score strand1 strand2</span>
-<span class="go">0   chr1  82550461  82550462   chr1  82554225  82554226  test1  None       +       -</span>
-<span class="go">1   chr1  22814216  22814217   chr1  92581131  92581132  test2  None       +       +</span>
-<span class="go">2   chr1  60567906  60567907   chr1  60675940  60675941  test3  None       +       -</span>
-<span class="go">3   chr1  69583190  69583191   chr1  69590947  69590948  test4  None       +       -</span>
+<span class="go">0   chr1  82550460  82550461   chr1  82554225  82554226  test1  None       +       -</span>
+<span class="go">1   chr1  22814216  22814217   chr1  92581131  92581132  test2  None       -       -</span>
+<span class="go">2   chr1  60567905  60567906   chr1  60675940  60675941  test3  None       +       -</span>
+<span class="go">3   chr1  69583189  69583190   chr1  69590947  69590948  test4  None       +       -</span>
 </pre></div>
 </div>
 <p>If you want to add “SVLEN” and “CIPOS” fields, run as follows:</p>
@@ -180,10 +185,10 @@ The most simple code is like:</p>
 
 <span class="gp">In [6]: </span><span class="nb">print</span><span class="p">(</span><span class="n">sgt_bedpe_like_with_info</span><span class="p">)</span>
 <span class="go">  chrom1    start1      end1 chrom2    start2  ...  strand1 strand2   svlen_0 cipos_0 cipos_1</span>
-<span class="go">0   chr1  82550461  82550462   chr1  82554225  ...        +       -     -3764     -51      52</span>
-<span class="go">1   chr1  22814216  22814217   chr1  92581131  ...        +       +  69766915     -51      51</span>
-<span class="go">2   chr1  60567906  60567907   chr1  60675940  ...        +       -   -108034     -44      44</span>
-<span class="go">3   chr1  69583190  69583191   chr1  69590947  ...        +       -     -7757    -123     123</span>
+<span class="go">0   chr1  82550460  82550461   chr1  82554225  ...        +       -     -3764     -51      52</span>
+<span class="go">1   chr1  22814216  22814217   chr1  92581131  ...        -       -  69766915     -51      51</span>
+<span class="go">2   chr1  60567905  60567906   chr1  60675940  ...        +       -   -108034     -44      44</span>
+<span class="go">3   chr1  69583189  69583190   chr1  69590947  ...        +       -     -7757    -123     123</span>
 
 <span class="go">[4 rows x 13 columns]</span>
 </pre></div>
@@ -193,10 +198,10 @@ The most simple code is like:</p>
 
 <span class="gp">In [8]: </span><span class="nb">print</span><span class="p">(</span><span class="n">sgt_bedpe_like_with_format</span><span class="p">)</span>
 <span class="go">  chrom1    start1      end1 chrom2    start2  ...  sample1_N_SR_1 sample1_T_PR_0 sample1_T_PR_1 sample1_T_SR_0 sample1_T_SR_1</span>
-<span class="go">0   chr1  82550461  82550462   chr1  82554225  ...             0.0           43.0            4.0           15.0            3.0</span>
+<span class="go">0   chr1  82550460  82550461   chr1  82554225  ...             0.0           43.0            4.0           15.0            3.0</span>
 <span class="go">1   chr1  22814216  22814217   chr1  92581131  ...             NaN           35.0            5.0            NaN            NaN</span>
-<span class="go">2   chr1  60567906  60567907   chr1  60675940  ...             NaN           44.0            6.0            NaN            NaN</span>
-<span class="go">3   chr1  69583190  69583191   chr1  69590947  ...             NaN           20.0           12.0            NaN            NaN</span>
+<span class="go">2   chr1  60567905  60567906   chr1  60675940  ...             NaN           44.0            6.0            NaN            NaN</span>
+<span class="go">3   chr1  69583189  69583190   chr1  69590947  ...             NaN           20.0           12.0            NaN            NaN</span>
 
 <span class="go">[4 rows x 18 columns]</span>
 </pre></div>
@@ -206,10 +211,10 @@ The most simple code is like:</p>
 
 <span class="gp">In [10]: </span><span class="nb">print</span><span class="p">(</span><span class="n">sgt_bedpe_like_with_filter</span><span class="p">)</span>
 <span class="go">  chrom1    start1      end1 chrom2    start2  ...  score strand1 strand2 MinSomaticScore   PASS</span>
-<span class="go">0   chr1  82550461  82550462   chr1  82554225  ...   None       +       -            True  False</span>
-<span class="go">1   chr1  22814216  22814217   chr1  92581131  ...   None       +       +            True  False</span>
-<span class="go">2   chr1  60567906  60567907   chr1  60675940  ...   None       +       -            True  False</span>
-<span class="go">3   chr1  69583190  69583191   chr1  69590947  ...   None       +       -           False   True</span>
+<span class="go">0   chr1  82550460  82550461   chr1  82554225  ...   None       +       -            True  False</span>
+<span class="go">1   chr1  22814216  22814217   chr1  92581131  ...   None       -       -            True  False</span>
+<span class="go">2   chr1  60567905  60567906   chr1  60675940  ...   None       +       -            True  False</span>
+<span class="go">3   chr1  69583189  69583190   chr1  69590947  ...   None       +       -           False   True</span>
 
 <span class="go">[4 rows x 12 columns]</span>
 </pre></div>
@@ -221,28 +226,25 @@ The most simple code is like:</p>
            
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Itsuki Sugita
+        &#169; Copyright 2020, Itsuki Sugita.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

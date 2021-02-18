@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Vcf &mdash; PySgt 0.1 documentation</title>
   
@@ -18,7 +18,10 @@
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
   
+
   
+  
+
   
 
   
@@ -31,7 +34,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -39,7 +41,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="sgt.core.db.Vcf" href="api/sgt.core.db.Vcf.html" />
-    <link rel="prev" title="sgt.core.db.Bedpe.add_info_table" href="api/sgt.core.db.Bedpe.add_info_table.html" /> 
+    <link rel="prev" title="sgt.core.cohort.MultiBedpe.add_info_table" href="api/sgt.core.cohort.MultiBedpe.add_info_table.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -53,7 +55,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> PySgt
+            <a href="../index.html" class="icon icon-home"> PySgt
           
 
           
@@ -88,9 +90,11 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signature_analysis.html">Signature Analysis Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="io.html">Input/Output</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bedpe.html">Bedpe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi_bedpe.html">MultiBedpe</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Vcf</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#constructor">Constructor</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/sgt.core.db.Vcf.html">sgt.core.db.Vcf</a></li>
@@ -158,6 +162,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -171,7 +177,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/reference/vcf.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -186,7 +192,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="vcf">
-<span id="core"></span><h1>Vcf<a class="headerlink" href="#vcf" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Vcf<a class="headerlink" href="#vcf" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="constructor">
 <h2>Constructor<a class="headerlink" href="#constructor" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
@@ -195,7 +201,7 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/sgt.core.db.Vcf.html#sgt.core.db.Vcf" title="sgt.core.db.Vcf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf</span></code></a>(df_svpos, df_filters, dict_df_info, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/sgt.core.db.Vcf.html#sgt.core.db.Vcf" title="sgt.core.db.Vcf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf</span></code></a>(df_svpos, df_filters, odict_df_info, …)</p></td>
 <td><p>Relational database-like object containing SV position dataframes, FILTER dataframe, INFO dataframes, FORMAT dataframe, and HEADER dataframes.</p></td>
 </tr>
 </tbody>
@@ -265,37 +271,29 @@
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="api/sgt.core.db.Vcf.html" class="btn btn-neutral float-right" title="sgt.core.db.Vcf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="api/sgt.core.db.Bedpe.add_info_table.html" class="btn btn-neutral float-left" title="sgt.core.db.Bedpe.add_info_table" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="api/sgt.core.db.Vcf.html" class="btn btn-neutral float-right" title="sgt.core.db.Vcf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="api/sgt.core.cohort.MultiBedpe.add_info_table.html" class="btn btn-neutral float-left" title="sgt.core.cohort.MultiBedpe.add_info_table" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Itsuki Sugita
+        &#169; Copyright 2020, Itsuki Sugita.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
