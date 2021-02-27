@@ -308,9 +308,9 @@ Vcf object provides an intuitive way to filter SV in almost any item.</p>
 <h3>1) Filter with queries<a class="headerlink" href="#filter-with-queries" title="Permalink to this headline">¶</a></h3>
 <p>PySgt has a query system that is easy to understand.</p>
 <p>First, let’s look at a couple of examples.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">query1</span> <span class="o">=</span> <span class="s1">&#39;svtype == DEL&#39;</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">query1_1</span> <span class="o">=</span> <span class="s1">&#39;svtype == DEL&#39;</span>
 
-<span class="gp">In [11]: </span><span class="n">sgt_object_deletion</span> <span class="o">=</span> <span class="n">sgt_object</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">query1</span><span class="p">)</span>
+<span class="gp">In [11]: </span><span class="n">sgt_object_deletion</span> <span class="o">=</span> <span class="n">sgt_object</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">query1_1</span><span class="p">)</span>
 
 <span class="gp">In [12]: </span><span class="n">df_out</span> <span class="o">=</span> <span class="n">sgt_object_deletion</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">custom_infonames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;svtype&#39;</span><span class="p">,</span> <span class="s1">&#39;svlen&#39;</span><span class="p">])</span>
 
