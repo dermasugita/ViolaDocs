@@ -173,50 +173,62 @@ The most simple code is like:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">sgt_bedpe_like</span> <span class="o">=</span> <span class="n">sgt_object</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">()</span>
 
 <span class="gp">In [4]: </span><span class="nb">print</span><span class="p">(</span><span class="n">sgt_bedpe_like</span><span class="p">)</span>
-<span class="go">  chrom1    start1      end1 chrom2    start2      end2   name score strand1 strand2</span>
-<span class="go">0   chr1  82550460  82550461   chr1  82554225  82554226  test1  None       +       -</span>
-<span class="go">1   chr1  22814216  22814217   chr1  92581131  92581132  test2  None       -       -</span>
-<span class="go">2   chr1  60567905  60567906   chr1  60675940  60675941  test3  None       +       -</span>
-<span class="go">3   chr1  69583189  69583190   chr1  69590947  69590948  test4  None       +       -</span>
+<span class="go">  chrom1     start1       end1 chrom2     start2       end2   name score strand1 strand2</span>
+<span class="go">0   chr1   82550460   82550461   chr1   82554225   82554226  test1  None       +       -</span>
+<span class="go">1   chr1   22814216   22814217   chr1   92581131   92581132  test2  None       -       -</span>
+<span class="go">2   chr1   60567905   60567906   chr1   60675940   60675941  test3  None       +       -</span>
+<span class="go">3   chr1   69583189   69583190   chr1   69590947   69590948  test4  None       +       -</span>
+<span class="go">4  chr11  104534876  104534877  chr11  104536573  104536574  test5  None       +       -</span>
+<span class="go">5  chr11  111134696  111134697  chr17   26470494   26470495  test6  None       +       -</span>
+<span class="go">6  chr17   26470494   26470495  chr11  111134696  111134697  test7  None       -       +</span>
 </pre></div>
 </div>
 <p>If you want to add “SVLEN” and “CIPOS” fields, run as follows:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">sgt_bedpe_like_with_info</span> <span class="o">=</span> <span class="n">sgt_object</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">custom_infonames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;svlen&#39;</span><span class="p">,</span> <span class="s1">&#39;cipos&#39;</span><span class="p">])</span>
 
 <span class="gp">In [6]: </span><span class="nb">print</span><span class="p">(</span><span class="n">sgt_bedpe_like_with_info</span><span class="p">)</span>
-<span class="go">  chrom1    start1      end1 chrom2    start2  ...  strand1 strand2   svlen_0 cipos_0 cipos_1</span>
-<span class="go">0   chr1  82550460  82550461   chr1  82554225  ...        +       -     -3764     -51      52</span>
-<span class="go">1   chr1  22814216  22814217   chr1  92581131  ...        -       -  69766915     -51      51</span>
-<span class="go">2   chr1  60567905  60567906   chr1  60675940  ...        +       -   -108034     -44      44</span>
-<span class="go">3   chr1  69583189  69583190   chr1  69590947  ...        +       -     -7757    -123     123</span>
+<span class="go">  chrom1     start1       end1 chrom2     start2  ...  strand1 strand2   svlen_0 cipos_0 cipos_1</span>
+<span class="go">0   chr1   82550460   82550461   chr1   82554225  ...        +       -     -3764     -51      52</span>
+<span class="go">1   chr1   22814216   22814217   chr1   92581131  ...        -       -  69766915     -51      51</span>
+<span class="go">2   chr1   60567905   60567906   chr1   60675940  ...        +       -   -108034     -44      44</span>
+<span class="go">3   chr1   69583189   69583190   chr1   69590947  ...        +       -     -7757    -123     123</span>
+<span class="go">4  chr11  104534876  104534877  chr11  104536573  ...        +       -     -1696     -68      69</span>
+<span class="go">5  chr11  111134696  111134697  chr17   26470494  ...        +       -         0    -118     118</span>
+<span class="go">6  chr17   26470494   26470495  chr11  111134696  ...        -       +         0     -81      82</span>
 
-<span class="go">[4 rows x 13 columns]</span>
+<span class="go">[7 rows x 13 columns]</span>
 </pre></div>
 </div>
 <p>To add FORMAT, set <code class="docutils literal notranslate"><span class="pre">add_formats</span> <span class="pre">=</span> <span class="pre">True</span></code>:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">sgt_bedpe_like_with_format</span> <span class="o">=</span> <span class="n">sgt_object</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">add_formats</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="gp">In [8]: </span><span class="nb">print</span><span class="p">(</span><span class="n">sgt_bedpe_like_with_format</span><span class="p">)</span>
-<span class="go">  chrom1    start1      end1 chrom2    start2  ...  sample1_N_SR_1 sample1_T_PR_0 sample1_T_PR_1 sample1_T_SR_0 sample1_T_SR_1</span>
-<span class="go">0   chr1  82550460  82550461   chr1  82554225  ...             0.0           43.0            4.0           15.0            3.0</span>
-<span class="go">1   chr1  22814216  22814217   chr1  92581131  ...             NaN           35.0            5.0            NaN            NaN</span>
-<span class="go">2   chr1  60567905  60567906   chr1  60675940  ...             NaN           44.0            6.0            NaN            NaN</span>
-<span class="go">3   chr1  69583189  69583190   chr1  69590947  ...             NaN           20.0           12.0            NaN            NaN</span>
+<span class="go">  chrom1     start1       end1 chrom2     start2  ...  sample1_N_SR_1 sample1_T_PR_0 sample1_T_PR_1 sample1_T_SR_0 sample1_T_SR_1</span>
+<span class="go">0   chr1   82550460   82550461   chr1   82554225  ...             0.0           43.0            4.0           15.0            3.0</span>
+<span class="go">1   chr1   22814216   22814217   chr1   92581131  ...             NaN           35.0            5.0            NaN            NaN</span>
+<span class="go">2   chr1   60567905   60567906   chr1   60675940  ...             NaN           44.0            6.0            NaN            NaN</span>
+<span class="go">3   chr1   69583189   69583190   chr1   69590947  ...             NaN           20.0           12.0            NaN            NaN</span>
+<span class="go">4  chr11  104534876  104534877  chr11  104536573  ...             NaN           57.0           14.0            NaN            NaN</span>
+<span class="go">5  chr11  111134696  111134697  chr17   26470494  ...             NaN           45.0            5.0            NaN            NaN</span>
+<span class="go">6  chr17   26470494   26470495  chr11  111134696  ...             NaN           45.0            5.0            NaN            NaN</span>
 
-<span class="go">[4 rows x 18 columns]</span>
+<span class="go">[7 rows x 18 columns]</span>
 </pre></div>
 </div>
 <p>Do the same for adding FILTER:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">sgt_bedpe_like_with_filter</span> <span class="o">=</span> <span class="n">sgt_object</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">add_filters</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="gp">In [10]: </span><span class="nb">print</span><span class="p">(</span><span class="n">sgt_bedpe_like_with_filter</span><span class="p">)</span>
-<span class="go">  chrom1    start1      end1 chrom2    start2  ...  score strand1 strand2 MinSomaticScore   PASS</span>
-<span class="go">0   chr1  82550460  82550461   chr1  82554225  ...   None       +       -            True  False</span>
-<span class="go">1   chr1  22814216  22814217   chr1  92581131  ...   None       -       -            True  False</span>
-<span class="go">2   chr1  60567905  60567906   chr1  60675940  ...   None       +       -            True  False</span>
-<span class="go">3   chr1  69583189  69583190   chr1  69590947  ...   None       +       -           False   True</span>
+<span class="go">  chrom1     start1       end1 chrom2     start2  ...  score strand1 strand2 MinSomaticScore   PASS</span>
+<span class="go">0   chr1   82550460   82550461   chr1   82554225  ...   None       +       -            True  False</span>
+<span class="go">1   chr1   22814216   22814217   chr1   92581131  ...   None       -       -            True  False</span>
+<span class="go">2   chr1   60567905   60567906   chr1   60675940  ...   None       +       -            True  False</span>
+<span class="go">3   chr1   69583189   69583190   chr1   69590947  ...   None       +       -           False   True</span>
+<span class="go">4  chr11  104534876  104534877  chr11  104536573  ...   None       +       -           False   True</span>
+<span class="go">5  chr11  111134696  111134697  chr17   26470494  ...   None       +       -            True  False</span>
+<span class="go">6  chr17   26470494   26470495  chr11  111134696  ...   None       -       +            True  False</span>
 
-<span class="go">[4 rows x 12 columns]</span>
+<span class="go">[7 rows x 12 columns]</span>
 </pre></div>
 </div>
 </div>

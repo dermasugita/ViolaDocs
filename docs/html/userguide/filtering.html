@@ -4,12 +4,10 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta content="noindex" name="robots" />
-<meta content="nofollow" name="robots" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>User Guide &mdash; PySgt 0.1 documentation</title>
+  <title>Filtering Systems &mdash; PySgt 0.1 documentation</title>
   
 
   
@@ -42,8 +40,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="PySgt’s Data Structure" href="data_structure.html" />
-    <link rel="prev" title="sgt.core.db.Vcf.filter_by_id" href="../reference/api/sgt.core.db.Vcf.filter_by_id.html" /> 
+    <link rel="prev" title="PySgt’s Data Structure" href="data_structure.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,9 +91,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../signature_analysis.html">Signature Analysis Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference/index.html">API Reference</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">User Guide</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="data_structure.html">PySgt’s Data Structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="filtering.html">Filtering Systems</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Filtering Systems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#completeness-id-based-filtering-system">Completeness: ID based filtering system</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -147,13 +147,15 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>User Guide</li>
+          <li><a href="index.html">User Guide</a> &raquo;</li>
+        
+      <li>Filtering Systems</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/userguide/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/userguide/filtering.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -166,19 +168,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <span class="target" id="user-guide"></span><div class="section" id="id1">
-<h1>User Guide<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="data_structure.html">PySgt’s Data Structure</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="data_structure.html#tables-composing-vcf-object">Tables composing Vcf object</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="filtering.html">Filtering Systems</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="filtering.html#completeness-id-based-filtering-system">Completeness: ID based filtering system</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="filtering-systems">
+<span id="filtering"></span><h1>Filtering Systems<a class="headerlink" href="#filtering-systems" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line">Filtering is an important step in bioinformatics.</div>
+<div class="line">Filtering functions in packaged systems need to be both complete enough to handle even the most complex filtering criteria, as well as available enough to allow simple filtering with simple coding.</div>
+<div class="line">This page explains how PySgt achieves these desired functions.</div>
+</div>
+<div class="section" id="completeness-id-based-filtering-system">
+<h2>Completeness: ID based filtering system<a class="headerlink" href="#completeness-id-based-filtering-system" title="Permalink to this headline">¶</a></h2>
+<p>In the main PySgt object, including Vcf, Bedpe, and MultiBedpe, filtering-associated functions are eventually passed to the <a class="reference internal" href="../reference/api/sgt.core.db.Vcf.filter_by_id.html"><span class="doc">filter_by_id</span></a> method.
+| <a class="reference internal" href="../reference/api/sgt.core.db.Vcf.filter_by_id.html"><span class="doc">filter_by_id</span></a> method receives a list of ID (SV ID or global ID) and return filtered object.
+| Any table in the object that has a column with an SV ID or global ID will also be filtered.</p>
 </div>
 </div>
 
@@ -188,8 +189,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="data_structure.html" class="btn btn-neutral float-right" title="PySgt’s Data Structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../reference/api/sgt.core.db.Vcf.filter_by_id.html" class="btn btn-neutral float-left" title="sgt.core.db.Vcf.filter_by_id" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="data_structure.html" class="btn btn-neutral float-left" title="PySgt’s Data Structure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
