@@ -1,6 +1,8 @@
 ##fileformat=VCFv4.1
 ##contig=<ID=chr1,length=195471971>
 ##contig=<ID=chr2,length=182113224>
+##contig=<ID=chr11,length=122082543>
+##contig=<ID=chr17,length=94987271>
 ##INFO=<ID=IMPRECISE,Number=0,Type=Flag,Description="Imprecise structural variation">
 ##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Type of structural variant">
 ##INFO=<ID=SVLEN,Number=.,Type=Integer,Description="Difference in length between REF and ALT alleles">

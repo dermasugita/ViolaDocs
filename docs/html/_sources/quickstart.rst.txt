@@ -112,10 +112,20 @@ PySgt has a query system that is easy to understand.
 First, let's look at a couple of examples.
 
 .. ipython:: python
+   :okexcept:
    
+   # filter with svtype.
    query1_1 = 'svtype == DEL'
    sgt_object_deletion = sgt_object.filter(query1_1)
    df_out = sgt_object_deletion.to_bedpe_like(custom_infonames=['svtype', 'svlen'])
+   print(df_out)
+
+   sgt_object
+
+   # filter with genomic coordinates.
+   query1_2 = 'chr11'
+   sgt_object_coord = sgt_object.filter(query1_2)
+   df_out = sgt_object_coord.to_bedpe_like(custom_infonames=['svtype', 'svlen'])
    print(df_out)
 
 Query can be a list.
