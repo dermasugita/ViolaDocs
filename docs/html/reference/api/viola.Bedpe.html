@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>viola.Bedpe &mdash; PySgt 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="viola.Bedpe.sv_count" href="viola.Bedpe.sv_count.html" />
+    <link rel="prev" title="Bedpe" href="../bedpe.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> PySgt
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../signature_analysis.html">Signature Analysis Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../io.html">Input/Output</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../bedpe.html">Bedpe</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../bedpe.html#constructor">Constructor</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">viola.Bedpe</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../bedpe.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bedpe.html#accessing-the-tables">Accessing the Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bedpe.html#filtering">Filtering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bedpe.html#adding-informations">Adding Informations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bedpe.html#annotation">Annotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bedpe.html#signature-analysis">Signature_analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../multi_bedpe.html">MultiBedpe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vcf.html">Vcf</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">User Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PySgt</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">API Reference</a> &raquo;</li>
+        
+          <li><a href="../bedpe.html">Bedpe</a> &raquo;</li>
+        
+      <li>viola.Bedpe</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/reference/api/viola.Bedpe.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="viola-bedpe">
+<h1>viola.Bedpe<a class="headerlink" href="#viola-bedpe" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="viola.Bedpe">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Bedpe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_svpos</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">odict_df_info</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">OrderedDict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">pd.DataFrame</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Bedpe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Relational database-like object containing SV position dataframes and INFO dataframes.
+The instances of this class have information equal to the BEDPE files.
+…</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="viola.Bedpe.sv_count.html#viola.Bedpe.sv_count" title="viola.Bedpe.sv_count"><strong>sv_count</strong></a> (<em>int</em>) – Number of SV records</p></li>
+<li><p><a class="reference internal" href="viola.Bedpe.table_list.html#viola.Bedpe.table_list" title="viola.Bedpe.table_list"><strong>table_list</strong></a> – List of names of all tables included in the object</p></li>
+<li><p><a class="reference internal" href="viola.Bedpe.ids.html#viola.Bedpe.ids" title="viola.Bedpe.ids"><strong>ids</strong></a> – List of all SV id.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>df_svpos</strong> (<em>DataFrame</em>) – DataFrame containing information such as position, strand, svtype, etc.
+Columns should be following:
+[‘id’, ‘chrom1’, ‘pos1’, ‘chrom2’, ‘pos2’, ‘strand1’, ‘strand2’, ‘ref’, ‘alt’, ‘qual’, ‘svtype’]
+Main key is ‘id’.</p></li>
+<li><p><strong>odict_df_info</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>DataFrame</em><em>]</em>) – OrderedDict of DataFrames which contain additional information on SV record (equivalent to INFO field of vcf).
+Each item of the dictionary contains single INFO.
+The dictionary key is the name of each INFO and should be in lowercase.
+Columns of the DataFrame should be following:
+[‘id’, ‘value_idx’, ‘infoname’]
+The ‘value_idx’ column contains 0-origin indice of INFO values.
+This is important when one SV record has multiple values of an INFO (eg. cipos).
+Main key is the combination of (‘id’, ‘value_idx’) and ‘id’ is the foreign key coming from df_svpos table.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="viola.Bedpe.get_table">
+<code class="sig-name descname"><span class="pre">get_table</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Bedpe.get_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a table specified in the argument as pandas DataFrame object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="viola.Bedpe.to_bedpe_like">
+<code class="sig-name descname"><span class="pre">to_bedpe_like</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">custom_infonames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confidence_intervals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Bedpe.to_bedpe_like" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a DataFrame in bedpe-like format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="viola.Bedpe.filter">
+<code class="sig-name descname"><span class="pre">filter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ls_query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_logic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'and'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Bedpe.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter Bedpe object by the list of queries.
+Return object is also an instance of the Bedpe object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="viola.Bedpe.filter_by_id">
+<code class="sig-name descname"><span class="pre">filter_by_id</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arrlike_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Bedpe.filter_by_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter Bedpe object according to the list of SV ids.
+Return object is also an instance of the Bedpe object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="viola.Bedpe.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_svpos</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">odict_df_info</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">OrderedDict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">pd.DataFrame</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Bedpe.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#viola.Bedpe.__init__" title="viola.Bedpe.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(df_svpos, odict_df_info)</p></td>
+<td><p>Initialize self.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="viola.Bedpe.add_info_table.html#viola.Bedpe.add_info_table" title="viola.Bedpe.add_info_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_info_table</span></code></a>(table_name, df)</p></td>
+<td><p>Add a new INFO table to self.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="viola.Bedpe.annotate_bed.html#viola.Bedpe.annotate_bed" title="viola.Bedpe.annotate_bed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">annotate_bed</span></code></a>(bed, annotation[, suffix])</p></td>
+<td><p>Annotate SV breakpoints using Bed class object.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_infos</span></code>(base_df, ls_tablenames[, left_on])</p></td>
+<td><p>Append INFO tables to the right of the base_df, based on the SV id columns.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_info</span></code>(operation, name)</p></td>
+<td><p>Calculate values of INFO tables according to the ‘operation’ argument and add a new INFO table as the result.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">change_repr_config</span></code>(key, value)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="viola.Bedpe.classify_manual_svtype.html#viola.Bedpe.classify_manual_svtype" title="viola.Bedpe.classify_manual_svtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classify_manual_svtype</span></code></a>(ls_conditions, ls_names)</p></td>
+<td><p>Classify SV records by user-defined criteria.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="viola.Bedpe.filter.html#viola.Bedpe.filter" title="viola.Bedpe.filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter</span></code></a>(ls_query, query_logic)</p></td>
+<td><p>Filter Bedpe object by the list of queries.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="viola.Bedpe.filter_by_id.html#viola.Bedpe.filter_by_id" title="viola.Bedpe.filter_by_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_by_id</span></code></a>(arrlike_id)</p></td>
+<td><p>Filter Bedpe object according to the list of SV ids.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_feature_count_as_series</span></code>([feature, ls_order])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ids</span></code>()</p></td>
+<td><p>Return all SV ids as the set type.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_info</span></code>(info_name)</p></td>
+<td><p>Return a info specified in the argument as pandas DataFrame object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="viola.Bedpe.get_microhomology.html#viola.Bedpe.get_microhomology" title="viola.Bedpe.get_microhomology"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_microhomology</span></code></a>(fasta[, max_homlen])</p></td>
+<td><p>Infer microhomology length and sequence in each breakpoint.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="viola.Bedpe.get_table.html#viola.Bedpe.get_table" title="viola.Bedpe.get_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_table</span></code></a>(table_name)</p></td>
+<td><p>Return a table specified in the argument as pandas DataFrame object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_reciprocal</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge</span></code>(ls_caller_names, threshold, ls_bedpe)</p></td>
+<td><p>Return a merged bedpe object from mulitple  caller’s bedpe objects in ls_bedpe</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace_table</span></code>(table_name, table)</p></td>
+<td><p>Replace existing table into new table.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="viola.Bedpe.to_bedpe_like.html#viola.Bedpe.to_bedpe_like" title="viola.Bedpe.to_bedpe_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_bedpe_like</span></code></a>([custom_infonames])</p></td>
+<td><p>Return a DataFrame in bedpe-like format.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code>(custom_infonames, return_as_dataframe)</p></td>
+<td><p>Quick view function of the Vcf object.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">contigs</span></code></p></td>
+<td><p>Return a list of contigs(chromosomes) included in the object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="viola.Bedpe.ids.html#viola.Bedpe.ids" title="viola.Bedpe.ids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ids</span></code></a></p></td>
+<td><p>Return all SV ids as list.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">idx</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">repr_config</span></code></p></td>
+<td><p>Return current configuration of __repr__() function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="viola.Bedpe.sv_count.html#viola.Bedpe.sv_count" title="viola.Bedpe.sv_count"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sv_count</span></code></a></p></td>
+<td><p>Return number of SV records.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="viola.Bedpe.table_list.html#viola.Bedpe.table_list" title="viola.Bedpe.table_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">table_list</span></code></a></p></td>
+<td><p>Return a list of names of all tables in the object.</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="viola.Bedpe.sv_count.html" class="btn btn-neutral float-right" title="viola.Bedpe.sv_count" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../bedpe.html" class="btn btn-neutral float-left" title="Bedpe" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Itsuki Sugita.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

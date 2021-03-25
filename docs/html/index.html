@@ -9,7 +9,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Welcom to PySgt Package! &mdash; PySgt 0.1 documentation</title>
+  <title>Welcom to Viola Package! &mdash; PySgt 0.1 documentation</title>
   
 
   
@@ -142,7 +142,7 @@
     
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Welcom to PySgt Package!</li>
+      <li>Welcom to Viola Package!</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -161,19 +161,73 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welcom-to-pysgt-package">
-<h1>Welcom to PySgt Package!<a class="headerlink" href="#welcom-to-pysgt-package" title="Permalink to this headline">¶</a></h1>
-<p>PySgt is a flexible and powerful python package designed specifically for genomic structural variation (SV) analysis.</p>
-<div class="section" id="installation-unable-now">
-<h2>Installation(Unable now)<a class="headerlink" href="#installation-unable-now" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="welcom-to-viola-package">
+<h1>Welcom to Viola Package!<a class="headerlink" href="#welcom-to-viola-package" title="Permalink to this headline">¶</a></h1>
+<p>Viola is a flexible and powerful python package designed specifically for analysis of genomic structural variant (SV) signatures.
+We provide following tools for SV signature analysis:</p>
+<ul class="simple">
+<li><p>Custom SV classification tool</p></li>
+<li><p>Feature matrix generator</p></li>
+<li><p>SV signature extractor (NMF) with stability evaluation system.</p></li>
+<li><p>Signature attributer for given sample</p></li>
+</ul>
+<p>In addition to these, Viola offers a number of other useful utilities, including:</p>
+<ul class="simple">
+<li><p>VCF filter that accepts genomic coordinates and INFO/FORMAT columns.</p></li>
+<li><p>VCF merging tool with user-defined thresholds.</p></li>
+<li><p>Breakends-to-breakpoint converter with SVTYPE inference.</p></li>
+<li><p>Microhomology inference.</p></li>
+<li><p>VCF-to-BEDPE conversion.</p></li>
+<li><p>Command line tools for light users.</p></li>
+</ul>
+<p>Currently, Viola supports four popular SV callers as input VCF files:</p>
+<ul class="simple">
+<li><p>Manta</p></li>
+<li><p>Delly</p></li>
+<li><p>Lumpy</p></li>
+<li><p>Gridss</p></li>
+</ul>
+<p>In the future, we plan to support more SV callers!</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>The package can be installed with <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install pysgt
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install viola-sv
 </pre></div>
 </div>
 <p>To import PySgt in your script, simply run below:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sgt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">viola</span>
 </pre></div>
 </div>
+<p>Command line tools:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ viola &lt;command&gt; <span class="o">[</span>something<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>Python version 3.6 or newer.</p>
+</div>
+<div class="section" id="recommended-environment">
+<h2>Recommended Environment<a class="headerlink" href="#recommended-environment" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>OS</dt><dd><ul>
+<li><p>Linux</p></li>
+<li><p>Mac</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Script Manager</dt><dd><ul>
+<li><p>Jupyter Notebook/Jupyter Lab</p></li>
+<li><p>Google Colaboratory</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Docker support is coming soon!</p>
 </div>
 <div class="section" id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>

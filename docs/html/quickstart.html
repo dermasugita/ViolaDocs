@@ -92,17 +92,18 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#import-pysgt-to-your-script">Import PySgt to your script</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#read-the-vcf-file">Read the vcf file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#import-viola-to-your-script">Import Viola to your script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-vcf-object-from-vcf-file">Create Vcf object from VCF file.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#viewing-the-contents-of-vcf-object">Viewing the contents of Vcf object</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#simply-print-the-object">1) Simply print the object.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#generate-bedpe-like-pandas-dataframe">2) Generate bedpe like pandas.DataFrame.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generate-bedpe-like-pandas-dataframe">2) Generate BEDPE like pandas.DataFrame.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#use-the-get-table-method-to-get-individual-tables-composing-the-vcf-object">3) Use the <span class="xref std std-doc">get_table()</span> method to get individual tables composing the Vcf object.</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#export-as-vcf-bedpe-file">Export as VCF/BEDPE file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#filter-vcf-object">Filter Vcf object</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#filter-with-queries-using-filter-method">1) Filter with queries using filter method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filter-with-sv-id-using-filter-by-id-method">2) Filter with SV ID using filter_by_id method</a></li>
 </ul>
 </li>
 </ul>
@@ -179,31 +180,34 @@
             
   <span class="target" id="quickstart"></span><div class="section" id="quick-start">
 <h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
-<p>This is a short example how to analyse vcf files.</p>
+<p>This is a short example how to manage VCF files.</p>
 <p>After you have read this page, you can</p>
 <ul class="simple">
-<li><p>Import PySgt package to your script.</p></li>
-<li><p>Read vcf file to create PySgt core object.</p></li>
-<li><p>Convert the vcf file into a bedpe file, with any features you want such as INFO fields, and FORMAT fields.</p></li>
-<li><p>Filter the SVs by any features, including genomic positions, INFO fields, and FORMAT fields.</p></li>
+<li><p>Import Viola package to your script.</p></li>
+<li><p>Read VCF files to create Viola.Vcf object.</p></li>
+<li><p>Convert VCF files into BEDPE files, with any features you wish, such as INFO fields and FORMAT fields.</p></li>
+<li><p>Filter SV records by any features, including genomic positions, INFO fields, and FORMAT fields.</p></li>
 </ul>
-<p>If you want to learn how to analyse SV signature with this package, see <cite>Signature Analysis Tutorial&lt;signature_analysis&gt;</cite>.</p>
-<div class="section" id="import-pysgt-to-your-script">
-<h2>Import PySgt to your script<a class="headerlink" href="#import-pysgt-to-your-script" title="Permalink to this headline">¶</a></h2>
-<p>How to import PySgt package is as follow:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">sgt</span>
+<p>See Also:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="signature_analysis.html#signature-analysis"><span class="std std-ref">Signature Analysis Tutorial</span></a></p></li>
+<li><p><a class="reference internal" href="reference/index.html#api-reference"><span class="std std-ref">API Reference</span></a></p></li>
+</ul>
+<div class="section" id="import-viola-to-your-script">
+<h2>Import Viola to your script<a class="headerlink" href="#import-viola-to-your-script" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">viola</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="read-the-vcf-file">
-<h2>Read the vcf file<a class="headerlink" href="#read-the-vcf-file" title="Permalink to this headline">¶</a></h2>
-<p>In order to use PySgt’s features, you must first run <a class="reference internal" href="reference/api/sgt.io.parser.read_vcf.html"><span class="doc">read_vcf</span></a> to create an <a class="reference internal" href="reference/vcf.html#vcf"><span class="std std-ref">Vcf</span></a> object.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://dermasugita.github.io/PySgtDocs/docs/html/_static/tutorial.vcf&#39;</span>
-
-<span class="gp">In [3]: </span><span class="n">sgt_object</span> <span class="o">=</span> <span class="n">sgt</span><span class="o">.</span><span class="n">read_vcf</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="c1"># filepath, url, and file-like object are acceptable.</span>
+<div class="section" id="create-vcf-object-from-vcf-file">
+<h2>Create Vcf object from VCF file.<a class="headerlink" href="#create-vcf-object-from-vcf-file" title="Permalink to this headline">¶</a></h2>
+<p>In order to use PySgt’s features, you must first run <span class="xref std std-doc">read_vcf</span> to create an <a class="reference internal" href="reference/vcf.html#vcf"><span class="std std-ref">Vcf</span></a> object.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="c1">#url = &#39;https://dermasugita.github.io/PySgtDocs/docs/html/_static/tutorial.vcf&#39;</span>
+<span class="c1">#sgt_object = sgt.read_vcf(url) # filepath, url, and file-like object are acceptable.</span>
 </pre></div>
 </div>
 <p>Now you’re ready to perform a number of functions that the PySgt package has.</p>
+<p>To learn detail data structure of Vcf object, see <a class="reference internal" href="userguide/data_structure.html#data-structure"><span class="std std-ref">PySgt’s Data Structure</span></a>.</p>
 </div>
 <div class="section" id="viewing-the-contents-of-vcf-object">
 <h2>Viewing the contents of Vcf object<a class="headerlink" href="#viewing-the-contents-of-vcf-object" title="Permalink to this headline">¶</a></h2>
@@ -211,96 +215,30 @@
 To do so, you have three options.</p>
 <div class="section" id="simply-print-the-object">
 <h3>1) Simply print the object.<a class="headerlink" href="#simply-print-the-object" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># The column name &#39;be&#39; stands for &#39;breakend&#39;.</span>
-<span class="gp">In [4]: </span><span class="nb">print</span><span class="p">(</span><span class="n">sgt_object</span><span class="p">)</span>
-<span class="go">INFO=imprecise,svtype,svlen,end,cipos,ciend,cigar,mateid,event,homlen,homseq,svinslen,svinsseq,left_svinsseq,right_svinsseq,contig,bnd_depth,mate_bnd_depth,somatic,somaticscore,junction_somaticscore,inv3,inv5</span>
-<span class="go">      id              be1              be2 strand  qual svtype</span>
-<span class="go">0  test1    chr1:82550461    chr1:82554226     +-  None    DEL</span>
-<span class="go">1  test2    chr1:22814217    chr1:92581132     --  None    INV</span>
-<span class="go">2  test3    chr1:60567906    chr1:60675941     +-  None    DEL</span>
-<span class="go">3  test4    chr1:69583190    chr1:69590948     +-  None    DEL</span>
-<span class="go">4  test5  chr11:104534877  chr11:104536574     +-  None    DEL</span>
-<span class="go">5  test6  chr11:111134697   chr17:26470495     +-  None    BND</span>
-<span class="go">6  test7   chr17:26470495  chr11:111134697     -+  None    BND</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="c1"># The column name &#39;be&#39; stands for &#39;breakend&#39;.</span>
+<span class="c1">#print(sgt_object)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="generate-bedpe-like-pandas-dataframe">
-<h3>2) Generate bedpe like pandas.DataFrame.<a class="headerlink" href="#generate-bedpe-like-pandas-dataframe" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">sgt_bedpe_like</span> <span class="o">=</span> <span class="n">sgt_object</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">()</span>
-
-<span class="gp">In [6]: </span><span class="nb">print</span><span class="p">(</span><span class="n">sgt_bedpe_like</span><span class="p">)</span>
-<span class="go">  chrom1     start1       end1 chrom2     start2       end2   name score strand1 strand2</span>
-<span class="go">0   chr1   82550460   82550461   chr1   82554225   82554226  test1  None       +       -</span>
-<span class="go">1   chr1   22814216   22814217   chr1   92581131   92581132  test2  None       -       -</span>
-<span class="go">2   chr1   60567905   60567906   chr1   60675940   60675941  test3  None       +       -</span>
-<span class="go">3   chr1   69583189   69583190   chr1   69590947   69590948  test4  None       +       -</span>
-<span class="go">4  chr11  104534876  104534877  chr11  104536573  104536574  test5  None       +       -</span>
-<span class="go">5  chr11  111134696  111134697  chr17   26470494   26470495  test6  None       +       -</span>
-<span class="go">6  chr17   26470494   26470495  chr11  111134696  111134697  test7  None       -       +</span>
+<h3>2) Generate BEDPE like pandas.DataFrame.<a class="headerlink" href="#generate-bedpe-like-pandas-dataframe" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="c1">#sgt_bedpe_like = sgt_object.to_bedpe_like()</span>
+<span class="c1">#print(sgt_bedpe_like)</span>
 </pre></div>
 </div>
-<p>The way to add INFO, FILTER, and FORMAT to this bedpe-like DataFrame is explained <a class="reference internal" href="bedpe_generation.html#bedpe-generation"><span class="std std-ref">here</span></a> (no link for now).</p>
+<p>The way to add INFO, FILTER, and FORMAT to this bedpe-like DataFrame is explained <a class="reference internal" href="bedpe_generation.html#bedpe-generation"><span class="std std-ref">here</span></a>.</p>
 </div>
 <div class="section" id="use-the-get-table-method-to-get-individual-tables-composing-the-vcf-object">
-<h3>3) Use the <a class="reference internal" href="reference/api/sgt.core.db.Vcf.get_table.html"><span class="doc">get_table()</span></a> method to get individual tables composing the Vcf object.<a class="headerlink" href="#use-the-get-table-method-to-get-individual-tables-composing-the-vcf-object" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">sgt_object</span><span class="o">.</span><span class="n">get_table</span><span class="p">(</span><span class="s1">&#39;positions&#39;</span><span class="p">)</span>
-<span class="gh">Out[7]: </span><span class="go"></span>
-<span class="go">      id chrom1       pos1 chrom2       pos2  ... strand2 ref                 alt  qual svtype</span>
-<span class="go">0  test1   chr1   82550461   chr1   82554226  ...       -   G               &lt;DEL&gt;  None    DEL</span>
-<span class="go">1  test2   chr1   22814217   chr1   92581132  ...       -   T               &lt;INV&gt;  None    INV</span>
-<span class="go">2  test3   chr1   60567906   chr1   60675941  ...       -   T               &lt;DEL&gt;  None    DEL</span>
-<span class="go">3  test4   chr1   69583190   chr1   69590948  ...       -   T               &lt;DEL&gt;  None    DEL</span>
-<span class="go">4  test5  chr11  104534877  chr11  104536574  ...       -   C               &lt;DEL&gt;  None    DEL</span>
-<span class="go">5  test6  chr11  111134697  chr17   26470495  ...       -   T   T[chr17:26470495[  None    BND</span>
-<span class="go">6  test7  chr17   26470495  chr11  111134697  ...       +   T  ]chr11:111134697]T  None    BND</span>
-
-<span class="go">[7 rows x 11 columns]</span>
+<h3>3) Use the <span class="xref std std-doc">get_table()</span> method to get individual tables composing the Vcf object.<a class="headerlink" href="#use-the-get-table-method-to-get-individual-tables-composing-the-vcf-object" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="c1">#sgt_object.get_table(&#39;positions&#39;)</span>
 </pre></div>
 </div>
-<p>The names of all the tables in <code class="docutils literal notranslate"><span class="pre">sgt_object</span></code> are stored in the <a class="reference internal" href="reference/api/sgt.core.db.Vcf.table_list.html"><span class="doc">table_list</span></a> attribute:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">sgt_object</span><span class="o">.</span><span class="n">table_list</span>
-<span class="gh">Out[8]: </span><span class="go"></span>
-<span class="go">[&#39;positions&#39;,</span>
-<span class="go"> &#39;filters&#39;,</span>
-<span class="go"> &#39;imprecise&#39;,</span>
-<span class="go"> &#39;svtype&#39;,</span>
-<span class="go"> &#39;svlen&#39;,</span>
-<span class="go"> &#39;end&#39;,</span>
-<span class="go"> &#39;cipos&#39;,</span>
-<span class="go"> &#39;ciend&#39;,</span>
-<span class="go"> &#39;cigar&#39;,</span>
-<span class="go"> &#39;mateid&#39;,</span>
-<span class="go"> &#39;event&#39;,</span>
-<span class="go"> &#39;homlen&#39;,</span>
-<span class="go"> &#39;homseq&#39;,</span>
-<span class="go"> &#39;svinslen&#39;,</span>
-<span class="go"> &#39;svinsseq&#39;,</span>
-<span class="go"> &#39;left_svinsseq&#39;,</span>
-<span class="go"> &#39;right_svinsseq&#39;,</span>
-<span class="go"> &#39;contig&#39;,</span>
-<span class="go"> &#39;bnd_depth&#39;,</span>
-<span class="go"> &#39;mate_bnd_depth&#39;,</span>
-<span class="go"> &#39;somatic&#39;,</span>
-<span class="go"> &#39;somaticscore&#39;,</span>
-<span class="go"> &#39;junction_somaticscore&#39;,</span>
-<span class="go"> &#39;inv3&#39;,</span>
-<span class="go"> &#39;inv5&#39;,</span>
-<span class="go"> &#39;formats&#39;,</span>
-<span class="go"> &#39;contigs_meta&#39;,</span>
-<span class="go"> &#39;alts_meta&#39;,</span>
-<span class="go"> &#39;infos_meta&#39;,</span>
-<span class="go"> &#39;formats_meta&#39;,</span>
-<span class="go"> &#39;filters_meta&#39;,</span>
-<span class="go"> &#39;samples_meta&#39;]</span>
+<p>The names of all the tables in <code class="docutils literal notranslate"><span class="pre">sgt_object</span></code> are stored in the <span class="xref std std-doc">table_list</span> attribute:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="c1">#sgt_object.table_list</span>
 </pre></div>
 </div>
 <p>You can get any table you want.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">sgt_object</span><span class="o">.</span><span class="n">get_table</span><span class="p">(</span><span class="s1">&#39;formats_meta&#39;</span><span class="p">)</span> <span class="c1"># get header information of FORMAT field</span>
-<span class="gh">Out[9]: </span><span class="go"></span>
-<span class="go">   id number     type                    description</span>
-<span class="go">0  PR   None  Integer  Spanning paired-read suppo...</span>
-<span class="go">1  SR   None  Integer  Split reads for the ref an...</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="c1">#sgt_object.get_table(&#39;formats_meta&#39;) # get header information of FORMAT field</span>
 </pre></div>
 </div>
 </div>
@@ -318,87 +256,51 @@ Vcf object provides an intuitive way to filter SV in almost any item.</p>
 <h3>1) Filter with queries using filter method<a class="headerlink" href="#filter-with-queries-using-filter-method" title="Permalink to this headline">¶</a></h3>
 <p>PySgt has a query system that is easy to understand.</p>
 <p>First, let’s look at a couple of examples.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># filter with svtype.</span>
-<span class="gp">In [10]: </span><span class="n">query1_1</span> <span class="o">=</span> <span class="s1">&#39;svtype == DEL&#39;</span>
-
-<span class="gp">In [11]: </span><span class="n">sgt_object1_1</span> <span class="o">=</span> <span class="n">sgt_object</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">query1_1</span><span class="p">)</span>
-
-<span class="gp">In [12]: </span><span class="n">result1_1</span> <span class="o">=</span> <span class="n">sgt_object1_1</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">custom_infonames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;svtype&#39;</span><span class="p">,</span> <span class="s1">&#39;svlen&#39;</span><span class="p">])</span>
-
-<span class="gp">In [13]: </span><span class="nb">print</span><span class="p">(</span><span class="n">result1_1</span><span class="p">)</span>
-<span class="go">  chrom1     start1       end1 chrom2     start2  ...  score strand1 strand2 svtype_0 svlen_0</span>
-<span class="go">0   chr1   82550460   82550461   chr1   82554225  ...   None       +       -      DEL   -3764</span>
-<span class="go">1   chr1   60567905   60567906   chr1   60675940  ...   None       +       -      DEL -108034</span>
-<span class="go">2   chr1   69583189   69583190   chr1   69590947  ...   None       +       -      DEL   -7757</span>
-<span class="go">3  chr11  104534876  104534877  chr11  104536573  ...   None       +       -      DEL   -1696</span>
-
-<span class="go">[4 rows x 12 columns]</span>
+<p><strong>a. Filter with SVTYPE of the INFO field.</strong>
+<code class="docutils literal notranslate"><span class="pre">syntax:</span> <span class="pre">&quot;&lt;INFO</span> <span class="pre">name&gt;</span> <span class="pre">[&lt;value</span> <span class="pre">indexer&gt;]</span> <span class="pre">&lt;operator&gt;</span> <span class="pre">&lt;value&gt;&quot;</span></code></p>
+<ul class="simple">
+<li><p>&lt;value indexer&gt; is optional.</p></li>
+<li><p>The &lt;value indexer&gt; is a 0-origin indexer which allows you to specify which of the comma-separated INFOs, such as CIPOS, should be filtered.</p></li>
+<li><p>The following syntax can also be used for other INFO.</p></li>
+</ul>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="c1"># filter with svtype.</span>
+<span class="c1">#query1_1 = &#39;svtype == DEL&#39;</span>
+<span class="c1">#sgt_object.filter(query1_1)</span>
 </pre></div>
 </div>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># filter with genomic coordinates.</span>
-<span class="gp">In [14]: </span><span class="n">query1_2</span> <span class="o">=</span> <span class="s1">&#39;be1 chr11&#39;</span>
-
-<span class="gp">In [15]: </span><span class="n">query1_3</span> <span class="o">=</span> <span class="s1">&#39;be2 chr1:69583189-&#39;</span>
-
-<span class="gp">In [16]: </span><span class="n">sgt_object1_2</span> <span class="o">=</span> <span class="n">sgt_object</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">query1_2</span><span class="p">)</span>
-
-<span class="gp">In [17]: </span><span class="n">result1_2</span> <span class="o">=</span> <span class="n">sgt_object1_2</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">custom_infonames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;svtype&#39;</span><span class="p">,</span> <span class="s1">&#39;svlen&#39;</span><span class="p">])</span>
-
-<span class="gp">In [18]: </span><span class="n">sgt_object1_3</span> <span class="o">=</span> <span class="n">sgt_object</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">query1_3</span><span class="p">)</span>
-
-<span class="gp">In [19]: </span><span class="n">result1_3</span> <span class="o">=</span> <span class="n">sgt_object1_3</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">custom_infonames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;svtype&#39;</span><span class="p">,</span> <span class="s1">&#39;svlen&#39;</span><span class="p">])</span>
-
-<span class="gp">In [20]: </span><span class="nb">print</span><span class="p">(</span><span class="n">result1_2</span><span class="p">)</span>
-<span class="go">  chrom1     start1       end1 chrom2     start2  ...  score strand1 strand2 svtype_0 svlen_0</span>
-<span class="go">0  chr11  104534876  104534877  chr11  104536573  ...   None       +       -      DEL   -1696</span>
-<span class="go">1  chr11  111134696  111134697  chr17   26470494  ...   None       +       -      BND       0</span>
-
-<span class="go">[2 rows x 12 columns]</span>
-
-<span class="gp">In [21]: </span><span class="nb">print</span><span class="p">(</span><span class="n">result1_3</span><span class="p">)</span>
-<span class="go">  chrom1    start1      end1 chrom2    start2  ...  score strand1 strand2 svtype_0   svlen_0</span>
-<span class="go">0   chr1  82550460  82550461   chr1  82554225  ...   None       +       -      DEL     -3764</span>
-<span class="go">1   chr1  22814216  22814217   chr1  92581131  ...   None       -       -      INV  69766915</span>
-<span class="go">2   chr1  69583189  69583190   chr1  69590947  ...   None       +       -      DEL     -7757</span>
-
-<span class="go">[3 rows x 12 columns]</span>
+<p><strong>b. Filter with genomic coordinates.</strong>
+<code class="docutils literal notranslate"><span class="pre">syntax:</span> <span class="pre">&quot;&lt;'be1'|'be2'&gt;</span> <span class="pre">&lt;chromosome&gt;[:[&lt;start</span> <span class="pre">position&gt;]-[&lt;end</span> <span class="pre">position&gt;]]&quot;</span></code></p>
+<ul class="simple">
+<li><p>‘be’ stands for ‘breakend’.</p></li>
+<li><p>If you skip &lt;start position&gt; with the minus sign kept, you can get all SV record younger than &lt;end position&gt;, and vice versa if you skip &lt;end position&gt;.</p></li>
+<li><p>Note that &lt;start position&gt;-&lt;end position&gt; specifies genomic coordinates with left-closed, right-open interval, that is, [&lt;start position&gt;, &lt;end position&gt;).</p></li>
+</ul>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="c1"># filter with genomic coordinates.</span>
+<span class="c1">#sgt_object.filter(&#39;be1 chr11&#39;)</span>
+<span class="c1">#sgt_object.filter(&#39;be1 !chr1&#39;)</span>
+<span class="c1">#sgt_object.filter(&#39;be2 chr1:69583189-&#39;)</span>
 </pre></div>
 </div>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># filter with FORMAT table</span>
-<span class="go"># query format: &quot;&lt;sample name&gt; &lt;FORMAT name&gt; [&lt;FORMAT indexer&gt;] &lt;operator&gt; &lt;value&gt;&quot;</span>
-<span class="go"># FORMAT indexer is optional. It is not required when the FORMAT isn&#39;t separated by commas.</span>
-<span class="go"># FORMAT indexer is 0-origin. Default value is 0.</span>
-<span class="gp">In [22]: </span><span class="n">query1_4</span> <span class="o">=</span> <span class="s1">&#39;sample1_T PR 1 &gt; 5&#39;</span>
-
-<span class="gp">In [23]: </span><span class="n">sgt_object1_4</span> <span class="o">=</span> <span class="n">sgt_object</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">query1_4</span><span class="p">)</span>
-
-<span class="gp">In [24]: </span><span class="n">result1_4</span> <span class="o">=</span> <span class="n">sgt_object1_4</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">add_formats</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="gp">In [25]: </span><span class="nb">print</span><span class="p">(</span><span class="n">result1_4</span><span class="p">)</span>
-<span class="go">  chrom1     start1       end1 chrom2     start2  ...  strand2 sample1_N_PR_0 sample1_N_PR_1 sample1_T_PR_0 sample1_T_PR_1</span>
-<span class="go">0   chr1   60567905   60567906   chr1   60675940  ...        -             23              0             44              6</span>
-<span class="go">1   chr1   69583189   69583190   chr1   69590947  ...        -             21              0             20             12</span>
-<span class="go">2  chr11  104534876  104534877  chr11  104536573  ...        -             22              0             57             14</span>
-
-<span class="go">[3 rows x 14 columns]</span>
+<p><strong>c. Filter with FORMAT table</strong>
+<code class="docutils literal notranslate"><span class="pre">syntax:</span> <span class="pre">&quot;&lt;sample</span> <span class="pre">name&gt;</span> <span class="pre">&lt;FORMAT</span> <span class="pre">name&gt;</span> <span class="pre">[&lt;FORMAT</span> <span class="pre">indexer&gt;]</span> <span class="pre">&lt;operator&gt;</span> <span class="pre">&lt;value&gt;</span></code></p>
+<ul class="simple">
+<li><p>FORMAT indexer is optional. It is not required when the FORMAT isn’t separated by commas.</p></li>
+<li><p>FORMAT indexer is 0-origin. Default value is 0.</p></li>
+</ul>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="c1">#sgt_object.filter(&#39;sample1_T PR 1 &gt; 5&#39;).to_bedpe_like(add_formats=True)</span>
 </pre></div>
 </div>
-<p>Query can be a list.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [26]: </span><span class="n">query2_1</span> <span class="o">=</span> <span class="s1">&#39;svlen &lt; -4000&#39;</span>
-
-<span class="gp">In [27]: </span><span class="n">query2_2</span> <span class="o">=</span> <span class="s1">&#39;svlen &gt; -10000&#39;</span>
-
-<span class="gp">In [28]: </span><span class="n">sgt_object2</span> <span class="o">=</span> <span class="n">sgt_object</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="n">query2_1</span><span class="p">,</span> <span class="n">query2_2</span><span class="p">],</span> <span class="n">query_logic</span><span class="o">=</span><span class="s1">&#39;and&#39;</span><span class="p">)</span>
-
-<span class="gp">In [29]: </span><span class="n">result2</span> <span class="o">=</span> <span class="n">sgt_object2</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">custom_infonames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;svtype&#39;</span><span class="p">,</span> <span class="s1">&#39;svlen&#39;</span><span class="p">])</span>
-
-<span class="gp">In [30]: </span><span class="nb">print</span><span class="p">(</span><span class="n">result2</span><span class="p">)</span>
-<span class="go">  chrom1    start1      end1 chrom2    start2  ...  score strand1 strand2 svtype_0 svlen_0</span>
-<span class="go">0   chr1  69583189  69583190   chr1  69590947  ...   None       +       -      DEL   -7757</span>
-
-<span class="go">[1 rows x 12 columns]</span>
+<p><strong>d. Query can be a list</strong></p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="c1">#query2_1 = &#39;svlen &lt; -4000&#39;</span>
+<span class="c1">#query2_2 = &#39;svlen &gt; -10000&#39;</span>
+<span class="c1">#sgt_object2 = sgt_object.filter([query2_1, query2_2], query_logic=&#39;and&#39;)</span>
+<span class="c1">#result2 = sgt_object2.to_bedpe_like(custom_infonames=[&#39;svtype&#39;, &#39;svlen&#39;])</span>
+<span class="c1">#print(result2)</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="filter-with-sv-id-using-filter-by-id-method">
+<h3>2) Filter with SV ID using filter_by_id method<a class="headerlink" href="#filter-with-sv-id-using-filter-by-id-method" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>

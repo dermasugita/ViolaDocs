@@ -196,7 +196,7 @@
 <div class="section" id="read-all-bedpe-files-into-multibedpe-class">
 <h3>1. Read all BEDPE files into MultiBedpe class<a class="headerlink" href="#read-all-bedpe-files-into-multibedpe-class" title="Permalink to this headline">¶</a></h3>
 <p>First, read all BEDPE files in the ‘pcawg’ directory into MultiBedpe class (See <a class="reference internal" href="reference/multi_bedpe.html#multi-bedpe"><span class="std std-ref">MultiBedpe</span></a>).</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">sgt</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="c1">#import sgt</span>
 </pre></div>
 </div>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="c1">#bedpe_all = sgt.read_bedpe_multi(&#39;./resources/pcawg&#39;, svtype_col_name=&#39;svclass&#39;)</span>
@@ -227,14 +227,14 @@
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="c1">#fasta = sgt.read_fasta(&quot;http://hgdownload.cse.ucsc.edu/goldenpath/hg19/bigZips/hg19.fa.gz&quot;)</span>
 </pre></div>
 </div>
-<p><a class="reference internal" href="reference/api/sgt.core.db.Bedpe.get_microhomology.html"><span class="doc">get_microhomology</span></a> method of Bedpe class is quite useful to append INFO table of microhomology.</p>
+<p><span class="xref std std-doc">get_microhomology</span> method of Bedpe class is quite useful to append INFO table of microhomology.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="c1">#bedpe_all.get_microhomology(fasta)</span>
 <span class="c1">#print(bedpe_all.table_list)</span>
 </pre></div>
 </div>
 <p>The ‘HOMLEN’ and ‘HOMSEQ’ tables have been successfully added!</p>
 <p>Now, let’s define custom SV types and add new INFO table named ‘manual_sv_type’.</p>
-<p>To do this, you can use <a class="reference internal" href="reference/api/sgt.core.cohort.MultiBedpe.classify_manual_svtype.html"><span class="doc">classify_manual_svtype</span></a> method.</p>
+<p>To do this, you can use <span class="xref std std-doc">classify_manual_svtype</span> method.</p>
 <p>This function requires at least two arguments:</p>
 <ul class="simple">
 <li><p>The first argument (ls_conditions) is a list of functions that defines custom SV classes.</p></li>
@@ -243,18 +243,18 @@
 <p>The following is the specification of the function that is the element of the argument ‘ls_conditions’.</p>
 <p>For each custom SV class:</p>
 <ul class="simple">
-<li><p>Takes Bedpe, MultiBedpe, and Vcf objects as arguments</p></li>
+<li><p>Takes Bedpe, MultiBedpe, and Vcf objects as an argument</p></li>
 <li><p>Returns SV id that satisfies the requirements of the respective custom SV class.</p></li>
 </ul>
 <p>Here are the examples.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="k">def</span> <span class="nf">fragile_del</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="k">def</span> <span class="nf">fragile_del</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">   ...: </span>    <span class="n">set1</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;fragileleft == True&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ids</span><span class="p">)</span>
 <span class="gp">   ...: </span>    <span class="n">set2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;fragileright == True&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ids</span><span class="p">)</span>
 <span class="gp">   ...: </span>    <span class="n">set3</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="s1">&#39;svtype == DEL&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">ids</span><span class="p">)</span>
 <span class="gp">   ...: </span>    <span class="k">return</span> <span class="p">(</span><span class="n">set1</span> <span class="o">|</span> <span class="n">set2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">set3</span>
 <span class="gp">   ...: </span>
 
-<span class="gp">In [3]: </span><span class="k">def</span> <span class="nf">fragile_dup</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">In [2]: </span><span class="k">def</span> <span class="nf">fragile_dup</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">   ...: </span>    <span class="n">set1</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;fragileleft == True&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ids</span><span class="p">)</span>
 <span class="gp">   ...: </span>    <span class="n">set2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;fragileright == True&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ids</span><span class="p">)</span>
 <span class="gp">   ...: </span>    <span class="n">set3</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="s1">&#39;svtype == DUP&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">ids</span><span class="p">)</span>
@@ -262,43 +262,43 @@
 <span class="gp">   ...: </span>
 </pre></div>
 </div>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="k">def</span> <span class="nf">del_micro1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="k">def</span> <span class="nf">del_micro1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">   ...: </span>    <span class="n">ids</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="s1">&#39;svtype == DEL&#39;</span><span class="p">,</span> <span class="s1">&#39;homlen &lt;= 1&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">ids</span>
 <span class="gp">   ...: </span>    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
 <span class="gp">   ...: </span>
 
-<span class="gp">In [5]: </span><span class="k">def</span> <span class="nf">del_micro2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">In [4]: </span><span class="k">def</span> <span class="nf">del_micro2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">   ...: </span>    <span class="n">ids</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="s1">&#39;svtype == DEL&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">ids</span>
 <span class="gp">   ...: </span>    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
 <span class="gp">   ...: </span>
 
-<span class="gp">In [6]: </span><span class="k">def</span> <span class="nf">dup_micro1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">In [5]: </span><span class="k">def</span> <span class="nf">dup_micro1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">   ...: </span>    <span class="n">ids</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="s1">&#39;svtype == DUP&#39;</span><span class="p">,</span> <span class="s1">&#39;homlen &lt;= 1&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">ids</span>
 <span class="gp">   ...: </span>    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
 <span class="gp">   ...: </span>
 
-<span class="gp">In [7]: </span><span class="k">def</span> <span class="nf">dup_micro2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">In [6]: </span><span class="k">def</span> <span class="nf">dup_micro2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">   ...: </span>    <span class="n">ids</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="s1">&#39;svtype == DUP&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">ids</span>
 <span class="gp">   ...: </span>    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
 <span class="gp">   ...: </span>
 
-<span class="gp">In [8]: </span><span class="k">def</span> <span class="nf">inv_micro1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">In [7]: </span><span class="k">def</span> <span class="nf">inv_micro1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">   ...: </span>    <span class="n">ids1</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="s1">&#39;svtype == t2tINV&#39;</span><span class="p">,</span> <span class="s1">&#39;svtype == h2hINV&#39;</span><span class="p">],</span> <span class="n">query_logic</span><span class="o">=</span><span class="s1">&#39;or&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ids</span>
 <span class="gp">   ...: </span>    <span class="n">ids2</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="s1">&#39;homlen &lt;= 1&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">ids</span>
 <span class="gp">   ...: </span>    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">ids1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span><span class="n">ids2</span><span class="p">)</span>
 <span class="gp">   ...: </span>
 
-<span class="gp">In [9]: </span><span class="k">def</span> <span class="nf">inv_micro2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">In [8]: </span><span class="k">def</span> <span class="nf">inv_micro2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">   ...: </span>    <span class="n">ids1</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="s1">&#39;svtype == t2tINV&#39;</span><span class="p">,</span> <span class="s1">&#39;svtype == h2hINV&#39;</span><span class="p">],</span> <span class="n">query_logic</span><span class="o">=</span><span class="s1">&#39;or&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ids</span>
 <span class="gp">   ...: </span>    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">ids1</span><span class="p">)</span>
 <span class="gp">   ...: </span>
 
-<span class="gp">In [10]: </span><span class="k">def</span> <span class="nf">tra_micro1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="gp">   ....: </span>    <span class="n">ids</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="s1">&#39;svtype == TRA&#39;</span><span class="p">,</span> <span class="s1">&#39;homlen &lt;= 1&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">ids</span>
-<span class="gp">   ....: </span>    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
-<span class="gp">   ....: </span>
+<span class="gp">In [9]: </span><span class="k">def</span> <span class="nf">tra_micro1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">   ...: </span>    <span class="n">ids</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="s1">&#39;svtype == TRA&#39;</span><span class="p">,</span> <span class="s1">&#39;homlen &lt;= 1&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">ids</span>
+<span class="gp">   ...: </span>    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+<span class="gp">   ...: </span>
 
-<span class="gp">In [11]: </span><span class="k">def</span> <span class="nf">tra_micro2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">In [10]: </span><span class="k">def</span> <span class="nf">tra_micro2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">   ....: </span>    <span class="n">ids</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="s1">&#39;svtype == TRA&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">ids</span>
 <span class="gp">   ....: </span>    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
 <span class="gp">   ....: </span>
