@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Vcf &mdash; PySgt 0.1 documentation</title>
+  <title>Vcf &mdash; Viola 1.0.0.dev1 documentation</title>
   
 
   
@@ -55,7 +55,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> PySgt
+            <a href="../index.html" class="icon icon-home"> Viola
           
 
           
@@ -63,6 +63,10 @@
 
           
             
+            
+              <div class="version">
+                1.0.0.dev1
+              </div>
             
           
 
@@ -106,15 +110,54 @@
 <li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.ids.html">viola.Vcf.ids</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#accessing-the-tables">Accessing the Tables</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.get_table.html">viola.Vcf.get_table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#annotation">Annotation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.annotate_bed.html">viola.Vcf.annotate_bed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.get_microhomology.html">viola.Vcf.get_microhomology</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#conversion">Conversion</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.copy.html">viola.Vcf.copy</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.to_bedpe_like.html">viola.Vcf.to_bedpe_like</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.to_vcf_like.html">viola.Vcf.to_vcf_like</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.breakend2breakpoint.html">viola.Vcf.breakend2breakpoint</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#export">Export</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.to_bedpe.html">viola.Vcf.to_bedpe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.to_vcf.html">viola.Vcf.to_vcf</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#filtering">Filtering</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.filter.html">viola.Vcf.filter</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.filter_by_id.html">viola.Vcf.filter_by_id</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#managing-tables">Managing Tables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.add_info_table.html">viola.Vcf.add_info_table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.append_infos.html">viola.Vcf.append_infos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.append_formats.html">viola.Vcf.append_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.append_filters.html">viola.Vcf.append_filters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.get_table.html">viola.Vcf.get_table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.remove_info_table.html">viola.Vcf.remove_info_table</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#merging">Merging</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.merge.html">viola.Vcf.merge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.integrate.html">viola.Vcf.integrate</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#representation">Representation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.view.html">viola.Vcf.view</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#signature-analysis">Signature_analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.classify_manual_svtype.html">viola.Vcf.classify_manual_svtype</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.get_feature_count_as_series.html">viola.Vcf.get_feature_count_as_series</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sv-id-sv-records">SV ID/SV records</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.replace_svid.html">viola.Vcf.replace_svid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.drop_by_id.html">viola.Vcf.drop_by_id</a></li>
 </ul>
 </li>
 </ul>
@@ -137,7 +180,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">PySgt</a>
+          <a href="../index.html">Viola</a>
         
       </nav>
 
@@ -227,22 +270,59 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="accessing-the-tables">
-<h2>Accessing the Tables<a class="headerlink" href="#accessing-the-tables" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="annotation">
+<h2>Annotation<a class="headerlink" href="#annotation" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/viola.Vcf.get_table.html#viola.Vcf.get_table" title="viola.Vcf.get_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.get_table</span></code></a>(table_name)</p></td>
-<td><p>Return a table specified in the argument as pandas DataFrame object.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/viola.Vcf.annotate_bed.html#viola.Vcf.annotate_bed" title="viola.Vcf.annotate_bed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.annotate_bed</span></code></a>(bed, annotation[, suffix])</p></td>
+<td><p>Annotate SV breakpoints using Bed class object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/viola.Vcf.get_microhomology.html#viola.Vcf.get_microhomology" title="viola.Vcf.get_microhomology"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.get_microhomology</span></code></a>(fasta[, max_homlen])</p></td>
+<td><p>Infer microhomology length and sequence in each breakpoint.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="conversion">
+<h2>Conversion<a class="headerlink" href="#conversion" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/viola.Vcf.copy.html#viola.Vcf.copy" title="viola.Vcf.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.copy</span></code></a>()</p></td>
+<td><p>Return copy of the instance.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="api/viola.Vcf.to_bedpe_like.html#viola.Vcf.to_bedpe_like" title="viola.Vcf.to_bedpe_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.to_bedpe_like</span></code></a>([custom_infonames])</p></td>
 <td><p>Return a DataFrame in bedpe-like format.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/viola.Vcf.to_vcf_like.html#viola.Vcf.to_vcf_like" title="viola.Vcf.to_vcf_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.to_vcf_like</span></code></a>()</p></td>
 <td><p>Return a vcf-formatted DataFrame.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/viola.Vcf.breakend2breakpoint.html#viola.Vcf.breakend2breakpoint" title="viola.Vcf.breakend2breakpoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.breakend2breakpoint</span></code></a>()</p></td>
+<td><p>Converts a Vcf object into a breakpoint-based Vcf object by integrating the paired breakends (BND) and infering their SVTYPE.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="export">
+<h2>Export<a class="headerlink" href="#export" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/viola.Vcf.to_bedpe.html#viola.Vcf.to_bedpe" title="viola.Vcf.to_bedpe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.to_bedpe</span></code></a>(file_or_buf[, …])</p></td>
+<td><p>to_bedpe_like(file_or_buf, custom_infonames=[], add_filters, add_formats, confidence_intervals: bool=False) Return a BEDPE file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/viola.Vcf.to_vcf.html#viola.Vcf.to_vcf" title="viola.Vcf.to_vcf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.to_vcf</span></code></a>(path_or_buf)</p></td>
+<td><p>Return a vcf-formatted String.</p></td>
 </tr>
 </tbody>
 </table>
@@ -264,6 +344,100 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="managing-tables">
+<h2>Managing Tables<a class="headerlink" href="#managing-tables" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/viola.Vcf.add_info_table.html#viola.Vcf.add_info_table" title="viola.Vcf.add_info_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.add_info_table</span></code></a>(table_name, df)</p></td>
+<td><p>Add a new INFO table to self.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/viola.Vcf.append_infos.html#viola.Vcf.append_infos" title="viola.Vcf.append_infos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.append_infos</span></code></a>(base_df, ls_tablenames[, …])</p></td>
+<td><p>Append INFO tables to the right of the base_df, based on the SV id columns.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/viola.Vcf.append_formats.html#viola.Vcf.append_formats" title="viola.Vcf.append_formats"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.append_formats</span></code></a>(base_df[, left_on])</p></td>
+<td><p>Append formats to the right of the base_df, based on the SV id columns.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/viola.Vcf.append_filters.html#viola.Vcf.append_filters" title="viola.Vcf.append_filters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.append_filters</span></code></a>(base_df[, left_on])</p></td>
+<td><p>Append filters to the right of the base_df, based on the SV id columns.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/viola.Vcf.get_table.html#viola.Vcf.get_table" title="viola.Vcf.get_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.get_table</span></code></a>(table_name)</p></td>
+<td><p>Return a table specified in the argument as pandas DataFrame object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/viola.Vcf.remove_info_table.html#viola.Vcf.remove_info_table" title="viola.Vcf.remove_info_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.remove_info_table</span></code></a>(table_name)</p></td>
+<td><p>Remove an INFO table from self.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="merging">
+<h2>Merging<a class="headerlink" href="#merging" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/viola.Vcf.merge.html#viola.Vcf.merge" title="viola.Vcf.merge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.merge</span></code></a>(ls_vcf, ls_caller_names, threshold)</p></td>
+<td><p>Return a merged or integrated vcf object from mulitple  caller’s bedpe objects in ls_bedpe</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/viola.Vcf.integrate.html#viola.Vcf.integrate" title="viola.Vcf.integrate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.integrate</span></code></a>(merged_vcf, priority)</p></td>
+<td><p>Return an integrated Vcf object</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="representation">
+<h2>Representation<a class="headerlink" href="#representation" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/viola.Vcf.view.html#viola.Vcf.view" title="viola.Vcf.view"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.view</span></code></a>(custom_infonames, return_as_dataframe)</p></td>
+<td><p>Quick view function of the Vcf object.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="signature-analysis">
+<h2>Signature_analysis<a class="headerlink" href="#signature-analysis" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/viola.Vcf.classify_manual_svtype.html#viola.Vcf.classify_manual_svtype" title="viola.Vcf.classify_manual_svtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.classify_manual_svtype</span></code></a>(definitions, …)</p></td>
+<td><p>Classify SV records by user-defined criteria.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/viola.Vcf.get_feature_count_as_series.html#viola.Vcf.get_feature_count_as_series" title="viola.Vcf.get_feature_count_as_series"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.get_feature_count_as_series</span></code></a>(feature, …)</p></td>
+<td><p>Return counts of unique values as a pd.Series for the INFO specified in the “feature” argument.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sv-id-sv-records">
+<h2>SV ID/SV records<a class="headerlink" href="#sv-id-sv-records" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/viola.Vcf.replace_svid.html#viola.Vcf.replace_svid" title="viola.Vcf.replace_svid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.replace_svid</span></code></a>(to_replace, value)</p></td>
+<td><p>Renamed specified SV ID.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/viola.Vcf.drop_by_id.html#viola.Vcf.drop_by_id" title="viola.Vcf.drop_by_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.drop_by_id</span></code></a>(svid)</p></td>
+<td><p>Remove SV records specified in “svid” argument.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
 
@@ -280,7 +454,7 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, Itsuki Sugita.
+        &#169; Copyright 2021, Itsuki Sugita.
 
     </p>
   </div>

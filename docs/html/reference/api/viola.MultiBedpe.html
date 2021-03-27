@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>viola.MultiBedpe &mdash; PySgt 0.1 documentation</title>
+  <title>viola.MultiBedpe &mdash; Viola 1.0.0.dev1 documentation</title>
   
 
   
@@ -55,7 +55,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> PySgt
+            <a href="../../index.html" class="icon icon-home"> Viola
           
 
           
@@ -63,6 +63,10 @@
 
           
             
+            
+              <div class="version">
+                1.0.0.dev1
+              </div>
             
           
 
@@ -126,7 +130,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">PySgt</a>
+          <a href="../../index.html">Viola</a>
         
       </nav>
 
@@ -225,43 +229,52 @@ across all the samples.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="viola.MultiBedpe.classify_manual_svtype.html#viola.MultiBedpe.classify_manual_svtype" title="viola.MultiBedpe.classify_manual_svtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classify_manual_svtype</span></code></a>(ls_conditions, ls_names)</p></td>
 <td><p>Classify SV records by user-defined criteria.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="viola.MultiBedpe.filter.html#viola.MultiBedpe.filter" title="viola.MultiBedpe.filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter</span></code></a>(ls_query, query_logic)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code>()</p></td>
+<td><p>Return copy of the instance</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="viola.MultiBedpe.filter.html#viola.MultiBedpe.filter" title="viola.MultiBedpe.filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter</span></code></a>(ls_query, query_logic)</p></td>
 <td><p>Filter Bedpe object by the list of queries.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="viola.MultiBedpe.filter_by_id.html#viola.MultiBedpe.filter_by_id" title="viola.MultiBedpe.filter_by_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_by_id</span></code></a>(arrlike_id)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="viola.MultiBedpe.filter_by_id.html#viola.MultiBedpe.filter_by_id" title="viola.MultiBedpe.filter_by_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_by_id</span></code></a>(arrlike_id)</p></td>
 <td><p>Filter MultiBedpe object according to the list of SV ids.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="viola.MultiBedpe.get_feature_count_as_data_frame.html#viola.MultiBedpe.get_feature_count_as_data_frame" title="viola.MultiBedpe.get_feature_count_as_data_frame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_feature_count_as_data_frame</span></code></a>([feature, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="viola.MultiBedpe.get_feature_count_as_data_frame.html#viola.MultiBedpe.get_feature_count_as_data_frame" title="viola.MultiBedpe.get_feature_count_as_data_frame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_feature_count_as_data_frame</span></code></a>([feature, …])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_feature_count_as_series</span></code>([feature, ls_order])</p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_feature_count_as_series</span></code>(feature, ls_order)</p></td>
+<td><p>Return counts of unique values as a pd.Series for the INFO specified in the “feature” argument.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ids</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ids</span></code>()</p></td>
 <td><p>Return all SV ids as the set type.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_info</span></code>(info_name)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_info</span></code>(info_name)</p></td>
 <td><p>Return a info specified in the argument as pandas DataFrame object.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="viola.MultiBedpe.get_microhomology.html#viola.MultiBedpe.get_microhomology" title="viola.MultiBedpe.get_microhomology"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_microhomology</span></code></a>(fasta[, max_homlen])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="viola.MultiBedpe.get_microhomology.html#viola.MultiBedpe.get_microhomology" title="viola.MultiBedpe.get_microhomology"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_microhomology</span></code></a>(fasta[, max_homlen])</p></td>
 <td><p>Infer microhomology length and sequence in each breakpoint.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="viola.MultiBedpe.get_table.html#viola.MultiBedpe.get_table" title="viola.MultiBedpe.get_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_table</span></code></a>(table_name)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="viola.MultiBedpe.get_table.html#viola.MultiBedpe.get_table" title="viola.MultiBedpe.get_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_table</span></code></a>(table_name)</p></td>
 <td><p>Return a table specified in the argument as pandas DataFrame object.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_reciprocal</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_reciprocal</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge</span></code>(ls_caller_names, threshold, ls_bedpe)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge</span></code>(ls_bedpe, ls_caller_names, threshold)</p></td>
 <td><p>Return a merged bedpe object from mulitple  caller’s bedpe objects in ls_bedpe</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_info_table</span></code>(table_name)</p></td>
+<td><p>Remove an INFO table from self.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace_table</span></code>(table_name, table)</p></td>
 <td><p>Replace existing table into new table.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="viola.MultiBedpe.to_bedpe_like.html#viola.MultiBedpe.to_bedpe_like" title="viola.MultiBedpe.to_bedpe_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_bedpe_like</span></code></a>([custom_infonames])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_bedpe</span></code>(path_or_buf[, custom_infonames, …])</p></td>
+<td><p>to_beddpe(path_or_buf, custom_infonames, confidence_intervals) Return a BEDPE file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="viola.MultiBedpe.to_bedpe_like.html#viola.MultiBedpe.to_bedpe_like" title="viola.MultiBedpe.to_bedpe_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_bedpe_like</span></code></a>([custom_infonames])</p></td>
 <td><p>Return a DataFrame in bedpe-like format.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code>(custom_infonames, return_as_dataframe)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code>(custom_infonames, return_as_dataframe)</p></td>
 <td><p>Quick view function of the Vcf object.</p></td>
 </tr>
 </tbody>
@@ -311,7 +324,7 @@ across all the samples.</p>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, Itsuki Sugita.
+        &#169; Copyright 2021, Itsuki Sugita.
 
     </p>
   </div>

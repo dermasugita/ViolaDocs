@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>viola.Vcf.get_table &mdash; PySgt 0.1 documentation</title>
+  <title>viola.Vcf.get_table &mdash; Viola 1.0.0.dev1 documentation</title>
   
 
   
@@ -40,8 +40,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="viola.Vcf.to_bedpe_like" href="viola.Vcf.to_bedpe_like.html" />
-    <link rel="prev" title="viola.Vcf.ids" href="viola.Vcf.ids.html" /> 
+    <link rel="next" title="viola.Vcf.remove_info_table" href="viola.Vcf.remove_info_table.html" />
+    <link rel="prev" title="viola.Vcf.append_filters" href="viola.Vcf.append_filters.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -55,7 +55,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> PySgt
+            <a href="../../index.html" class="icon icon-home"> Viola
           
 
           
@@ -63,6 +63,10 @@
 
           
             
+            
+              <div class="version">
+                1.0.0.dev1
+              </div>
             
           
 
@@ -98,13 +102,23 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../vcf.html">Vcf</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../vcf.html#constructor">Constructor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../vcf.html#attributes">Attributes</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../vcf.html#accessing-the-tables">Accessing the Tables</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../vcf.html#annotation">Annotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vcf.html#conversion">Conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vcf.html#export">Export</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vcf.html#filtering">Filtering</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../vcf.html#managing-tables">Managing Tables</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="viola.Vcf.add_info_table.html">viola.Vcf.add_info_table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="viola.Vcf.append_infos.html">viola.Vcf.append_infos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="viola.Vcf.append_formats.html">viola.Vcf.append_formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="viola.Vcf.append_filters.html">viola.Vcf.append_filters</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">viola.Vcf.get_table</a></li>
-<li class="toctree-l4"><a class="reference internal" href="viola.Vcf.to_bedpe_like.html">viola.Vcf.to_bedpe_like</a></li>
-<li class="toctree-l4"><a class="reference internal" href="viola.Vcf.to_vcf_like.html">viola.Vcf.to_vcf_like</a></li>
+<li class="toctree-l4"><a class="reference internal" href="viola.Vcf.remove_info_table.html">viola.Vcf.remove_info_table</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../vcf.html#filtering">Filtering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vcf.html#merging">Merging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vcf.html#representation">Representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vcf.html#signature-analysis">Signature_analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vcf.html#sv-id-sv-records">SV ID/SV records</a></li>
 </ul>
 </li>
 </ul>
@@ -125,7 +139,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">PySgt</a>
+          <a href="../../index.html">Viola</a>
         
       </nav>
 
@@ -211,15 +225,15 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="viola.Vcf.to_bedpe_like.html" class="btn btn-neutral float-right" title="viola.Vcf.to_bedpe_like" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="viola.Vcf.ids.html" class="btn btn-neutral float-left" title="viola.Vcf.ids" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="viola.Vcf.remove_info_table.html" class="btn btn-neutral float-right" title="viola.Vcf.remove_info_table" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="viola.Vcf.append_filters.html" class="btn btn-neutral float-left" title="viola.Vcf.append_filters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, Itsuki Sugita.
+        &#169; Copyright 2021, Itsuki Sugita.
 
     </p>
   </div>

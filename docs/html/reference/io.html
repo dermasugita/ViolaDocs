@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Input/Output &mdash; PySgt 0.1 documentation</title>
+  <title>Input/Output &mdash; Viola 1.0.0.dev1 documentation</title>
   
 
   
@@ -55,7 +55,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> PySgt
+            <a href="../index.html" class="icon icon-home"> Viola
           
 
           
@@ -63,6 +63,10 @@
 
           
             
+            
+              <div class="version">
+                1.0.0.dev1
+              </div>
             
           
 
@@ -95,6 +99,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Input/Output</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#vcf-file">VCF file</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/viola.read_vcf.html">viola.read_vcf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.read_vcf_multi.html">viola.read_vcf_multi</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#bedpe-file">BEDPE file</a><ul>
@@ -125,7 +130,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">PySgt</a>
+          <a href="../index.html">Viola</a>
         
       </nav>
 
@@ -192,6 +197,9 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="api/viola.read_vcf.html#viola.read_vcf" title="viola.read_vcf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_vcf</span></code></a>(filepath_or_buffer[, variant_callser])</p></td>
 <td><p>Read vcf file of SV and return Vcf object.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/viola.read_vcf_multi.html#viola.read_vcf_multi" title="viola.read_vcf_multi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_vcf_multi</span></code></a>(dir_path, variant_caller, …)</p></td>
+<td><p>Read VCF files in a specified directory at the same time and return as MultiBedpe object.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -228,7 +236,7 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, Itsuki Sugita.
+        &#169; Copyright 2021, Itsuki Sugita.
 
     </p>
   </div>
