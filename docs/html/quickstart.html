@@ -9,7 +9,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Quick Start &mdash; Viola 1.0.0.dev1 documentation</title>
+  <title>Quick Start &mdash; Viola 1.0.0.dev2 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                1.0.0.dev1
+                1.0.0.dev2
               </div>
             
           
@@ -208,7 +208,9 @@
 <div class="section" id="create-vcf-object-from-vcf-file">
 <h2>Create Vcf object from VCF file.<a class="headerlink" href="#create-vcf-object-from-vcf-file" title="Permalink to this headline">¶</a></h2>
 <p>In order to use Viola’s features, you must first run <a class="reference internal" href="reference/api/viola.read_vcf.html"><span class="doc">read_vcf</span></a> to create an <a class="reference internal" href="reference/vcf.html#vcf"><span class="std std-ref">viola.Vcf</span></a> object.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="n">vcf</span> <span class="o">=</span> <span class="n">viola</span><span class="o">.</span><span class="n">read_vcf</span><span class="p">(</span><span class="s1">&#39;_static/tutorial.manta.vcf&#39;</span><span class="p">,</span> <span class="n">variant_caller</span><span class="o">=</span><span class="s1">&#39;manta&#39;</span><span class="p">)</span> <span class="c1"># filepath, url, and file-like object are acceptable.</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/dermasugita/ViolaDocs/main/docs/html/_static/tutorial.manta.vcf&#39;</span>
+
+<span class="gp">In [3]: </span><span class="n">vcf</span> <span class="o">=</span> <span class="n">viola</span><span class="o">.</span><span class="n">read_vcf</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">variant_caller</span><span class="o">=</span><span class="s1">&#39;manta&#39;</span><span class="p">)</span> <span class="c1"># filepath, url, and file-like object are acceptable.</span>
 </pre></div>
 </div>
 <p>Now you’re ready to perform a number of functions that the Viola package has.</p>
@@ -221,9 +223,9 @@ To do so, you have three options.</p>
 <div class="section" id="simply-print-the-object">
 <h3>1) Simply print the object.<a class="headerlink" href="#simply-print-the-object" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># The column name &#39;be&#39; stands for &#39;breakend&#39;.</span>
-<span class="gp">In [3]: </span><span class="nb">print</span><span class="p">(</span><span class="n">vcf</span><span class="p">)</span>
+<span class="gp">In [4]: </span><span class="nb">print</span><span class="p">(</span><span class="n">vcf</span><span class="p">)</span>
 <span class="go">INFO=imprecise,svtype,svlen,end,cipos,ciend,cigar,mateid,event,homlen,homseq,svinslen,svinsseq,left_svinsseq,right_svinsseq,contig,bnd_depth,mate_bnd_depth,somatic,somaticscore,junction_somaticscore,inv3,inv5</span>
-<span class="go">Documentation of Vcf object ==&gt; https://dermasugita.github.io/PySgtDocs/docs/html/reference/vcf.html</span>
+<span class="go">Documentation of Vcf object ==&gt; https://dermasugita.github.io/ViolaDocs/docs/html/reference/vcf.html</span>
 <span class="go">        id              be1              be2 strand  qual svtype</span>
 <span class="go">0    test1    chr1:82550461    chr1:82554226     +-  None    DEL</span>
 <span class="go">1    test2    chr1:22814217    chr1:92581132     --  None    INV</span>
@@ -237,9 +239,9 @@ To do so, you have three options.</p>
 </div>
 <div class="section" id="generate-bedpe-like-pandas-dataframe">
 <h3>2) Generate BEDPE like pandas.DataFrame.<a class="headerlink" href="#generate-bedpe-like-pandas-dataframe" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">vcf_bedpe_like</span> <span class="o">=</span> <span class="n">vcf</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">()</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">vcf_bedpe_like</span> <span class="o">=</span> <span class="n">vcf</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">()</span>
 
-<span class="gp">In [5]: </span><span class="nb">print</span><span class="p">(</span><span class="n">vcf_bedpe_like</span><span class="p">)</span>
+<span class="gp">In [6]: </span><span class="nb">print</span><span class="p">(</span><span class="n">vcf_bedpe_like</span><span class="p">)</span>
 <span class="go">  chrom1     start1       end1 chrom2     start2       end2     name score strand1 strand2</span>
 <span class="go">0   chr1   82550460   82550461   chr1   82554225   82554226    test1  None       +       -</span>
 <span class="go">1   chr1   22814216   22814217   chr1   92581131   92581132    test2  None       -       -</span>
@@ -255,8 +257,8 @@ To do so, you have three options.</p>
 <div class="section" id="use-the-get-table-method-to-get-individual-tables-composing-the-vcf-object">
 <h3>3) Use the <a class="reference internal" href="reference/api/viola.Vcf.get_table.html"><span class="doc">get_table()</span></a> method to get individual tables composing the Vcf object.<a class="headerlink" href="#use-the-get-table-method-to-get-individual-tables-composing-the-vcf-object" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># the returned value is pd.DataFrame</span>
-<span class="gp">In [6]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">get_table</span><span class="p">(</span><span class="s1">&#39;positions&#39;</span><span class="p">)</span>
-<span class="gh">Out[6]: </span><span class="go"></span>
+<span class="gp">In [7]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">get_table</span><span class="p">(</span><span class="s1">&#39;positions&#39;</span><span class="p">)</span>
+<span class="gh">Out[7]: </span><span class="go"></span>
 <span class="go">        id chrom1       pos1 chrom2       pos2  ... strand2 ref                 alt  qual svtype</span>
 <span class="go">0    test1   chr1   82550461   chr1   82554226  ...       -   G               &lt;DEL&gt;  None    DEL</span>
 <span class="go">1    test2   chr1   22814217   chr1   92581132  ...       -   T               &lt;INV&gt;  None    INV</span>
@@ -270,8 +272,8 @@ To do so, you have three options.</p>
 </pre></div>
 </div>
 <p>The names of all the tables in <code class="docutils literal notranslate"><span class="pre">vcf</span></code> are stored in the <a class="reference internal" href="reference/api/viola.Vcf.table_list.html"><span class="doc">table_list</span></a> attribute:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">table_list</span>
-<span class="gh">Out[7]: </span><span class="go"></span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">table_list</span>
+<span class="gh">Out[8]: </span><span class="go"></span>
 <span class="go">[&#39;positions&#39;,</span>
 <span class="go"> &#39;filters&#39;,</span>
 <span class="go"> &#39;imprecise&#39;,</span>
@@ -307,8 +309,8 @@ To do so, you have three options.</p>
 </pre></div>
 </div>
 <p>You can get any table you want.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">get_table</span><span class="p">(</span><span class="s1">&#39;formats_meta&#39;</span><span class="p">)</span> <span class="c1"># get header information of FORMAT field</span>
-<span class="gh">Out[8]: </span><span class="go"></span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">get_table</span><span class="p">(</span><span class="s1">&#39;formats_meta&#39;</span><span class="p">)</span> <span class="c1"># get header information of FORMAT field</span>
+<span class="gh">Out[9]: </span><span class="go"></span>
 <span class="go">   id number     type                    description</span>
 <span class="go">0  PR   None  Integer  Spanning paired-read suppo...</span>
 <span class="go">1  SR   None  Integer  Split reads for the ref an...</span>
@@ -342,12 +344,12 @@ viola.Vcf object provides an intuitive way to filter SV in almost any item.</p>
 <li><p>The following syntax can also be used for other INFO.</p></li>
 </ul>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># filter with svtype.</span>
-<span class="gp">In [9]: </span><span class="n">query1_1</span> <span class="o">=</span> <span class="s1">&#39;svtype == DEL&#39;</span>
+<span class="gp">In [10]: </span><span class="n">query1_1</span> <span class="o">=</span> <span class="s1">&#39;svtype == DEL&#39;</span>
 
-<span class="gp">In [10]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">query1_1</span><span class="p">)</span>
-<span class="gh">Out[10]: </span><span class="go"></span>
+<span class="gp">In [11]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">query1_1</span><span class="p">)</span>
+<span class="gh">Out[11]: </span><span class="go"></span>
 <span class="go">INFO=imprecise,svtype,svlen,end,cipos,ciend,cigar,mateid,event,homlen,homseq,svinslen,svinsseq,left_svinsseq,right_svinsseq,contig,bnd_depth,mate_bnd_depth,somatic,somaticscore,junction_somaticscore,inv3,inv5</span>
-<span class="go">Documentation of Vcf object ==&gt; https://dermasugita.github.io/PySgtDocs/docs/html/reference/vcf.html</span>
+<span class="go">Documentation of Vcf object ==&gt; https://dermasugita.github.io/ViolaDocs/docs/html/reference/vcf.html</span>
 <span class="go">      id              be1              be2 strand  qual svtype</span>
 <span class="go">0  test1    chr1:82550461    chr1:82554226     +-  None    DEL</span>
 <span class="go">1  test3    chr1:60567906    chr1:60675941     +-  None    DEL</span>
@@ -363,27 +365,27 @@ viola.Vcf object provides an intuitive way to filter SV in almost any item.</p>
 <li><p>Note that &lt;start position&gt;-&lt;end position&gt; specifies genomic coordinates with left-closed, right-open interval, that is, [&lt;start position&gt;, &lt;end position&gt;).</p></li>
 </ul>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># filter with genomic coordinates.</span>
-<span class="gp">In [11]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;be1 chr11&#39;</span><span class="p">)</span>
-<span class="gh">Out[11]: </span><span class="go"></span>
+<span class="gp">In [12]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;be1 chr11&#39;</span><span class="p">)</span>
+<span class="gh">Out[12]: </span><span class="go"></span>
 <span class="go">INFO=imprecise,svtype,svlen,end,cipos,ciend,cigar,mateid,event,homlen,homseq,svinslen,svinsseq,left_svinsseq,right_svinsseq,contig,bnd_depth,mate_bnd_depth,somatic,somaticscore,junction_somaticscore,inv3,inv5</span>
-<span class="go">Documentation of Vcf object ==&gt; https://dermasugita.github.io/PySgtDocs/docs/html/reference/vcf.html</span>
+<span class="go">Documentation of Vcf object ==&gt; https://dermasugita.github.io/ViolaDocs/docs/html/reference/vcf.html</span>
 <span class="go">        id              be1              be2 strand  qual svtype</span>
 <span class="go">0    test5  chr11:104534877  chr11:104536574     +-  None    DEL</span>
 <span class="go">1  test6_1  chr11:111134697   chr17:26470495     +-  None    BND</span>
 
-<span class="gp">In [12]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;be1 !chr1&#39;</span><span class="p">)</span>
-<span class="gh">Out[12]: </span><span class="go"></span>
+<span class="gp">In [13]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;be1 !chr1&#39;</span><span class="p">)</span>
+<span class="gh">Out[13]: </span><span class="go"></span>
 <span class="go">INFO=imprecise,svtype,svlen,end,cipos,ciend,cigar,mateid,event,homlen,homseq,svinslen,svinsseq,left_svinsseq,right_svinsseq,contig,bnd_depth,mate_bnd_depth,somatic,somaticscore,junction_somaticscore,inv3,inv5</span>
-<span class="go">Documentation of Vcf object ==&gt; https://dermasugita.github.io/PySgtDocs/docs/html/reference/vcf.html</span>
+<span class="go">Documentation of Vcf object ==&gt; https://dermasugita.github.io/ViolaDocs/docs/html/reference/vcf.html</span>
 <span class="go">        id              be1              be2 strand  qual svtype</span>
 <span class="go">0    test5  chr11:104534877  chr11:104536574     +-  None    DEL</span>
 <span class="go">1  test6_1  chr11:111134697   chr17:26470495     +-  None    BND</span>
 <span class="go">2  test6_2   chr17:26470495  chr11:111134697     -+  None    BND</span>
 
-<span class="gp">In [13]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;be2 chr1:69583189-&#39;</span><span class="p">)</span>
-<span class="gh">Out[13]: </span><span class="go"></span>
+<span class="gp">In [14]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;be2 chr1:69583189-&#39;</span><span class="p">)</span>
+<span class="gh">Out[14]: </span><span class="go"></span>
 <span class="go">INFO=imprecise,svtype,svlen,end,cipos,ciend,cigar,mateid,event,homlen,homseq,svinslen,svinsseq,left_svinsseq,right_svinsseq,contig,bnd_depth,mate_bnd_depth,somatic,somaticscore,junction_somaticscore,inv3,inv5</span>
-<span class="go">Documentation of Vcf object ==&gt; https://dermasugita.github.io/PySgtDocs/docs/html/reference/vcf.html</span>
+<span class="go">Documentation of Vcf object ==&gt; https://dermasugita.github.io/ViolaDocs/docs/html/reference/vcf.html</span>
 <span class="go">      id            be1            be2 strand  qual svtype</span>
 <span class="go">0  test1  chr1:82550461  chr1:82554226     +-  None    DEL</span>
 <span class="go">1  test2  chr1:22814217  chr1:92581132     --  None    INV</span>
@@ -396,8 +398,8 @@ viola.Vcf object provides an intuitive way to filter SV in almost any item.</p>
 <li><p>FORMAT indexer is optional. It is not required when the FORMAT isn’t separated by commas.</p></li>
 <li><p>FORMAT indexer is 0-origin. Default value is 0.</p></li>
 </ul>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;sample1_T PR 1 &gt; 5&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">add_formats</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gh">Out[14]: </span><span class="go"></span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;sample1_T PR 1 &gt; 5&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">add_formats</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gh">Out[15]: </span><span class="go"></span>
 <span class="go">  chrom1     start1       end1 chrom2     start2  ...  strand2 sample1_N_PR_0 sample1_N_PR_1 sample1_T_PR_0 sample1_T_PR_1</span>
 <span class="go">0   chr1   60567905   60567906   chr1   60675940  ...        -             23              0             44              6</span>
 <span class="go">1   chr1   69583189   69583190   chr1   69590947  ...        -             21              0             20             12</span>
@@ -411,16 +413,16 @@ viola.Vcf object provides an intuitive way to filter SV in almost any item.</p>
 <ul class="simple">
 <li><p>When “!” mark is prepended, the SV records excluding &lt;FILTER name&gt; are returned.</p></li>
 </ul>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;PASS&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">add_filters</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gh">Out[15]: </span><span class="go"></span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;PASS&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">add_filters</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gh">Out[16]: </span><span class="go"></span>
 <span class="go">  chrom1     start1       end1 chrom2     start2  ...   name score strand1 strand2  PASS</span>
 <span class="go">0   chr1   69583189   69583190   chr1   69590947  ...  test4  None       +       -  True</span>
 <span class="go">1  chr11  104534876  104534877  chr11  104536573  ...  test5  None       +       -  True</span>
 
 <span class="go">[2 rows x 11 columns]</span>
 
-<span class="gp">In [16]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;!PASS&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">add_filters</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gh">Out[16]: </span><span class="go"></span>
+<span class="gp">In [17]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;!PASS&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">add_filters</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gh">Out[17]: </span><span class="go"></span>
 <span class="go">  chrom1     start1       end1 chrom2     start2  ...     name score strand1 strand2 MinSomaticScore</span>
 <span class="go">0   chr1   82550460   82550461   chr1   82554225  ...    test1  None       +       -            True</span>
 <span class="go">1   chr1   22814216   22814217   chr1   92581131  ...    test2  None       -       -            True</span>
@@ -432,15 +434,15 @@ viola.Vcf object provides an intuitive way to filter SV in almost any item.</p>
 </pre></div>
 </div>
 <p><strong>d. Query can be a list</strong></p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [17]: </span><span class="n">query2_1</span> <span class="o">=</span> <span class="s1">&#39;svlen &lt; -4000&#39;</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">query2_1</span> <span class="o">=</span> <span class="s1">&#39;svlen &lt; -4000&#39;</span>
 
-<span class="gp">In [18]: </span><span class="n">query2_2</span> <span class="o">=</span> <span class="s1">&#39;svlen &gt; -10000&#39;</span>
+<span class="gp">In [19]: </span><span class="n">query2_2</span> <span class="o">=</span> <span class="s1">&#39;svlen &gt; -10000&#39;</span>
 
-<span class="gp">In [19]: </span><span class="n">vcf2</span> <span class="o">=</span> <span class="n">vcf</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="n">query2_1</span><span class="p">,</span> <span class="n">query2_2</span><span class="p">],</span> <span class="n">query_logic</span><span class="o">=</span><span class="s1">&#39;and&#39;</span><span class="p">)</span>
+<span class="gp">In [20]: </span><span class="n">vcf2</span> <span class="o">=</span> <span class="n">vcf</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="n">query2_1</span><span class="p">,</span> <span class="n">query2_2</span><span class="p">],</span> <span class="n">query_logic</span><span class="o">=</span><span class="s1">&#39;and&#39;</span><span class="p">)</span>
 
-<span class="gp">In [20]: </span><span class="n">result2</span> <span class="o">=</span> <span class="n">vcf2</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">custom_infonames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;svtype&#39;</span><span class="p">,</span> <span class="s1">&#39;svlen&#39;</span><span class="p">])</span>
+<span class="gp">In [21]: </span><span class="n">result2</span> <span class="o">=</span> <span class="n">vcf2</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">custom_infonames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;svtype&#39;</span><span class="p">,</span> <span class="s1">&#39;svlen&#39;</span><span class="p">])</span>
 
-<span class="gp">In [21]: </span><span class="nb">print</span><span class="p">(</span><span class="n">result2</span><span class="p">)</span>
+<span class="gp">In [22]: </span><span class="nb">print</span><span class="p">(</span><span class="n">result2</span><span class="p">)</span>
 <span class="go">  chrom1    start1      end1 chrom2    start2  ...  score strand1 strand2 svtype_0 svlen_0</span>
 <span class="go">0   chr1  69583189  69583190   chr1  69590947  ...   None       +       -      DEL   -7757</span>
 
@@ -448,16 +450,16 @@ viola.Vcf object provides an intuitive way to filter SV in almost any item.</p>
 </pre></div>
 </div>
 <p>You can perform set operations by passing expressions to query_logic.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [22]: </span><span class="n">query3_1</span> <span class="o">=</span> <span class="s1">&#39;svtype == DEL&#39;</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [23]: </span><span class="n">query3_1</span> <span class="o">=</span> <span class="s1">&#39;svtype == DEL&#39;</span>
 
-<span class="gp">In [23]: </span><span class="n">query3_2</span> <span class="o">=</span> <span class="s1">&#39;svtype == BND&#39;</span>
+<span class="gp">In [24]: </span><span class="n">query3_2</span> <span class="o">=</span> <span class="s1">&#39;svtype == BND&#39;</span>
 
-<span class="gp">In [24]: </span><span class="n">query3_3</span> <span class="o">=</span> <span class="s1">&#39;somaticscore &gt; 20&#39;</span>
+<span class="gp">In [25]: </span><span class="n">query3_3</span> <span class="o">=</span> <span class="s1">&#39;somaticscore &gt; 20&#39;</span>
 
 <span class="go"># (query3_1 or query3_2) and (query3_3)</span>
-<span class="gp">In [25]: </span><span class="n">vcf3</span> <span class="o">=</span> <span class="n">vcf</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="n">query3_1</span><span class="p">,</span> <span class="n">query3_2</span><span class="p">,</span> <span class="n">query3_3</span><span class="p">],</span> <span class="n">query_logic</span><span class="o">=</span><span class="s1">&#39;(0 | 1) &amp; 2&#39;</span><span class="p">)</span>
+<span class="gp">In [26]: </span><span class="n">vcf3</span> <span class="o">=</span> <span class="n">vcf</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="n">query3_1</span><span class="p">,</span> <span class="n">query3_2</span><span class="p">,</span> <span class="n">query3_3</span><span class="p">],</span> <span class="n">query_logic</span><span class="o">=</span><span class="s1">&#39;(0 | 1) &amp; 2&#39;</span><span class="p">)</span>
 
-<span class="gp">In [26]: </span><span class="nb">print</span><span class="p">(</span><span class="n">vcf3</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">custom_infonames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;svtype&#39;</span><span class="p">,</span> <span class="s1">&#39;somaticscore&#39;</span><span class="p">]))</span>
+<span class="gp">In [27]: </span><span class="nb">print</span><span class="p">(</span><span class="n">vcf3</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">(</span><span class="n">custom_infonames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;svtype&#39;</span><span class="p">,</span> <span class="s1">&#39;somaticscore&#39;</span><span class="p">]))</span>
 <span class="go">  chrom1     start1       end1 chrom2     start2  ...  score strand1 strand2 svtype_0 somaticscore_0</span>
 <span class="go">0   chr1   69583189   69583190   chr1   69590947  ...   None       +       -      DEL             47</span>
 <span class="go">1  chr11  104534876  104534877  chr11  104536573  ...   None       +       -      DEL             38</span>
@@ -474,10 +476,10 @@ viola.Vcf object provides an intuitive way to filter SV in almost any item.</p>
 In such cases we recommend to use <a class="reference internal" href="reference/api/viola.Vcf.filter_by_id.html"><span class="doc">Vcf.filter_by_id</span></a> method.</p>
 <p>Suppose you obtained the list of SV id, such as <code class="docutils literal notranslate"><span class="pre">['test2',</span> <span class="pre">'test4']</span></code>, as a result of quite complex criterion.
 In this case, your code should be:</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [27]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">filter_by_id</span><span class="p">([</span><span class="s1">&#39;test2&#39;</span><span class="p">,</span> <span class="s1">&#39;test4&#39;</span><span class="p">])</span>
-<span class="gh">Out[27]: </span><span class="go"></span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [28]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">filter_by_id</span><span class="p">([</span><span class="s1">&#39;test2&#39;</span><span class="p">,</span> <span class="s1">&#39;test4&#39;</span><span class="p">])</span>
+<span class="gh">Out[28]: </span><span class="go"></span>
 <span class="go">INFO=imprecise,svtype,svlen,end,cipos,ciend,cigar,mateid,event,homlen,homseq,svinslen,svinsseq,left_svinsseq,right_svinsseq,contig,bnd_depth,mate_bnd_depth,somatic,somaticscore,junction_somaticscore,inv3,inv5</span>
-<span class="go">Documentation of Vcf object ==&gt; https://dermasugita.github.io/PySgtDocs/docs/html/reference/vcf.html</span>
+<span class="go">Documentation of Vcf object ==&gt; https://dermasugita.github.io/ViolaDocs/docs/html/reference/vcf.html</span>
 <span class="go">      id            be1            be2 strand  qual svtype</span>
 <span class="go">0  test2  chr1:22814217  chr1:92581132     --  None    INV</span>
 <span class="go">1  test4  chr1:69583190  chr1:69590948     +-  None    DEL</span>
