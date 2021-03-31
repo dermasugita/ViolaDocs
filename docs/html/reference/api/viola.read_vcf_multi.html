@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>viola.read_vcf_multi &mdash; Viola 1.0.0.dev2 documentation</title>
+  <title>viola.read_vcf_multi &mdash; Viola 1.0.0.dev3 documentation</title>
   
 
   
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                1.0.0.dev2
+                1.0.0.dev3
               </div>
             
           
@@ -195,6 +195,7 @@
 <li><p><strong>variant_caller</strong> (<em>str</em>) – Let this function know which SV caller was used to create vcf file.
 Only “manta” is supported for now.</p></li>
 <li><p><strong>as_breakpoint</strong> (<em>bool</em><em>, </em><em>default False</em>) – Convert SVTYPE=BND record into breakpoint-wise SV. The SVTYPE is predicted and can be DEL, DUP, INV, INS, TRA or BND.</p></li>
+<li><p><strong>exclude_empty_cases</strong> (<em>bool</em><em>, </em><em>default False</em>) – If True, skip reading empty VCF files.</p></li>
 <li><p><strong>file_extension</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>default 'vcf'</em>) – File extension of BEDPE files. If you want to load files with no extension, specify None.</p></li>
 <li><p><strong>escape_dot_files</strong> (<em>bool</em><em>, </em><em>default True</em>) – If True, avoid reading hidden files in the directory.</p></li>
 </ul>

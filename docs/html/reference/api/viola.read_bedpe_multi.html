@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>viola.read_bedpe_multi &mdash; Viola 1.0.0.dev2 documentation</title>
+  <title>viola.read_bedpe_multi &mdash; Viola 1.0.0.dev3 documentation</title>
   
 
   
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                1.0.0.dev2
+                1.0.0.dev3
               </div>
             
           
@@ -193,6 +193,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>dir_path</strong> (<em>str</em>) – Path to the directory containing the BEDPE files.</p></li>
 <li><p><strong>svtype_col_name</strong> (<em>str</em><em>, </em><em>default 'svclass'</em>) – If the bedpe file has a svtype column, please pass the column name to this argument.</p></li>
+<li><p><strong>exclude_empty_cases</strong> (<em>bool</em><em>, </em><em>default False</em>) – If True, skip reading empty BEDPE files.</p></li>
 <li><p><strong>file_extension</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>default 'bedpe'</em>) – File extension of BEDPE files. If you want to load files with no extension, specify None.</p></li>
 <li><p><strong>escape_dot_files</strong> (<em>bool</em><em>, </em><em>default True</em>) – If True, avoid reading hidden files in the directory.</p></li>
 </ul>

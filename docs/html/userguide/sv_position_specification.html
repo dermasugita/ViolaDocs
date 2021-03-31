@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Specification of SV positions in Viola &mdash; Viola 1.0.0.dev3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Flexible BEDPE generation" href="bedpe_generation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Viola
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0.dev3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signature_analysis.html">Signature Analysis Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="data_structure.html">Viola’s Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filtering.html">Filtering Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bedpe_generation.html">Flexible BEDPE generation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Specification of SV positions in Viola</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#deletion">Deletion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#duplication">Duplication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inversion">Inversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#translocation">Translocation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Viola</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">User Guide</a> &raquo;</li>
+        
+      <li>Specification of SV positions in Viola</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/userguide/sv_position_specification.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="specification-of-sv-positions-in-viola">
+<span id="sv-position-specification"></span><h1>Specification of SV positions in Viola<a class="headerlink" href="#specification-of-sv-positions-in-viola" title="Permalink to this headline">¶</a></h1>
+<p>The specification of SV positions varies from SV caller to SV caller.
+It can be misleading to know exactly which genomic coordinates the SV of interest is located in.</p>
+<p>Viola normalises the output of different SV callers and provides a well-defined specification.</p>
+<p>Here we will explain how Viola normalises the position of SVs, with graphical examples for better understanding.</p>
+<div class="section" id="deletion">
+<h2>Deletion<a class="headerlink" href="#deletion" title="Permalink to this headline">¶</a></h2>
+<p>First, we’ll start from “Deletion”.</p>
+<img alt="../_images/del_image.png" src="../_images/del_image.png" />
+<p>The top of the figure is the reference sequence.</p>
+<p>When “Deletion” occurs, two breakends appear. In this figure, one breakend is position 20 and another is 26 (middle).</p>
+<p>These two breakends consists one breakpoint (bottom).</p>
+<img alt="../_images/del_vcf.png" src="../_images/del_vcf.png" />
+<p>This “Deletion” event is recorded in VCF format, as shown above.
+Normally, there are two ways of writing down a “Deletion” event; breakend-based recording and breakpoint-based recording.</p>
+<p>Gridss, for example, employs breakend-based recording system. Since two breakends arise from one “Deletion” event, the VCF has two lines of SV record (top).
+Manta, Delly, and Lumpy uses breakpoint-based recording for Deletion, so only one line indicates the event.</p>
+<img alt="../_images/del_viola.png" src="../_images/del_viola.png" />
+<p>Viola object like <a class="reference internal" href="../reference/vcf.html#vcf"><span class="std std-ref">viola.Vcf</span></a> and <a class="reference internal" href="../reference/bedpe.html#bedpe"><span class="std std-ref">viola.Bedpe</span></a> stores SV position in the table named <code class="docutils literal notranslate"><span class="pre">positions</span></code>.
+The figure shown just above is the content of <code class="docutils literal notranslate"><span class="pre">positions</span></code> table.</p>
+<p>The positions in this table is breakend-based, such that the <code class="docutils literal notranslate"><span class="pre">pos1</span></code> and <code class="docutils literal notranslate"><span class="pre">pos2</span></code> columns indicate the genomic coordinates of two breakends.
+Strands for each breakend are written in <code class="docutils literal notranslate"><span class="pre">strand1</span></code> and <code class="docutils literal notranslate"><span class="pre">strand2</span></code> fields, where ‘+’ means 3’ half is missing, and vice versa.</p>
+<p>Whether the SV records will be two lines or one line depends on the SV caller by which the input VCF is made.</p>
+<p>If you want to convert breakend-based notation into breakpoint-based one, consider using <a class="reference internal" href="../reference/api/viola.Vcf.breakend2breakpoint.html"><span class="doc">viola.Vcf.breakend2breakpoint()</span></a>.</p>
+<img alt="../_images/del_bedpe.png" src="../_images/del_bedpe.png" />
+<p>Viola supports BEDPE output (See <a class="reference internal" href="../reference/api/viola.Vcf.to_bedpe.html"><span class="doc">viola.Vcf.to_bedpe()</span></a>). The BEDPE specification is written in <a class="reference external" href="https://bedtools.readthedocs.io/en/latest/content/general-usage.html">bedtools documentation</a>.</p>
+<p>For further understandings, we will show how Viola exports BEDPE exactly.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">end1</span></code> and <code class="docutils literal notranslate"><span class="pre">end2</span></code> columns of BEDPE are exactly same as <code class="docutils literal notranslate"><span class="pre">pos1</span></code> and <code class="docutils literal notranslate"><span class="pre">pos2</span></code> columns of Viola’s <code class="docutils literal notranslate"><span class="pre">positions</span></code> table.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start1</span></code> and <code class="docutils literal notranslate"><span class="pre">start2</span></code> columns are 0-origin position, so the following formula holds: <code class="docutils literal notranslate"><span class="pre">start1</span></code> + 1 = <code class="docutils literal notranslate"><span class="pre">end1</span></code>, <code class="docutils literal notranslate"><span class="pre">start2</span></code> + 1 = <code class="docutils literal notranslate"><span class="pre">end2</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="duplication">
+<h2>Duplication<a class="headerlink" href="#duplication" title="Permalink to this headline">¶</a></h2>
+<p>Next, let’s move on “Duplication”, especially “Tandem Duplication” where a certain segment is duplicated exactly next to the other.</p>
+<img alt="../_images/dup_image.png" src="../_images/dup_image.png" />
+<p>In this case, the breakend of position 25 and 21 are connecting to produce “Tandem Duplication” breakpoint (middle and bottom).</p>
+<img alt="../_images/dup_vcf.png" src="../_images/dup_vcf.png" />
+<img alt="../_images/dup_viola.png" src="../_images/dup_viola.png" />
+<img alt="../_images/dup_bedpe.png" src="../_images/dup_bedpe.png" />
+<p>Corresponding VCF, <code class="docutils literal notranslate"><span class="pre">positions</span></code> table, and BEDPE format are shown above.</p>
+</div>
+<div class="section" id="inversion">
+<h2>Inversion<a class="headerlink" href="#inversion" title="Permalink to this headline">¶</a></h2>
+<p>Regarding to the VCF, “Inversion” is the most confusing thing, since all SV callers output with different conventions!</p>
+<img alt="../_images/inv_image.png" src="../_images/inv_image.png" />
+<p>This is the “Inversion” events we’ll explain in depth below. There are two breakpoints in this figure.</p>
+<img alt="../_images/inv_vcf.png" src="../_images/inv_vcf.png" />
+<p>This is the VCF records for each SV caller.
+Gridss employs breakend-based notation here, too.
+Manta originally outputs breakend-based records of “Inversion”, but these can be converted to breakpoint-based VCFs by using scripts coded by Manta’s developers.
+Manta outputs the start position as 20 and the end position as 25, regardless of the “Inversion” strand; Lumpy is similar, but the output is on one line. In contrast, Delly adds 1 to the start and end positions for negative strands.</p>
+<img alt="../_images/inv_viola.png" src="../_images/inv_viola.png" />
+<p>On the viola, in “Inversion”, We were keen to express the SV position on a break-end basis.
+With regard to Lumpy, we have divided “Inversion” into two lines to fit our principles.</p>
+<img alt="../_images/inv_bedpe.png" src="../_images/inv_bedpe.png" />
+<p>For BEDPE output, the same method as for “Deletion” is also used here.</p>
+</div>
+<div class="section" id="translocation">
+<h2>Translocation<a class="headerlink" href="#translocation" title="Permalink to this headline">¶</a></h2>
+<p>Coming Soon.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="bedpe_generation.html" class="btn btn-neutral float-left" title="Flexible BEDPE generation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Itsuki Sugita.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

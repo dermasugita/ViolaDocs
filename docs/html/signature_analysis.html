@@ -9,7 +9,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Signature Analysis Tutorial &mdash; Viola 1.0.0.dev2 documentation</title>
+  <title>Signature Analysis Tutorial &mdash; Viola 1.0.0.dev3 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                1.0.0.dev2
+                1.0.0.dev3
               </div>
             
           
@@ -103,11 +103,11 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#generate-matrix">Generate Matrix</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#importing-viola">1. Importing Viola</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#reading-bedpe-files-into-viola-multibedpe-object">1. Reading BEDPE files into viola.MultiBedpe object</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#reading-bed-bedgraph-files-for-annotation">2. Reading BED/BEDGRAPH files for annotation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#annotating-sv">3. Annotating SV</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#get-average-values-of-replication-timing">4. Get Average values of Replication Timing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#classify-sv-and-generate-feature-matrix">5. Classify SV and Generate Feature Matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-bedpe-files-into-viola-multibedpe-object">2. Reading BEDPE files into viola.MultiBedpe object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-bed-bedgraph-files-for-annotation">3. Reading BED/BEDGRAPH files for annotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#annotating-sv">4. Annotating SV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-average-values-of-replication-timing">5. Get Average values of Replication Timing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#classify-sv-and-generate-feature-matrix">6. Classify SV and Generate Feature Matrix</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#definition-file-syntax">Definition File Syntax</a></li>
 </ul>
 </li>
@@ -237,7 +237,7 @@ The actual code is shown below.</p>
 </div>
 </div>
 <div class="section" id="reading-bedpe-files-into-viola-multibedpe-object">
-<h3>1. Reading BEDPE files into viola.MultiBedpe object<a class="headerlink" href="#reading-bedpe-files-into-viola-multibedpe-object" title="Permalink to this headline">¶</a></h3>
+<h3>2. Reading BEDPE files into viola.MultiBedpe object<a class="headerlink" href="#reading-bedpe-files-into-viola-multibedpe-object" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pcawg_bedpe</span><span class="o">=</span><span class="n">viola</span><span class="o">.</span><span class="n">read_bedpe_multi</span><span class="p">(</span><span class="s1">&#39;./resources/pcawg/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -245,8 +245,8 @@ The actual code is shown below.</p>
 Because the BEDPE files created by PCAWG have the <code class="docutils literal notranslate"><span class="pre">svclass</span></code> columns, we passed it to the <code class="docutils literal notranslate"><span class="pre">svtype_col_name</span></code> argument.</p>
 </div>
 <div class="section" id="reading-bed-bedgraph-files-for-annotation">
-<h3>2. Reading BED/BEDGRAPH files for annotation<a class="headerlink" href="#reading-bed-bedgraph-files-for-annotation" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bed_fragile</span> <span class="o">=</span> <span class="n">viola</span><span class="o">.</span><span class="n">read_bed</span><span class="p">(</span><span class="s1">&#39;./resources/annotation/fragile_site.hg19.bedgraph&#39;</span><span class="p">)</span>
+<h3>3. Reading BED/BEDGRAPH files for annotation<a class="headerlink" href="#reading-bed-bedgraph-files-for-annotation" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bed_fragile</span> <span class="o">=</span> <span class="n">viola</span><span class="o">.</span><span class="n">read_bed</span><span class="p">(</span><span class="s1">&#39;./resources/annotation/fragile_site.hg19.bed&#39;</span><span class="p">)</span>
 <span class="n">bed_timing</span> <span class="o">=</span> <span class="n">viola</span><span class="o">.</span><span class="n">read_bed</span><span class="p">(</span><span class="s1">&#39;./resources/annotation/replication_timing.bedgraph&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -256,7 +256,7 @@ Because the BEDPE files created by PCAWG have the <code class="docutils literal 
 <p>These files were built according to the <a class="reference external" href="https://www.nature.com/articles/s41586-019-1913-9#Sec20">PCAWG paper</a>.</p>
 </div>
 <div class="section" id="annotating-sv">
-<h3>3. Annotating SV<a class="headerlink" href="#annotating-sv" title="Permalink to this headline">¶</a></h3>
+<h3>4. Annotating SV<a class="headerlink" href="#annotating-sv" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pcawg_bedpe</span><span class="o">.</span><span class="n">annotate_bed</span><span class="p">(</span><span class="n">bed</span><span class="o">=</span><span class="n">bed_fragile</span><span class="p">,</span> <span class="n">annotation</span><span class="o">=</span><span class="s1">&#39;fragile&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;flag&#39;</span><span class="p">)</span>
 <span class="n">pcawg_bedpe</span><span class="o">.</span><span class="n">annotate_bed</span><span class="p">(</span><span class="n">bed</span><span class="o">=</span><span class="n">bedgraph_timing</span><span class="p">,</span> <span class="n">annotation</span><span class="o">=</span><span class="s1">&#39;timing&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
 </pre></div>
@@ -268,7 +268,7 @@ When <code class="docutils literal notranslate"><span class="pre">how='flag'</sp
 When <code class="docutils literal notranslate"><span class="pre">how='value'</span></code>, annotate the value of 4th column of Bed if the breakends hit.</p>
 </div>
 <div class="section" id="get-average-values-of-replication-timing">
-<h3>4. Get Average values of Replication Timing<a class="headerlink" href="#get-average-values-of-replication-timing" title="Permalink to this headline">¶</a></h3>
+<h3>5. Get Average values of Replication Timing<a class="headerlink" href="#get-average-values-of-replication-timing" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pcawg_bedpe</span><span class="o">.</span><span class="n">calculate_info</span><span class="p">(</span><span class="s1">&#39;($</span><span class="si">{timingleft}</span><span class="s1"> + $</span><span class="si">{timingright}</span><span class="s1">) / 2&#39;</span><span class="p">,</span> <span class="s1">&#39;timing&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -276,7 +276,7 @@ When <code class="docutils literal notranslate"><span class="pre">how='value'</s
 This code adds new INFO named ‘timing’ by calculating mean values of ‘timingleft’ and ‘timingright’.</p>
 </div>
 <div class="section" id="classify-sv-and-generate-feature-matrix">
-<h3>5. Classify SV and Generate Feature Matrix<a class="headerlink" href="#classify-sv-and-generate-feature-matrix" title="Permalink to this headline">¶</a></h3>
+<h3>6. Classify SV and Generate Feature Matrix<a class="headerlink" href="#classify-sv-and-generate-feature-matrix" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">feature_matrix</span> <span class="o">=</span> <span class="n">pcawg_bedpe</span><span class="o">.</span><span class="n">classify_manual_svtype</span><span class="p">(</span><span class="n">definitions</span><span class="o">=</span><span class="s1">&#39;./resources/definitions/sv_class_definition.txt&#39;</span><span class="p">,</span> <span class="n">return_data_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
