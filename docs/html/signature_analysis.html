@@ -4,12 +4,10 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta content="noindex" name="robots" />
-<meta content="nofollow" name="robots" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Signature Analysis Tutorial &mdash; Viola 1.0.0.dev3 documentation</title>
+  <title>Signature Analysis Tutorial &mdash; Viola 1.0.0.dev4 documentation</title>
   
 
   
@@ -67,7 +65,7 @@
             
             
               <div class="version">
-                1.0.0.dev3
+                1.0.0.dev4
               </div>
             
           
@@ -94,11 +92,11 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Signature Analysis Tutorial</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#pcawg-data-preparation">PCAWG data preparation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-files-preparation">Other files preparation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#generate-matrix">Generate Matrix</a><ul>
@@ -182,18 +180,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <span class="target" id="signature-analysis"></span><div class="section" id="signature-analysis-tutorial">
-<h1>Signature Analysis Tutorial<a class="headerlink" href="#signature-analysis-tutorial" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="signature-analysis-tutorial">
+<span id="signature-analysis"></span><h1>Signature Analysis Tutorial<a class="headerlink" href="#signature-analysis-tutorial" title="Permalink to this headline">¶</a></h1>
 <p>This is a tutorial for SV signature analysis with Viola.</p>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <p>If you are new to the Viola package, please refer to the <a class="reference internal" href="quickstart.html#quickstart"><span class="std std-ref">Quick Start</span></a> first. <a class="reference internal" href="quickstart.html#quickstart"><span class="std std-ref">Quick Start</span></a> explains basic usage of <a class="reference internal" href="reference/api/viola.Vcf.html"><span class="doc">Vcf</span></a> class, which shares a lot of methods with <a class="reference internal" href="reference/api/viola.MultiBedpe.html"><span class="doc">MultiBedpe</span></a> class.</p>
 <p>In this tutorial, we use BEDPE files provided by <a class="reference external" href="https://dcc.icgc.org/releases/PCAWG/consensus_sv">ICGC Data Portal</a>.
-Before proceeding to the next step, download these files and decompress them as follows.</p>
+Detailed instruction of data preparation is described below.</p>
 <div class="section" id="pcawg-data-preparation">
 <h3>PCAWG data preparation<a class="headerlink" href="#pcawg-data-preparation" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li><p>Create new directory named “resources” (Of cource you can name it otherwise) and run <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">resources</span></code>.</p></li>
+<li><p>Create new directory named “resources” (Of cource you can name it otherwise) in your working directory and run <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">resources</span></code>.</p></li>
 <li><p>Download <code class="docutils literal notranslate"><span class="pre">final_consensus_sv_bedpe_passonly.icgc.public.tgz</span></code> and <code class="docutils literal notranslate"><span class="pre">final_consensus_sv_bedpe_passonly.tcga.public.tgz</span></code> to the “resources” directory.</p></li>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">zxvf</span> <span class="pre">final_consensus_sv_bedpe_passonly.icgc.public.tgz</span></code> and <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">zxvf</span> <span class="pre">final_consensus_sv_bedpe_passonly.icgc.public.tgz</span></code></p></li>
 <li><p>Now you’ve got the <code class="docutils literal notranslate"><span class="pre">icgc/</span></code> directory and the <code class="docutils literal notranslate"><span class="pre">tcga/</span></code> directory.</p></li>
@@ -202,6 +200,19 @@ Before proceeding to the next step, download these files and decompress them as 
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">pcawg</span></code>, then run <code class="docutils literal notranslate"><span class="pre">gunzip</span> <span class="pre">*.gz</span></code></p></li>
 <li><p>Now you’ve got decompressed BEDPE files in the “pcawg” directory.</p></li>
 </ol>
+</div>
+<div class="section" id="other-files-preparation">
+<h3>Other files preparation<a class="headerlink" href="#other-files-preparation" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Go back to the “resources” directory.</p></li>
+<li><p>Visit <a class="reference external" href="https://github.com/dermasugita/Viola-SV/tree/master/examples/demo_sig/resources">here</a> and prepare same directories and files (You’ve already prepared pcawg files by above instruction).</p></li>
+<li><p>Decompress <code class="docutils literal notranslate"><span class="pre">replication_timing.bedgraph.gz</span></code> by running <code class="docutils literal notranslate"><span class="pre">gunzip</span> <span class="pre">replication_timing.bedpe.gz</span></code></p></li>
+<li><p>Go back to your working directory and create new Jupyter Notebook file (You can also use the <a class="reference external" href="https://github.com/dermasugita/Viola-SV/tree/master/examples/demo_sig">ipynb file</a> uploaded on GitHub.).</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Example <a class="reference external" href="https://github.com/dermasugita/Viola-SV/tree/master/examples/demo_sig">ipynb file</a> is available on GitHub!</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Due to the very large amount of data in PCAWG, the code described below will also take long time (around 50 min on Google Colab). If you want to try it in a shorter time, reduce the number of files in the directory.</p>
@@ -220,7 +231,7 @@ In this tutorial, we are going to classify SV by:</p>
 <p>This can be achieved with only eight lines of code.
 The actual code is shown below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">viola</span>
-<span class="n">pcawg_bedpe</span><span class="o">=</span><span class="n">viola</span><span class="o">.</span><span class="n">read_bedpe_multi</span><span class="p">(</span><span class="s1">&#39;./resources/pcawg/&#39;</span><span class="p">)</span>
+<span class="n">pcawg_bedpe</span><span class="o">=</span><span class="n">viola</span><span class="o">.</span><span class="n">read_bedpe_multi</span><span class="p">(</span><span class="s1">&#39;./resources/pcawg/&#39;</span><span class="p">,</span> <span class="n">exclude_empty_cases</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">bed_fragile</span> <span class="o">=</span> <span class="n">viola</span><span class="o">.</span><span class="n">read_bed</span><span class="p">(</span><span class="s1">&#39;./resources/annotation/fragile_site.hg19.bed&#39;</span><span class="p">)</span>
 <span class="n">bedgraph_timing</span> <span class="o">=</span> <span class="n">viola</span><span class="o">.</span><span class="n">read_bed</span><span class="p">(</span><span class="s1">&#39;./resources/annotation/replication_timing.bedgraph&#39;</span><span class="p">)</span>
 <span class="n">pcawg_bedpe</span><span class="o">.</span><span class="n">annotate_bed</span><span class="p">(</span><span class="n">bed</span><span class="o">=</span><span class="n">bed_fragile</span><span class="p">,</span> <span class="n">annotation</span><span class="o">=</span><span class="s1">&#39;fragile&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;flag&#39;</span><span class="p">)</span>
@@ -238,11 +249,12 @@ The actual code is shown below.</p>
 </div>
 <div class="section" id="reading-bedpe-files-into-viola-multibedpe-object">
 <h3>2. Reading BEDPE files into viola.MultiBedpe object<a class="headerlink" href="#reading-bedpe-files-into-viola-multibedpe-object" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pcawg_bedpe</span><span class="o">=</span><span class="n">viola</span><span class="o">.</span><span class="n">read_bedpe_multi</span><span class="p">(</span><span class="s1">&#39;./resources/pcawg/&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pcawg_bedpe</span><span class="o">=</span><span class="n">viola</span><span class="o">.</span><span class="n">read_bedpe_multi</span><span class="p">(</span><span class="s1">&#39;./resources/pcawg/&#39;</span><span class="p">,</span> <span class="n">exclude_empty_cases</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This code reads all BEDPE files in the <code class="docutils literal notranslate"><span class="pre">./resources/pcawg</span></code> directory into MultiBedpe class (See <a class="reference internal" href="reference/api/viola.MultiBedpe.html"><span class="doc">MultiBedpe</span></a>).
-Because the BEDPE files created by PCAWG have the <code class="docutils literal notranslate"><span class="pre">svclass</span></code> columns, we passed it to the <code class="docutils literal notranslate"><span class="pre">svtype_col_name</span></code> argument.</p>
+Because the BEDPE files created by PCAWG have the <code class="docutils literal notranslate"><span class="pre">svclass</span></code> columns, we passed it to the <code class="docutils literal notranslate"><span class="pre">svtype_col_name</span></code> argument
+Some BEDPE files did not have any SV records. This time we will exclude these by setting <code class="docutils literal notranslate"><span class="pre">exclude_empty_cases=True</span></code>.</p>
 </div>
 <div class="section" id="reading-bed-bedgraph-files-for-annotation">
 <h3>3. Reading BED/BEDGRAPH files for annotation<a class="headerlink" href="#reading-bed-bedgraph-files-for-annotation" title="Permalink to this headline">¶</a></h3>

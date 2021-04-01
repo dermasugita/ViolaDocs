@@ -1,10 +1,5 @@
 .. _user_guide:
 
-.. meta::
-   :robots: noindex
-   
-.. meta::
-   :robots: nofollow
 
 User Guide
 =============
