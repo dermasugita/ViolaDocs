@@ -116,6 +116,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../vcf.html#sv-id-sv-records">SV ID/SV records</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities.html">Utilities</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">User Guide</a></li>
@@ -194,7 +195,7 @@
 <h1>viola.Vcf.merge<a class="headerlink" href="#viola-vcf-merge" title="Permalink to this headline">¶</a></h1>
 <dl class="py method">
 <dt id="viola.Vcf.merge">
-<code class="sig-prename descclassname"><span class="pre">Vcf.</span></code><code class="sig-name descname"><span class="pre">merge</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ls_vcf</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ls_caller_names</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linkage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'complete'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">str_missing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">integration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Vcf.merge" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">Vcf.</span></code><code class="sig-name descname"><span class="pre">merge</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ls_vcf</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ls_caller_names</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linkage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'complete'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">str_missing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">integration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Vcf.merge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a merged or integrated vcf object from mulitple  caller’s bedpe objects in ls_bedpe</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -206,7 +207,7 @@
 To keep the mutual distance of all SVs in each cluster below the threshold,
 “complete” is recommended.</p></li>
 <li><p><strong>str_missing</strong> (<em>bool</em><em>, </em><em>default True</em>) – If True, all the missing strands are considered to be the same with the others.</p></li>
-<li><p><strong>integration</strong> (<em>bool</em><em>, </em><em>default False</em>) – If True, vcf objects in ls_vcf will be merged and integrated with priority as ls_caller_names.</p></li>
+<li><p><strong>integration</strong> (<em>bool</em><em>, </em><em>default True</em>) – If True, vcf objects in ls_vcf will be merged and integrated with priority as ls_caller_names.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

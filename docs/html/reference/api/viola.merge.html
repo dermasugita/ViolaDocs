@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>viola.MultiBedpe.get_feature_count_as_data_frame &mdash; Viola 1.0.0.dev4 documentation</title>
+  <title>viola.merge &mdash; Viola 1.0.0.dev4 documentation</title>
   
 
   
@@ -40,8 +40,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Vcf" href="../vcf.html" />
-    <link rel="prev" title="viola.MultiBedpe.classify_manual_svtype" href="viola.MultiBedpe.classify_manual_svtype.html" /> 
+    <link rel="next" title="User Guide" href="../../userguide/index.html" />
+    <link rel="prev" title="Utilities" href="../utilities.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -97,22 +97,15 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../io.html">Input/Output</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bedpe.html">Bedpe</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../multi_bedpe.html">MultiBedpe</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../multi_bedpe.html#constructor">Constructor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../multi_bedpe.html#attributes">Attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../multi_bedpe.html#accessing-the-tables">Accessing the Tables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../multi_bedpe.html#filtering">Filtering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../multi_bedpe.html#adding-informations">Adding Informations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../multi_bedpe.html#annotation">Annotation</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../multi_bedpe.html#signature-analysis">Signature_analysis</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="viola.MultiBedpe.classify_manual_svtype.html">viola.MultiBedpe.classify_manual_svtype</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">viola.MultiBedpe.get_feature_count_as_data_frame</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../multi_bedpe.html">MultiBedpe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vcf.html">Vcf</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../utilities.html">Utilities</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../utilities.html">Utilities</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../utilities.html#vcf-merge">VCF Merge</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">viola.merge</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">User Guide</a></li>
@@ -166,15 +159,15 @@
         
           <li><a href="../index.html">API Reference</a> &raquo;</li>
         
-          <li><a href="../multi_bedpe.html">MultiBedpe</a> &raquo;</li>
+          <li><a href="../utilities.html">Utilities</a> &raquo;</li>
         
-      <li>viola.MultiBedpe.get_feature_count_as_data_frame</li>
+      <li>viola.merge</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../../_sources/reference/api/viola.MultiBedpe.get_feature_count_as_data_frame.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/reference/api/viola.merge.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -187,12 +180,41 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="viola-multibedpe-get-feature-count-as-data-frame">
-<h1>viola.MultiBedpe.get_feature_count_as_data_frame<a class="headerlink" href="#viola-multibedpe-get-feature-count-as-data-frame" title="Permalink to this headline">¶</a></h1>
-<dl class="py method">
-<dt id="viola.MultiBedpe.get_feature_count_as_data_frame">
-<code class="sig-prename descclassname"><span class="pre">MultiBedpe.</span></code><code class="sig-name descname"><span class="pre">get_feature_count_as_data_frame</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'manual_sv_type'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ls_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_empty_cases</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.MultiBedpe.get_feature_count_as_data_frame" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+  <div class="section" id="viola-merge">
+<h1>viola.merge<a class="headerlink" href="#viola-merge" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="viola.merge">
+<code class="sig-name descname"><span class="pre">merge</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ls_inputs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ls_caller_names</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">integration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.merge" title="Permalink to this definition">¶</a></dt>
+<dd><p>merge Vcf objects or Bedpe objects
+Return a merged Vcf or Bedpe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ls_inputs</strong> (<em>list</em>) – A list of Vcf or Bedpe objects to be merged</p></li>
+<li><p><strong>ls_caller_names</strong> (<em>list</em>) – A list of names of callers(str).
+Only needed for Bedpes.</p></li>
+<li><p><strong>threshold</strong> (<em>int</em><em>, </em><em>default 100</em>) – Two SVs of mutual distance is under
+this threshold are cosidered to be identical.</p></li>
+<li><p><strong>integration</strong> (<em>bool</em><em>, </em><em>default True</em>) – If true, only the results from one caller will be retained  for each SV event that is predicted to be identical, according to the caller priority.
+Otherwise, all SV records in the input VCF file are retained and the “mergedid” INFO is added.
+The caller priority of integration is the same as
+the order of callers in ls_inputs.
+For now it only works for Vcf.
+Detail explanation is described in the User Guide <a class="reference internal" href="../../userguide/merge.html#merge"><span class="std std-ref">“VCF Merging”</span></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="viola.Vcf.html#viola.Vcf" title="viola.Vcf">Vcf</a> or <a class="reference internal" href="viola.Bedpe.html#viola.Bedpe" title="viola.Bedpe">Bedpe</a></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../../userguide/merge.html#merge"><span class="std std-ref">VCF Merging</span></a></p>
+</div>
+</dd></dl>
 
 </div>
 
@@ -202,8 +224,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../vcf.html" class="btn btn-neutral float-right" title="Vcf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="viola.MultiBedpe.classify_manual_svtype.html" class="btn btn-neutral float-left" title="viola.MultiBedpe.classify_manual_svtype" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../userguide/index.html" class="btn btn-neutral float-right" title="User Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../utilities.html" class="btn btn-neutral float-left" title="Utilities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
