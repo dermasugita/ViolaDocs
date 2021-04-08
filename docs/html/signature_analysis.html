@@ -4,10 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Signature Analysis Tutorial &mdash; Viola 1.0.0.dev4 documentation</title>
+  <title>Signature Analysis Tutorial &mdash; Viola 1.0.0.dev6 documentation</title>
   
 
   
@@ -65,7 +66,7 @@
             
             
               <div class="version">
-                1.0.0.dev4
+                1.0.0.dev6
               </div>
             
           
@@ -90,7 +91,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Signature Analysis Tutorial</a><ul>
@@ -109,6 +110,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#definition-file-syntax">Definition File Syntax</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#signature-extraction">Signature Extraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hyperparameter-tuning">Hyperparameter Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-does-this-function-do">What does this function do?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="reference/index.html">API Reference</a></li>
@@ -180,15 +184,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="signature-analysis-tutorial">
+  <section id="signature-analysis-tutorial">
 <span id="signature-analysis"></span><h1>Signature Analysis Tutorial<a class="headerlink" href="#signature-analysis-tutorial" title="Permalink to this headline">¶</a></h1>
 <p>This is a tutorial for SV signature analysis with Viola.</p>
-<div class="section" id="requirements">
+<section id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <p>If you are new to the Viola package, please refer to the <a class="reference internal" href="quickstart.html#quickstart"><span class="std std-ref">Quick Start</span></a> first. <a class="reference internal" href="quickstart.html#quickstart"><span class="std std-ref">Quick Start</span></a> explains basic usage of <a class="reference internal" href="reference/api/viola.Vcf.html"><span class="doc">Vcf</span></a> class, which shares a lot of methods with <a class="reference internal" href="reference/api/viola.MultiBedpe.html"><span class="doc">MultiBedpe</span></a> class.</p>
+<p>Installing “matplotlib” to your python environment is recommended.</p>
 <p>In this tutorial, we use BEDPE files provided by <a class="reference external" href="https://dcc.icgc.org/releases/PCAWG/consensus_sv">ICGC Data Portal</a>.
 Detailed instruction of data preparation is described below.</p>
-<div class="section" id="pcawg-data-preparation">
+<section id="pcawg-data-preparation">
 <h3>PCAWG data preparation<a class="headerlink" href="#pcawg-data-preparation" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Create new directory named “resources” (Of cource you can name it otherwise) in your working directory and run <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">resources</span></code>.</p></li>
@@ -200,8 +205,8 @@ Detailed instruction of data preparation is described below.</p>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">pcawg</span></code>, then run <code class="docutils literal notranslate"><span class="pre">gunzip</span> <span class="pre">*.gz</span></code></p></li>
 <li><p>Now you’ve got decompressed BEDPE files in the “pcawg” directory.</p></li>
 </ol>
-</div>
-<div class="section" id="other-files-preparation">
+</section>
+<section id="other-files-preparation">
 <h3>Other files preparation<a class="headerlink" href="#other-files-preparation" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Go back to the “resources” directory.</p></li>
@@ -217,9 +222,9 @@ Detailed instruction of data preparation is described below.</p>
 <p class="admonition-title">Warning</p>
 <p>Due to the very large amount of data in PCAWG, the code described below will also take long time (around 50 min on Google Colab). If you want to try it in a shorter time, reduce the number of files in the directory.</p>
 </div>
-</div>
-</div>
-<div class="section" id="generate-matrix">
+</section>
+</section>
+<section id="generate-matrix">
 <h2>Generate Matrix<a class="headerlink" href="#generate-matrix" title="Permalink to this headline">¶</a></h2>
 <p>Here, we explain how to generate SV feature matrix with custom SV class.
 In this tutorial, we are going to classify SV by:</p>
@@ -241,13 +246,13 @@ The actual code is shown below.</p>
 </pre></div>
 </div>
 <p>Now let’s look at what each line means!</p>
-<div class="section" id="importing-viola">
+<section id="importing-viola">
 <h3>1. Importing Viola<a class="headerlink" href="#importing-viola" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">viola</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="reading-bedpe-files-into-viola-multibedpe-object">
+</section>
+<section id="reading-bedpe-files-into-viola-multibedpe-object">
 <h3>2. Reading BEDPE files into viola.MultiBedpe object<a class="headerlink" href="#reading-bedpe-files-into-viola-multibedpe-object" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pcawg_bedpe</span><span class="o">=</span><span class="n">viola</span><span class="o">.</span><span class="n">read_bedpe_multi</span><span class="p">(</span><span class="s1">&#39;./resources/pcawg/&#39;</span><span class="p">,</span> <span class="n">exclude_empty_cases</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -255,8 +260,8 @@ The actual code is shown below.</p>
 <p>This code reads all BEDPE files in the <code class="docutils literal notranslate"><span class="pre">./resources/pcawg</span></code> directory into MultiBedpe class (See <a class="reference internal" href="reference/api/viola.MultiBedpe.html"><span class="doc">MultiBedpe</span></a>).
 Because the BEDPE files created by PCAWG have the <code class="docutils literal notranslate"><span class="pre">svclass</span></code> columns, we passed it to the <code class="docutils literal notranslate"><span class="pre">svtype_col_name</span></code> argument
 Some BEDPE files did not have any SV records. This time we will exclude these by setting <code class="docutils literal notranslate"><span class="pre">exclude_empty_cases=True</span></code>.</p>
-</div>
-<div class="section" id="reading-bed-bedgraph-files-for-annotation">
+</section>
+<section id="reading-bed-bedgraph-files-for-annotation">
 <h3>3. Reading BED/BEDGRAPH files for annotation<a class="headerlink" href="#reading-bed-bedgraph-files-for-annotation" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bed_fragile</span> <span class="o">=</span> <span class="n">viola</span><span class="o">.</span><span class="n">read_bed</span><span class="p">(</span><span class="s1">&#39;./resources/annotation/fragile_site.hg19.bed&#39;</span><span class="p">)</span>
 <span class="n">bed_timing</span> <span class="o">=</span> <span class="n">viola</span><span class="o">.</span><span class="n">read_bed</span><span class="p">(</span><span class="s1">&#39;./resources/annotation/replication_timing.bedgraph&#39;</span><span class="p">)</span>
@@ -266,8 +271,8 @@ Some BEDPE files did not have any SV records. This time we will exclude these by
 <p><code class="docutils literal notranslate"><span class="pre">fragile_site.hg19.bed</span></code> is a BED file specifying the known common fragile site (CFS) regions.
 <code class="docutils literal notranslate"><span class="pre">replication_timing.bedgraph</span></code> is a BEDGRAPH file which records the replication timing for each genome coordinate divided into bins.</p>
 <p>These files were built according to the <a class="reference external" href="https://www.nature.com/articles/s41586-019-1913-9#Sec20">PCAWG paper</a>.</p>
-</div>
-<div class="section" id="annotating-sv">
+</section>
+<section id="annotating-sv">
 <h3>4. Annotating SV<a class="headerlink" href="#annotating-sv" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pcawg_bedpe</span><span class="o">.</span><span class="n">annotate_bed</span><span class="p">(</span><span class="n">bed</span><span class="o">=</span><span class="n">bed_fragile</span><span class="p">,</span> <span class="n">annotation</span><span class="o">=</span><span class="s1">&#39;fragile&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;flag&#39;</span><span class="p">)</span>
 <span class="n">pcawg_bedpe</span><span class="o">.</span><span class="n">annotate_bed</span><span class="p">(</span><span class="n">bed</span><span class="o">=</span><span class="n">bedgraph_timing</span><span class="p">,</span> <span class="n">annotation</span><span class="o">=</span><span class="s1">&#39;timing&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
@@ -278,16 +283,16 @@ After annotation, new INFO – ‘fragileleft’, ‘fragileright’, ‘timingl
 Because two breakends form a single SV, ‘left’ and ‘right’ suffix are added.
 When <code class="docutils literal notranslate"><span class="pre">how='flag'</span></code>, annotate True/False according wether each breakend is in the range in the Bed (4th column of the Bed is ignored).
 When <code class="docutils literal notranslate"><span class="pre">how='value'</span></code>, annotate the value of 4th column of Bed if the breakends hit.</p>
-</div>
-<div class="section" id="get-average-values-of-replication-timing">
+</section>
+<section id="get-average-values-of-replication-timing">
 <h3>5. Get Average values of Replication Timing<a class="headerlink" href="#get-average-values-of-replication-timing" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pcawg_bedpe</span><span class="o">.</span><span class="n">calculate_info</span><span class="p">(</span><span class="s1">&#39;($</span><span class="si">{timingleft}</span><span class="s1"> + $</span><span class="si">{timingright}</span><span class="s1">) / 2&#39;</span><span class="p">,</span> <span class="s1">&#39;timing&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>To get representative values of replication timing for each SV breakpoints, we decided to take mean values of two breakends.
 This code adds new INFO named ‘timing’ by calculating mean values of ‘timingleft’ and ‘timingright’.</p>
-</div>
-<div class="section" id="classify-sv-and-generate-feature-matrix">
+</section>
+<section id="classify-sv-and-generate-feature-matrix">
 <h3>6. Classify SV and Generate Feature Matrix<a class="headerlink" href="#classify-sv-and-generate-feature-matrix" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">feature_matrix</span> <span class="o">=</span> <span class="n">pcawg_bedpe</span><span class="o">.</span><span class="n">classify_manual_svtype</span><span class="p">(</span><span class="n">definitions</span><span class="o">=</span><span class="s1">&#39;./resources/definitions/sv_class_definition.txt&#39;</span><span class="p">,</span> <span class="n">return_data_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -295,8 +300,8 @@ This code adds new INFO named ‘timing’ by calculating mean values of ‘timi
 <p>Finally, we classified SV according to its type, size, fragile site, and replication timing. Classification criteria are written in <code class="docutils literal notranslate"><span class="pre">sv_class_definition.txt</span></code>. Syntax of this file is explained below.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">return_data_frame=True</span></code>, counts of each custom SV class for each patients are returned as pandas.DataFrame.</p>
 <p>Now we successfully obtained feature matrix with custom SV classification!</p>
-</div>
-<div class="section" id="definition-file-syntax">
+</section>
+<section id="definition-file-syntax">
 <h3>Definition File Syntax<a class="headerlink" href="#definition-file-syntax" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="s1">&#39;At fragile site DEL&#39;</span>
 <span class="mi">0</span> <span class="n">fragileleft</span> <span class="o">==</span> <span class="kc">True</span>
@@ -347,9 +352,156 @@ This code adds new INFO named ‘timing’ by calculating mean values of ‘timi
 <p class="admonition-title">Note</p>
 <p>The order of the SV class definition is very important. The <code class="docutils literal notranslate"><span class="pre">classify_manual_svtype</span></code> method reads the definition file in order from the top, so that the SV class definitions written higher up in the file take precedence. Thus, in above example, Deletions that both satisfy ‘At fragile site DEL’ and ‘&lt;50 kb early DEL’ criteria, they are classified as ‘At fragile site DEL’, not ‘&lt;50 kb early DEL’.</p>
 </div>
+</section>
+</section>
+<section id="signature-extraction">
+<h2>Signature Extraction<a class="headerlink" href="#signature-extraction" title="Permalink to this headline">¶</a></h2>
+<p>Viola offers the function, <a class="reference internal" href="reference/api/viola.SV_signature_extractor.html"><span class="doc">viola.SV_signature_extractor</span></a> which performs non-negative matrix factorization (NMF) and cluster stability evaluation at the same time.</p>
+<p>Before diving into the details of <a class="reference internal" href="reference/api/viola.SV_signature_extractor.html"><span class="doc">viola.SV_signature_extractor</span></a>, let’s look at an example usage.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">feature_matrix</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;others&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># remove &quot;others&quot; column</span>
+
+<span class="n">result_silhouette</span><span class="p">,</span> <span class="n">result_metrics</span><span class="p">,</span> <span class="n">exposure_matrix</span><span class="p">,</span> <span class="n">signature_matrix</span> <span class="o">=</span> <span class="n">viola</span><span class="o">.</span><span class="n">SV_signature_extractor</span><span class="p">(</span>
+<span class="n">feature_matrix</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;testRun&#39;</span><span class="p">,</span> <span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s1">&#39;nndsvda&#39;</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;mu&#39;</span><span class="p">,</span> <span class="n">beta_loss</span><span class="o">=</span><span class="s1">&#39;kullback-leibler&#39;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+
+<span class="c1">######## STDOUT ########</span>
+<span class="c1"># testRun: finished NMF</span>
+<span class="c1"># testRun: finished kmeans clustering</span>
+<span class="c1"># testRun: finished all steps</span>
+<span class="c1"># Silhouette Score: 0.9997561882187715, kullback-leibler: 98901.64510245458</span>
+<span class="c1">#</span>
+<span class="c1"># ==================</span>
+</pre></div>
 </div>
+<p><a class="reference internal" href="reference/api/viola.SV_signature_extractor.html"><span class="doc">viola.SV_signature_extractor</span></a> outputs four returns. We will explain them one by one.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>result_silhouette:</dt><dd><p>This is the score that indicates the stability (reproducibility) of the SV signature. Detailed explanations are given below.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>result_metrics:</dt><dd><p>An error between the original matrix and the product of the factored matrice.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>exposure_matrix:</dt><dd><p>An exposure matrix with (n_samples × n_signatures).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>signature_matrix:</dt><dd><p>A result SV signature matrix with (n_signatures × n_features). Here, <code class="docutils literal notranslate"><span class="pre">n_features</span></code> means “the number of custom SV class”</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Viola employs <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html">NMF class of Scikit Learn</a> for signature extraction.
+So, <a class="reference internal" href="reference/api/viola.SV_signature_extractor.html"><span class="doc">viola.SV_signature_extractor</span></a> receives completely the same arguments of <a href="#id1"><span class="problematic" id="id2">`sklearn-decomposition.NMF&lt;NMF class of Scikit Learn&gt;`_</span></a> except the first three, which are the original arguments of Viola.</p>
+<p>Here are the explanations for Viola original arguments of <a class="reference internal" href="reference/api/viola.SV_signature_extractor.html"><span class="doc">viola.SV_signature_extractor</span></a></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>X:</dt><dd><p>A (n_sample, n_features) shaped ndarray or DataFrame. Each column represents each SV class.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>n_iter:</dt><dd><p>Number of bootstrap resampling from X. The higher this number, the more reliable the result.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>name:</dt><dd><p>Name of this run.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="hyperparameter-tuning">
+<h2>Hyperparameter Tuning<a class="headerlink" href="#hyperparameter-tuning" title="Permalink to this headline">¶</a></h2>
+<p>For signature analysis, hyperparameters such as the number of signatures and the loss function need to be determined.</p>
+<p>Here is an example of the hyperparameter tuning.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ls_silhouette</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ls_metrics</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ls_exposure</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ls_signature</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">num_signature</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">15</span><span class="p">):</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of Signature: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_signature</span><span class="p">))</span>
+   <span class="n">result_silhouette</span><span class="p">,</span> <span class="n">result_metrics</span><span class="p">,</span> <span class="n">exposure_matrix</span><span class="p">,</span> <span class="n">signature_matrix</span> <span class="o">=</span> <span class="n">viola</span><span class="o">.</span><span class="n">SV_signature_extractor</span><span class="p">(</span>
+      <span class="n">feature_matrix</span><span class="p">,</span>
+      <span class="n">n_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+      <span class="n">name</span><span class="o">=</span><span class="s1">&#39;testRun&#39;</span><span class="p">,</span>
+      <span class="n">n_components</span><span class="o">=</span><span class="n">num_signature</span><span class="p">,</span>
+      <span class="n">init</span><span class="o">=</span><span class="s1">&#39;nndsvda&#39;</span><span class="p">,</span>
+      <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;mu&#39;</span><span class="p">,</span>
+      <span class="n">beta_loss</span><span class="o">=</span><span class="s1">&#39;kullback-leibler&#39;</span><span class="p">,</span>
+      <span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span>
+      <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span>
+   <span class="p">)</span>
+
+ <span class="n">ls_silhouette</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result_silhouette</span><span class="p">)</span>
+ <span class="n">ls_metrics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result_metrics</span><span class="p">)</span>
+ <span class="n">ls_exposure</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">exposure_matrix</span><span class="p">)</span>
+ <span class="n">ls_signature</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">signature_matrix</span><span class="p">)</span>
+
+<span class="c1">######## STDOUT ########</span>
+<span class="c1"># Number of Signature: 2</span>
+<span class="c1"># testRun: finished NMF</span>
+<span class="c1"># testRun: finished kmeans clustering</span>
+<span class="c1"># testRun: finished all steps</span>
+<span class="c1"># Silhouette Score: 0.9995314504820613, kullback-leibler: 98898.80582214911</span>
+
+<span class="c1"># ==================</span>
+
+<span class="c1"># Number of Signature: 3</span>
+<span class="c1"># testRun: finished NMF</span>
+<span class="c1"># testRun: finished kmeans clustering</span>
+<span class="c1"># testRun: finished all steps</span>
+<span class="c1"># Silhouette Score: 0.9996664503915801, kullback-leibler: 75815.89695274398</span>
+
+<span class="c1"># ==================</span>
+
+<span class="c1"># Number of Signature: 4</span>
+<span class="c1"># testRun: finished NMF</span>
+<span class="c1"># testRun: finished kmeans clustering</span>
+<span class="c1"># testRun: finished all steps</span>
+<span class="c1"># Silhouette Score: 0.9219878473698799, kullback-leibler: 65871.09184405269</span>
+
+<span class="c1"># ==================</span>
+
+<span class="c1"># ...</span>
+</pre></div>
 </div>
+<p>In order to determine the number of signatures based on the balance between the silhouette score and the Kullback-Leibler distance, let’s visualise the data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ls_silhouette</span><span class="p">))]</span>
+
+<span class="n">ln1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ls_silhouette</span><span class="p">,</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;silhouette score&quot;</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">ln2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ls_metrics</span><span class="p">,</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;KL Divergence&quot;</span><span class="p">)</span>
+<span class="n">h1</span><span class="p">,</span> <span class="n">l1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+<span class="n">h2</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">h1</span><span class="o">+</span><span class="n">h2</span><span class="p">,</span> <span class="n">l1</span><span class="o">+</span><span class="n">l2</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Silhouette Score vs KL Divergence&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Number of Signatures&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
+<img alt="_images/silhouette_vs_kld.png" src="_images/silhouette_vs_kld.png" />
+<p>Now we can have a discussion that the number of signatures should be around 7-9.</p>
+<p>The biological consideration is needed to determine the most appropreate number (Not the main topic here).</p>
+</section>
+<section id="what-does-this-function-do">
+<h2>What does this function do?<a class="headerlink" href="#what-does-this-function-do" title="Permalink to this headline">¶</a></h2>
+<p>Editing in progress…</p>
+</section>
+</section>
 
 
            </div>

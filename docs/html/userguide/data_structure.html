@@ -4,10 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Viola’s Data Structure &mdash; Viola 1.0.0.dev4 documentation</title>
+  <title>Viola’s Data Structure &mdash; Viola 1.0.0.dev6 documentation</title>
   
 
   
@@ -65,7 +66,7 @@
             
             
               <div class="version">
-                1.0.0.dev4
+                1.0.0.dev6
               </div>
             
           
@@ -90,7 +91,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../signature_analysis.html">Signature Analysis Tutorial</a></li>
@@ -116,6 +117,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bedpe_generation.html">Flexible BEDPE generation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sv_position_specification.html">Specification of SV positions in Viola</a></li>
 <li class="toctree-l2"><a class="reference internal" href="merge.html">VCF Merging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli.html">CLI Tutorial</a></li>
 </ul>
 </li>
 </ul>
@@ -187,19 +189,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="viola-s-data-structure">
+  <section id="viola-s-data-structure">
 <span id="data-structure"></span><h1>Viola’s Data Structure<a class="headerlink" href="#viola-s-data-structure" title="Permalink to this headline">¶</a></h1>
 <div class="line-block">
 <div class="line">Viola employs relational-database-like structure to enable flexible data proccessing.</div>
 <div class="line">Here, we explain the specific data structure of Bedpe and Vcf class.</div>
 </div>
-<div class="section" id="tables-composing-vcf-object">
+<section id="tables-composing-vcf-object">
 <h2>Tables composing Vcf object<a class="headerlink" href="#tables-composing-vcf-object" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
 <div class="line">In the following description tables, the primary keys are in bold.</div>
 <div class="line">If the table has a foreign key (FK), the dependencies are noted below the table.</div>
 </div>
-<div class="section" id="positions-table">
+<section id="positions-table">
 <h3>positions table<a class="headerlink" href="#positions-table" title="Permalink to this headline">¶</a></h3>
 <p>Name of the table: “positions”</p>
 <table class="docutils align-default">
@@ -249,8 +251,8 @@
 <div class="line">chrom2: “contigs_meta” table</div>
 </div>
 </div>
-</div>
-<div class="section" id="filters-table">
+</section>
+<section id="filters-table">
 <h3>filters table<a class="headerlink" href="#filters-table" title="Permalink to this headline">¶</a></h3>
 <p>Name of the table: “filters”</p>
 <table class="docutils align-default">
@@ -278,8 +280,8 @@
 <div class="line">id: “positions” table</div>
 </div>
 </div>
-</div>
-<div class="section" id="info-tables">
+</section>
+<section id="info-tables">
 <h3>info tables<a class="headerlink" href="#info-tables" title="Permalink to this headline">¶</a></h3>
 <p>Vcf object contains the same number of info tables as the number of INFO (e.g. SVLEN, CIPOS, IMPRECISE, …) in the original vcf file.
 Here, we show the ‘svlen’ table as an example of info tables.</p>
@@ -309,8 +311,8 @@ Here, we show the ‘svlen’ table as an example of info tables.</p>
 <div class="line">id: “positions” table</div>
 </div>
 </div>
-</div>
-<div class="section" id="formats-table">
+</section>
+<section id="formats-table">
 <h3>formats table<a class="headerlink" href="#formats-table" title="Permalink to this headline">¶</a></h3>
 <p>Name of the table: “formats”</p>
 <table class="docutils align-default">
@@ -346,8 +348,8 @@ Here, we show the ‘svlen’ table as an example of info tables.</p>
 <div class="line">formats: “formats_meta” table</div>
 </div>
 </div>
-</div>
-<div class="section" id="contigs-meta-table">
+</section>
+<section id="contigs-meta-table">
 <h3>contigs_meta table<a class="headerlink" href="#contigs-meta-table" title="Permalink to this headline">¶</a></h3>
 <p>This table corresponds to the CONTIG section in header of vcf files.</p>
 <p>Name of the table: “contigs_meta”</p>
@@ -371,8 +373,8 @@ Here, we show the ‘svlen’ table as an example of info tables.</p>
 <div class="line">Note:</div>
 <div class="line">In this table, “id” doesn’t mean the “SV ID” but means the “identifier of the contigs”.</div>
 </div>
-</div>
-<div class="section" id="alts-meta-table">
+</section>
+<section id="alts-meta-table">
 <h3>alts_meta table<a class="headerlink" href="#alts-meta-table" title="Permalink to this headline">¶</a></h3>
 <p>Name of the table: “alts_meta”</p>
 <table class="docutils align-default">
@@ -391,8 +393,8 @@ Here, we show the ‘svlen’ table as an example of info tables.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="filters-meta-table">
+</section>
+<section id="filters-meta-table">
 <h3>filters_meta table<a class="headerlink" href="#filters-meta-table" title="Permalink to this headline">¶</a></h3>
 <p>Name of the table: “filters_meta”</p>
 <table class="docutils align-default">
@@ -411,8 +413,8 @@ Here, we show the ‘svlen’ table as an example of info tables.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="infos-meta-table">
+</section>
+<section id="infos-meta-table">
 <h3>infos_meta table<a class="headerlink" href="#infos-meta-table" title="Permalink to this headline">¶</a></h3>
 <p>Name of the table: “infos_meta”</p>
 <table class="docutils align-default">
@@ -443,8 +445,8 @@ Here, we show the ‘svlen’ table as an example of info tables.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="formats-meta-table">
+</section>
+<section id="formats-meta-table">
 <h3>formats_meta table<a class="headerlink" href="#formats-meta-table" title="Permalink to this headline">¶</a></h3>
 <p>Name of the table: “formats_meta”</p>
 <table class="docutils align-default">
@@ -475,8 +477,8 @@ Here, we show the ‘svlen’ table as an example of info tables.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="samples-meta-table">
+</section>
+<section id="samples-meta-table">
 <h3>samples_meta table<a class="headerlink" href="#samples-meta-table" title="Permalink to this headline">¶</a></h3>
 <p>This table has only a single column.</p>
 <p>Name of the table: “samples_meta”</p>
@@ -496,9 +498,9 @@ Here, we show the ‘svlen’ table as an example of info tables.</p>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

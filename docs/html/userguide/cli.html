@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>CLI Tutorial &mdash; Viola 1.0.0.dev6 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="VCF Merging" href="merge.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Viola
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0.dev6
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signature_analysis.html">Signature Analysis Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="data_structure.html">Viola’s Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filtering.html">Filtering Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bedpe_generation.html">Flexible BEDPE generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sv_position_specification.html">Specification of SV positions in Viola</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merge.html">VCF Merging</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">CLI Tutorial</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#preparation">Preparation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vcf-to-bedpe">VCF to BEDPE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#feature-matrix-generation">Feature Matrix Generation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Viola</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">User Guide</a> &raquo;</li>
+        
+      <li>CLI Tutorial</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/userguide/cli.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="cli-tutorial">
+<span id="cli"></span><h1>CLI Tutorial<a class="headerlink" href="#cli-tutorial" title="Permalink to this headline">¶</a></h1>
+<p>Viola provides command line tools for several features.</p>
+<p>Currently, following functions are available:</p>
+<ul class="simple">
+<li><p>VCF to BEDPE conversion</p></li>
+<li><p>Feature matrix generation for SV signature analysis</p></li>
+<li><p>SV signature extraction</p></li>
+</ul>
+<section id="preparation">
+<h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<p>Several test VCF files are used in this tutorial.</p>
+<p>Before going to the next step, download these files in your working directory.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>curl -O <span class="s1">&#39;https://raw.githubusercontent.com/dermasugita/ViolaDocs/main/docs/html/_static/tutorial.manta.vcf&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>In your python environment (pyenv, virtualenv, pipenv, etc.), run <code class="docutils literal notranslate"><span class="pre">viola</span></code>.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>viola
+
+<span class="go">Usage: viola [OPTIONS] COMMAND [ARGS]...</span>
+
+<span class="go">Options:</span>
+<span class="go">--help  Show this message and exit.</span>
+
+<span class="go">Commands:</span>
+<span class="go">extract-signature</span>
+<span class="go">generate-feature-matrix  Generate feature matrix from VCF or BEDPE files.</span>
+<span class="go">vcf2bedpe                Convert a VCF file into a BEDPE file.</span>
+</pre></div>
+</div>
+<p>Actually, <code class="docutils literal notranslate"><span class="pre">viola</span></code> command has no option except <code class="docutils literal notranslate"><span class="pre">--help</span></code>, so the de facto syntax is <code class="docutils literal notranslate"><span class="pre">viola</span> <span class="pre">COMMAND</span> <span class="pre">[ARGS]</span></code>.</p>
+</section>
+<section id="vcf-to-bedpe">
+<h2>VCF to BEDPE<a class="headerlink" href="#vcf-to-bedpe" title="Permalink to this headline">¶</a></h2>
+<p>You can convert VCF files into a BEDPE files with <code class="docutils literal notranslate"><span class="pre">viola</span> <span class="pre">vcf2bedpe</span></code>.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>viola vcf2bedpe -h
+
+<span class="go">Usage: viola vcf2bedpe [OPTIONS] [VCF]</span>
+
+<span class="go">Convert a VCF file into a BEDPE file.</span>
+
+<span class="go">A VCF argument is the path to the input VCF file.</span>
+
+<span class="go">Options:</span>
+<span class="go">--version        Show the version and exit.</span>
+<span class="go">--caller TEXT    The name of SV caller by which the input VCF was generated.</span>
+<span class="go">                [manta, delly, lumpy, gridss] could be acceptable (default,</span>
+<span class="go">                manta).</span>
+
+<span class="go">-i, --info TEXT  The names of INFO fields to return. To specify multiple</span>
+<span class="go">                INFO, separate them by commas. ex. --info SVTYPE,SVLEN,END</span>
+
+<span class="go">-f, --filter     If specified, FILTER field of the VCF files is included in</span>
+<span class="go">                output BEDPE.</span>
+
+<span class="go">-m, --format     If specified, FORMAT field of the VCF files is included in</span>
+<span class="go">                output BEDPE.</span>
+
+<span class="go">-h, --help       Show this message and exit.</span>
+</pre></div>
+</div>
+<p>Now let’s apply the example VCF file you got (See <a class="reference internal" href="#preparation"><span class="std std-ref">Preparation</span></a>) to the <code class="docutils literal notranslate"><span class="pre">vcf2bedpe</span></code> command.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>viola vcf2bedpe --caller manta tutorial.manta.vcf
+
+<span class="go">chrom1     start1       end1 chrom2     start2       end2     name score strand1 strand2</span>
+<span class="go">chr1   82550460   82550461   chr1   82554225   82554226    test1  None       +       -</span>
+<span class="go">chr1   22814216   22814217   chr1   92581131   92581132    test2  None       -       -</span>
+<span class="go">chr1   60567905   60567906   chr1   60675940   60675941    test3  None       +       -</span>
+<span class="go">chr1   69583189   69583190   chr1   69590947   69590948    test4  None       +       -</span>
+<span class="go">chr11  104534876  104534877  chr11  104536573  104536574    test5  None       +       -</span>
+<span class="go">chr11  111134696  111134697  chr17   26470494   26470495  test6_1  None       +       -</span>
+<span class="go">chr17   26470494   26470495  chr11  111134696  111134697  test6_2  None       -       +</span>
+</pre></div>
+</div>
+<p>The result will be output to the stdout by default.</p>
+<p>You can add other VCF features, including FILTER, INFO, and FORMAT.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>viola vcf2bedpe --caller manta --filter tutorial.manta.vcf
+
+<span class="go">chrom1     start1       end1 chrom2     start2       end2     name score strand1 strand2  MinSomaticScore   PASS</span>
+<span class="go">chr1   82550460   82550461   chr1   82554225   82554226    test1  None       +       -             True  False</span>
+<span class="go">chr1   22814216   22814217   chr1   92581131   92581132    test2  None       -       -             True  False</span>
+<span class="go">chr1   60567905   60567906   chr1   60675940   60675941    test3  None       +       -             True  False</span>
+<span class="go">chr1   69583189   69583190   chr1   69590947   69590948    test4  None       +       -            False   True</span>
+<span class="go">chr11  104534876  104534877  chr11  104536573  104536574    test5  None       +       -            False   True</span>
+<span class="go">chr11  111134696  111134697  chr17   26470494   26470495  test6_1  None       +       -             True  False</span>
+<span class="go">chr17   26470494   26470495  chr11  111134696  111134697  test6_2  None       -       +             True  False</span>
+
+<span class="gp">$ </span>viola vcf2bedpe --caller manta --info SVTYPE,SVLEN tutorial.manta.vcf
+
+<span class="go">chrom1     start1       end1 chrom2     start2       end2     name score strand1 strand2 svtype_0   svlen_0</span>
+<span class="go">chr1   82550460   82550461   chr1   82554225   82554226    test1  None       +       -      DEL     -3764</span>
+<span class="go">chr1   22814216   22814217   chr1   92581131   92581132    test2  None       -       -      INV  69766915</span>
+<span class="go">chr1   60567905   60567906   chr1   60675940   60675941    test3  None       +       -      DEL   -108034</span>
+<span class="go">chr1   69583189   69583190   chr1   69590947   69590948    test4  None       +       -      DEL     -7757</span>
+<span class="go">chr11  104534876  104534877  chr11  104536573  104536574    test5  None       +       -      DEL     -1696</span>
+<span class="go">chr11  111134696  111134697  chr17   26470494   26470495  test6_1  None       +       -      BND         0</span>
+<span class="go">chr17   26470494   26470495  chr11  111134696  111134697  test6_2  None       -       +      BND         0</span>
+
+<span class="gp">$ </span>viola vcf2bedpe --caller manta --format tutorial.manta.vcf
+
+<span class="go">chrom1     start1       end1 chrom2     start2       end2     name score strand1 strand2  sample1_N_PR_0  sample1_N_PR_1  sample1_N_SR_0  sample1_N_SR_1  sample1_T_PR_0  sample1_T_PR_1  sample1_T_SR_0  sample1_T_SR_1</span>
+<span class="go">chr1   82550460   82550461   chr1   82554225   82554226    test1  None       +       -            21.0             0.0            10.0             0.0            43.0             4.0            15.0             3.0</span>
+<span class="go">chr1   22814216   22814217   chr1   92581131   92581132    test2  None       -       -            24.0             0.0             NaN             NaN            35.0             5.0             NaN             NaN</span>
+<span class="go">chr1   60567905   60567906   chr1   60675940   60675941    test3  None       +       -            23.0             0.0             NaN             NaN            44.0             6.0             NaN             NaN</span>
+<span class="go">chr1   69583189   69583190   chr1   69590947   69590948    test4  None       +       -            21.0             0.0             NaN             NaN            20.0            12.0             NaN             NaN</span>
+<span class="go">chr11  104534876  104534877  chr11  104536573  104536574    test5  None       +       -            22.0             0.0             NaN             NaN            57.0            14.0             NaN             NaN</span>
+<span class="go">chr11  111134696  111134697  chr17   26470494   26470495  test6_1  None       +       -            12.0             0.0             NaN             NaN            45.0             5.0             NaN             NaN</span>
+<span class="go">chr17   26470494   26470495  chr11  111134696  111134697  test6_2  None       -       +            12.0             0.0             NaN             NaN            45.0             5.0             NaN             NaN</span>
+</pre></div>
+</div>
+</section>
+<section id="feature-matrix-generation">
+<h2>Feature Matrix Generation<a class="headerlink" href="#feature-matrix-generation" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="merge.html" class="btn btn-neutral float-left" title="VCF Merging" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Itsuki Sugita.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -4,10 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Filtering Systems &mdash; Viola 1.0.0.dev4 documentation</title>
+  <title>Filtering Systems &mdash; Viola 1.0.0.dev6 documentation</title>
   
 
   
@@ -65,7 +66,7 @@
             
             
               <div class="version">
-                1.0.0.dev4
+                1.0.0.dev6
               </div>
             
           
@@ -90,7 +91,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../signature_analysis.html">Signature Analysis Tutorial</a></li>
@@ -104,6 +105,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bedpe_generation.html">Flexible BEDPE generation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sv_position_specification.html">Specification of SV positions in Viola</a></li>
 <li class="toctree-l2"><a class="reference internal" href="merge.html">VCF Merging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli.html">CLI Tutorial</a></li>
 </ul>
 </li>
 </ul>
@@ -175,20 +177,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="filtering-systems">
+  <section id="filtering-systems">
 <span id="filtering"></span><h1>Filtering Systems<a class="headerlink" href="#filtering-systems" title="Permalink to this headline">¶</a></h1>
 <div class="line-block">
 <div class="line">Filtering is an important step in bioinformatics.</div>
 <div class="line">Filtering functions in packaged systems need to be both complete enough to handle even the most complex filtering criteria, as well as available enough to allow simple filtering with simple coding.</div>
 <div class="line">This page explains how Viola achieves these desired functions.</div>
 </div>
-<div class="section" id="completeness-id-based-filtering-system">
+<section id="completeness-id-based-filtering-system">
 <h2>Completeness: ID based filtering system<a class="headerlink" href="#completeness-id-based-filtering-system" title="Permalink to this headline">¶</a></h2>
 <p>In the main Viola object, including Vcf, Bedpe, and MultiBedpe, filtering-associated functions are eventually passed to the <a class="reference internal" href="../reference/api/viola.Vcf.filter_by_id.html"><span class="doc">filter_by_id</span></a> method.
 | <a class="reference internal" href="../reference/api/viola.Vcf.filter_by_id.html"><span class="doc">filter_by_id</span></a> method receives a list of ID (SV ID or global ID) and return filtered object.
 | Any table in the object that has a column with an SV ID or global ID will also be filtered.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
