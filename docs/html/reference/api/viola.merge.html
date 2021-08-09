@@ -8,7 +8,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>viola.merge &mdash; Viola 1.0.0.dev6 documentation</title>
+  <title>viola.merge &mdash; Viola 1.0.0.dev10 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                1.0.0.dev6
+                1.0.0.dev10
               </div>
             
           
@@ -100,6 +100,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../bedpe.html">Bedpe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../multi_bedpe.html">MultiBedpe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vcf.html">Vcf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multi_vcf.html">MultiVcf</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../utilities.html">Utilities</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../utilities.html#vcf-merge">VCF Merge</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">viola.merge</a></li>
@@ -195,6 +196,12 @@ Return a merged Vcf or Bedpe</p>
 <li><p><strong>ls_inputs</strong> (<em>list</em>) – A list of Vcf or Bedpe objects to be merged</p></li>
 <li><p><strong>ls_caller_names</strong> (<em>list</em>) – A list of names of callers(str).
 Only needed for Bedpes.</p></li>
+<li><p><strong>mode</strong> (<em>{'distance'</em><em>, </em><em>'confidence_intervals'}</em><em>, </em><em>default 'distance'</em>) – <p>The mode of the merging strategy.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'distance'</span></code>: Merge SV records by representative SV positions, that is, coordinates of POS field or that of END in the INFO field. If multiple SV positions are within the distance specified in <code class="docutils literal notranslate"><span class="pre">threshold</span></code> each other, they will be merged.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'confidence_intervals'</span></code>: Merge SV records according to the confidence intervals reported by SV callers. If confidence intervals of multiple SV records share their genomic coordinates at least 1bp, the will be merged.</p></li>
+</ul>
+</p></li>
 <li><p><strong>threshold</strong> (<em>int</em><em>, </em><em>default 100</em>) – Two SVs of mutual distance is under
 this threshold are cosidered to be identical.</p></li>
 <li><p><strong>integration</strong> (<em>bool</em><em>, </em><em>default True</em>) – If true, only the results from one caller will be retained  for each SV event that is predicted to be identical, according to the caller priority.

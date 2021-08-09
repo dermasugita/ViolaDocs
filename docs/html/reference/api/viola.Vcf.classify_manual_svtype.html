@@ -8,7 +8,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>viola.Vcf.classify_manual_svtype &mdash; Viola 1.0.0.dev6 documentation</title>
+  <title>viola.Vcf.classify_manual_svtype &mdash; Viola 1.0.0.dev10 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                1.0.0.dev6
+                1.0.0.dev10
               </div>
             
           
@@ -117,6 +117,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../vcf.html#sv-id-sv-records">SV ID/SV records</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../multi_vcf.html">MultiVcf</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities.html">Utilities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ml.html">Machine Learning</a></li>
 </ul>
@@ -203,7 +204,13 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>definitions</strong> (<em>path_or_buf</em><em>, </em><em>default None</em>) – Path to the file which specifies the definitions of custom SV classification. This argument is disabled when “ls_condition” is not None.</p></li>
+<li><p><strong>definitions</strong> (<em>path_or_buf</em><em>, </em><em>default None</em>) – <p>Path to the file which specifies the definitions of custom SV classification. This argument is disabled when “ls_condition” is not None.
+If “default” is specified, the simple length-based SV classification will be employed.
+If “article” is specified, the same definition file which was used in the Viola publication will be reflected.
+Below is the links to each of definition file you can specify on this method.</p>
+<p>”default” -&gt; <a class="reference external" href="https://github.com/dermasugita/Viola-SV/blob/master/examples/demo_sig/resources/definitions/sv_class_default.txt">https://github.com/dermasugita/Viola-SV/blob/master/examples/demo_sig/resources/definitions/sv_class_default.txt</a></p>
+<p>”article” -&gt; <a class="reference external" href="https://github.com/dermasugita/Viola-SV/blob/master/examples/demo_sig/resources/definitions/sv_class_article.txt">https://github.com/dermasugita/Viola-SV/blob/master/examples/demo_sig/resources/definitions/sv_class_article.txt</a></p>
+</p></li>
 <li><p><strong>ls_conditions</strong> (<em>List</em><em>[</em><em>callable</em><em>] or </em><em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>default None</em>) – List of definitions of custom SV classification. The data type of the elements in the list can be callable or SV ID (str).
 callable –&gt; Functions that takes a self and returns a list of SV ID that satisfy the conditions of the SV class to be defined.
 SV ID –&gt; Lists of SV ID that satisfy the conditions of the SV class to be defined.

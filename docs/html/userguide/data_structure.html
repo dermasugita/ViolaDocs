@@ -8,7 +8,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Viola’s Data Structure &mdash; Viola 1.0.0.dev6 documentation</title>
+  <title>Viola’s Data Structure – Why tidy data? &mdash; Viola 1.0.0.dev10 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                1.0.0.dev6
+                1.0.0.dev10
               </div>
             
           
@@ -97,7 +97,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../signature_analysis.html">Signature Analysis Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference/index.html">API Reference</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">User Guide</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Viola’s Data Structure</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Viola’s Data Structure – Why tidy data?</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#tables-composing-vcf-object">Tables composing Vcf object</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#positions-table">positions table</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#filters-table">filters table</a></li>
@@ -118,6 +118,7 @@
 <li class="toctree-l2"><a class="reference internal" href="sv_position_specification.html">Specification of SV positions in Viola</a></li>
 <li class="toctree-l2"><a class="reference internal" href="merge.html">VCF Merging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli.html">CLI Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotation.html">Annotation with Viola</a></li>
 </ul>
 </li>
 </ul>
@@ -170,7 +171,7 @@
         
           <li><a href="index.html">User Guide</a> &raquo;</li>
         
-      <li>Viola’s Data Structure</li>
+      <li>Viola’s Data Structure – Why tidy data?</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -189,12 +190,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="viola-s-data-structure">
-<span id="data-structure"></span><h1>Viola’s Data Structure<a class="headerlink" href="#viola-s-data-structure" title="Permalink to this headline">¶</a></h1>
-<div class="line-block">
-<div class="line">Viola employs relational-database-like structure to enable flexible data proccessing.</div>
-<div class="line">Here, we explain the specific data structure of Bedpe and Vcf class.</div>
-</div>
+  <section id="viola-s-data-structure-why-tidy-data">
+<span id="data-structure"></span><h1>Viola’s Data Structure – Why tidy data?<a class="headerlink" href="#viola-s-data-structure-why-tidy-data" title="Permalink to this headline">¶</a></h1>
+<p>Viola breaks down the SV information into multiple tidy tables to enable flexible data proccessing.
+These tables follow the principles of tidy data, i.e., each SV record is a row, each variable is a column, and each type of observational unit is a table (See Also: <a class="reference external" href="https://www.jstatsoft.org/article/view/v059i10">Wickham, 2014</a>).
+Consequently, storage of multiple values in one element is avoided, in contrast to the INFO and FORMAT columns of a VCF file.</p>
+<p>The most important benefit of this data structure is the extendibility of future functions.
+Software development always needs to be updated to keep up with trends. By breaking down the SV information into multiple tidy tables, even complex requirements can be implemented with realistic effort.</p>
+<p>These points are rather the developer side benefits than the user side ones. However, maintaining data structure that is easy to develop is an important part of keeping software healthy, and is ultimately passed on to the user.</p>
+<p>Here, we explain the specific data structure of Bedpe and Vcf class.</p>
 <section id="tables-composing-vcf-object">
 <h2>Tables composing Vcf object<a class="headerlink" href="#tables-composing-vcf-object" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">

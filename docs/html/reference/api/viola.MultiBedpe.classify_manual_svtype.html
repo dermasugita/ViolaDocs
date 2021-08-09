@@ -8,7 +8,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>viola.MultiBedpe.classify_manual_svtype &mdash; Viola 1.0.0.dev6 documentation</title>
+  <title>viola.MultiBedpe.classify_manual_svtype &mdash; Viola 1.0.0.dev10 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                1.0.0.dev6
+                1.0.0.dev10
               </div>
             
           
@@ -113,6 +113,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../vcf.html">Vcf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multi_vcf.html">MultiVcf</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities.html">Utilities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ml.html">Machine Learning</a></li>
 </ul>
@@ -193,9 +194,35 @@
 <h1>viola.MultiBedpe.classify_manual_svtype<a class="headerlink" href="#viola-multibedpe-classify-manual-svtype" title="Permalink to this headline">¶</a></h1>
 <dl class="py method">
 <dt id="viola.MultiBedpe.classify_manual_svtype">
-<code class="sig-prename descclassname"><span class="pre">MultiBedpe.</span></code><code class="sig-name descname"><span class="pre">classify_manual_svtype</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ls_conditions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ls_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ls_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.MultiBedpe.classify_manual_svtype" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">MultiBedpe.</span></code><code class="sig-name descname"><span class="pre">classify_manual_svtype</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">definitions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ls_conditions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ls_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ls_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_empty_cases</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.MultiBedpe.classify_manual_svtype" title="Permalink to this definition">¶</a></dt>
 <dd><p>Classify SV records by user-defined criteria. A new INFO table named
 ‘manual_sv_type’ will be created.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>definitions</strong> (<em>path_or_buf</em><em> or </em><em>str</em><em>, </em><em>default None</em>) – <p>Path to the file which specifies the definitions of custom SV classification. This argument is disabled when “ls_condition” is not None.
+If “default” is specified, the simple length-based SV classification will be employed.
+If “article” is specified, the same definition file which was used in the Viola publication will be reflected.
+Below is the links to each of definition file you can specify on this method.</p>
+<p>”default” -&gt; <a class="reference external" href="https://github.com/dermasugita/Viola-SV/blob/master/examples/demo_sig/resources/definitions/sv_class_default.txt">https://github.com/dermasugita/Viola-SV/blob/master/examples/demo_sig/resources/definitions/sv_class_default.txt</a></p>
+<p>”article” -&gt; <a class="reference external" href="https://github.com/dermasugita/Viola-SV/blob/master/examples/demo_sig/resources/definitions/sv_class_article.txt">https://github.com/dermasugita/Viola-SV/blob/master/examples/demo_sig/resources/definitions/sv_class_article.txt</a></p>
+</p></li>
+<li><p><strong>ls_conditions</strong> (<em>List</em><em>[</em><em>callable</em><em>] or </em><em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>default None</em>) – List of definitions of custom SV classification. The data type of the elements in the list can be callable or SV ID (str).
+callable –&gt; Functions that takes a self and returns a list of SV ID that satisfy the conditions of the SV class to be defined.
+SV ID –&gt; Lists of SV ID that satisfy the conditions of the SV class to be defined.
+This argument is disabled when “definitions” is not None.</p></li>
+<li><p><strong>ls_names</strong> (<em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>default None</em>) – List of the names of the custom SV class corresponding to the “ls_conditions”. This argument is disabled when “definitions” is not None.</p></li>
+<li><p><strong>return_series</strong> (<em>bool</em><em>, </em><em>default True</em>) – Return counts of each custom SV class as a pd.Series.</p></li>
+<li><p><strong>exclude_empty_cases</strong> (<em>bool</em><em>, </em><em>default False</em>) – If True, samples which have no SV record will be excluded.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame or None</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>

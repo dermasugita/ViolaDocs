@@ -8,7 +8,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Specification of SV positions in Viola &mdash; Viola 1.0.0.dev6 documentation</title>
+  <title>Specification of SV positions in Viola &mdash; Viola 1.0.0.dev10 documentation</title>
   
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                1.0.0.dev6
+                1.0.0.dev10
               </div>
             
           
@@ -97,7 +97,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../signature_analysis.html">Signature Analysis Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference/index.html">API Reference</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">User Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="data_structure.html">Viola’s Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_structure.html">Viola’s Data Structure – Why tidy data?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filtering.html">Filtering Systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bedpe_generation.html">Flexible BEDPE generation</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Specification of SV positions in Viola</a><ul>
@@ -105,10 +105,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#duplication">Duplication</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#inversion">Inversion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#translocation">Translocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#single-breakends">Single Breakends</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="merge.html">VCF Merging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli.html">CLI Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotation.html">Annotation with Viola</a></li>
 </ul>
 </li>
 </ul>
@@ -234,14 +236,49 @@ Gridss employs breakend-based notation here, too.
 Manta originally outputs breakend-based records of “Inversion”, but these can be converted to breakpoint-based VCFs by using scripts coded by Manta’s developers.
 Manta outputs the start position as 20 and the end position as 25, regardless of the “Inversion” strand; Lumpy is similar, but the output is on one line. In contrast, Delly adds 1 to the start and end positions for negative strands.</p>
 <img alt="../_images/inv_viola.png" src="../_images/inv_viola.png" />
-<p>On the viola, in “Inversion”, We were keen to express the SV position on a break-end basis.
+<p>On the viola, in “Inversion”, we were keen to express the SV position on a break-end basis.
 With regard to Lumpy, we have divided “Inversion” into two lines to fit our principles.</p>
 <img alt="../_images/inv_bedpe.png" src="../_images/inv_bedpe.png" />
 <p>For BEDPE output, the same method as for “Deletion” is also used here.</p>
 </section>
 <section id="translocation">
 <h2>Translocation<a class="headerlink" href="#translocation" title="Permalink to this headline">¶</a></h2>
-<p>Coming Soon.</p>
+<img alt="../_images/tra_image.png" src="../_images/tra_image.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>In the SV callers supported by Viola (Manta, Delly, Lumpy, and Gridss), translocation is recorded in almost the same way, although Delly outputs only one row for one SV event while the others report two lines for one SV event (See figure below).</p>
+<img alt="../_images/tra_vcf.png" src="../_images/tra_vcf.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Below is the <code class="docutils literal notranslate"><span class="pre">positions</span></code> table and BEDPE output that correspond to the above VCF. Viola interprets the <code class="docutils literal notranslate"><span class="pre">ALT</span></code> field (in this case, <code class="docutils literal notranslate"><span class="pre">A[chr2:15[</span></code>) into <code class="docutils literal notranslate"><span class="pre">+</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> symbols to represent the orientations of each breakend.</p>
+<img alt="../_images/tra_viola.png" src="../_images/tra_viola.png" />
+<img alt="../_images/tra_bedpe.png" src="../_images/tra_bedpe.png" />
+</section>
+<section id="single-breakends">
+<h2>Single Breakends<a class="headerlink" href="#single-breakends" title="Permalink to this headline">¶</a></h2>
+<p>Some breakends do not have mate breakends and are called “single breakends”.</p>
+<img alt="../_images/bnd_image.png" src="../_images/bnd_image.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>According to the specification of VCFv4.2, single breakends are expressed as following figure.</p>
+<img alt="../_images/bnd_vcf.png" src="../_images/bnd_vcf.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Viola only use <code class="docutils literal notranslate"><span class="pre">chrom1</span></code>, <code class="docutils literal notranslate"><span class="pre">pos1</span></code>, and <code class="docutils literal notranslate"><span class="pre">strand1</span></code> entries to define a single breakend event and fill “None” or “NaN” values at <code class="docutils literal notranslate"><span class="pre">chrom2</span></code>, <code class="docutils literal notranslate"><span class="pre">pos2</span></code>, and <code class="docutils literal notranslate"><span class="pre">strand2</span></code> entries that are not necessary.</p>
+<img alt="../_images/bnd_viola.png" src="../_images/bnd_viola.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>In the BEDPE file created by Viola, this event will be output as the figure below.</p>
+<img alt="../_images/bnd_bedpe.png" src="../_images/bnd_bedpe.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">chrom2</span></code>, <code class="docutils literal notranslate"><span class="pre">start2</span></code>, <code class="docutils literal notranslate"><span class="pre">end2</span></code>, and <code class="docutils literal notranslate"><span class="pre">strand2</span></code> entries will be blank to keep compatibility with other tools.</p>
 </section>
 </section>
 
