@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>viola.Bedpe &mdash; Viola 1.0.0.dev10 documentation</title>
@@ -14,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -32,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -91,7 +93,7 @@
               
             
             
-              <p><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../signature_analysis.html">Signature Analysis Tutorial</a></li>
@@ -193,20 +195,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="viola-bedpe">
+  <div class="section" id="viola-bedpe">
 <h1>viola.Bedpe<a class="headerlink" href="#viola-bedpe" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
-<dt id="viola.Bedpe">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Bedpe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_svpos</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">odict_df_info</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">OrderedDict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">pd.DataFrame</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Bedpe" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="viola.Bedpe">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Bedpe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_svpos</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">odict_df_info</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">OrderedDict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">pd.DataFrame</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Bedpe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Relational database-like object containing SV position dataframes and INFO dataframes.
 The instances of this class have information equal to the BEDPE files.
 …</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="viola.Bedpe.sv_count.html#viola.Bedpe.sv_count" title="viola.Bedpe.sv_count"><strong>sv_count</strong></a> (<em>int</em>) – Number of SV records</p></li>
-<li><p><a class="reference internal" href="viola.Bedpe.table_list.html#viola.Bedpe.table_list" title="viola.Bedpe.table_list"><strong>table_list</strong></a> – List of names of all tables included in the object</p></li>
-<li><p><a class="reference internal" href="viola.Bedpe.ids.html#viola.Bedpe.ids" title="viola.Bedpe.ids"><strong>ids</strong></a> – List of all SV id.</p></li>
+<li><p><strong>sv_count</strong> (<em>int</em>) – Number of SV records</p></li>
+<li><p><strong>table_list</strong> – List of names of all tables included in the object</p></li>
+<li><p><strong>ids</strong> – List of all SV id.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Parameters</dt>
@@ -227,36 +229,35 @@ Main key is the combination of (‘id’, ‘value_idx’) and ‘id’ is the f
 </dd>
 </dl>
 <dl class="py method">
-<dt id="viola.Bedpe.get_table">
-<code class="sig-name descname"><span class="pre">get_table</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Bedpe.get_table" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="viola.Bedpe.get_table">
+<span class="sig-name descname"><span class="pre">get_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Bedpe.get_table" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a table specified in the argument as pandas DataFrame object.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="viola.Bedpe.to_bedpe_like">
-<code class="sig-name descname"><span class="pre">to_bedpe_like</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">custom_infonames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confidence_intervals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Bedpe.to_bedpe_like" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="viola.Bedpe.to_bedpe_like">
+<span class="sig-name descname"><span class="pre">to_bedpe_like</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">custom_infonames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confidence_intervals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Bedpe.to_bedpe_like" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a DataFrame in bedpe-like format.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="viola.Bedpe.filter">
-<code class="sig-name descname"><span class="pre">filter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ls_query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_logic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'and'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Bedpe.filter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="viola.Bedpe.filter">
+<span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ls_query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_logic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'and'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Bedpe.filter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter Bedpe object by the list of queries.
 Return object is also an instance of the Bedpe object</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="viola.Bedpe.filter_by_id">
-<code class="sig-name descname"><span class="pre">filter_by_id</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arrlike_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Bedpe.filter_by_id" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="viola.Bedpe.filter_by_id">
+<span class="sig-name descname"><span class="pre">filter_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arrlike_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Bedpe.filter_by_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter Bedpe object according to the list of SV ids.
 Return object is also an instance of the Bedpe object</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="viola.Bedpe.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_svpos</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">odict_df_info</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">OrderedDict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">pd.DataFrame</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Bedpe.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</dd></dl>
+<dt class="sig sig-object py" id="viola.Bedpe.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_svpos</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">odict_df_info</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">OrderedDict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">pd.DataFrame</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Bedpe.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
@@ -266,7 +267,7 @@ Return object is also an instance of the Bedpe object</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#viola.Bedpe.__init__" title="viola.Bedpe.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(df_svpos, odict_df_info)</p></td>
-<td><p>Initialize self.</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="viola.Bedpe.add_info_table.html#viola.Bedpe.add_info_table" title="viola.Bedpe.add_info_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_info_table</span></code></a>(table_name, df)</p></td>
 <td><p>Add a new INFO table to self.</p></td>
@@ -362,7 +363,7 @@ Return object is also an instance of the Bedpe object</p>
 </table>
 </dd></dl>
 
-</section>
+</div>
 
 
            </div>

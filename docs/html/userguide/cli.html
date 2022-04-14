@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>CLI Tutorial &mdash; Viola 1.0.0.dev10 documentation</title>
@@ -14,6 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
 
   
   
@@ -32,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -91,7 +93,7 @@
               
             
             
-              <p><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../signature_analysis.html">Signature Analysis Tutorial</a></li>
@@ -181,7 +183,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="cli-tutorial">
+  <div class="section" id="cli-tutorial">
 <span id="cli"></span><h1>CLI Tutorial<a class="headerlink" href="#cli-tutorial" title="Permalink to this headline">¶</a></h1>
 <p>Viola provides command line tools for several features.</p>
 <p>Currently, following functions are available:</p>
@@ -190,7 +192,7 @@
 <li><p>Feature matrix generation for SV signature analysis</p></li>
 <li><p>SV signature extraction</p></li>
 </ul>
-<section id="preparation">
+<div class="section" id="preparation">
 <h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
 <p>Several test VCF files are used in this tutorial.</p>
 <p>Before going to the next step, download these files in your working directory.</p>
@@ -200,8 +202,8 @@
 <span class="gp">$ </span><span class="k">for</span> i <span class="k">in</span> <span class="k">$(</span>seq <span class="m">1</span> <span class="m">3</span><span class="k">)</span><span class="p">;</span> <span class="k">do</span> curl <span class="s1">&#39;https://raw.githubusercontent.com/dermasugita/ViolaDocs/main/docs/html/_static/signature_analysis/vcf/manta${i}.vcf&#39;</span> &gt; signature_analysis/vcf/manta<span class="si">${</span><span class="nv">i</span><span class="si">}</span>.vcf<span class="p">;</span> <span class="k">done</span>
 </pre></div>
 </div>
-</section>
-<section id="overview">
+</div>
+<div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>In your python environment (pyenv, virtualenv, pipenv, etc.), run <code class="docutils literal notranslate"><span class="pre">viola</span></code>.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>viola
@@ -218,8 +220,8 @@
 </pre></div>
 </div>
 <p>Actually, <code class="docutils literal notranslate"><span class="pre">viola</span></code> command has no option except <code class="docutils literal notranslate"><span class="pre">--help</span></code>, so the de facto syntax is <code class="docutils literal notranslate"><span class="pre">viola</span> <span class="pre">COMMAND</span> <span class="pre">[ARGS]</span></code>.</p>
-</section>
-<section id="vcf-to-bedpe">
+</div>
+<div class="section" id="vcf-to-bedpe">
 <h2>VCF to BEDPE<a class="headerlink" href="#vcf-to-bedpe" title="Permalink to this headline">¶</a></h2>
 <p>You can convert VCF files into a BEDPE files with <code class="docutils literal notranslate"><span class="pre">viola</span> <span class="pre">vcf2bedpe</span></code>.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>viola vcf2bedpe -h
@@ -297,8 +299,8 @@
 <span class="go">chr17   26470494   26470495  chr11  111134696  111134697  test6_2  None       -       +            12.0             0.0             NaN             NaN            45.0             5.0             NaN             NaN</span>
 </pre></div>
 </div>
-</section>
-<section id="feature-matrix-generation">
+</div>
+<div class="section" id="feature-matrix-generation">
 <h2>Feature Matrix Generation<a class="headerlink" href="#feature-matrix-generation" title="Permalink to this headline">¶</a></h2>
 <p>Simple feature matrix can be generated by <code class="docutils literal notranslate"><span class="pre">viola</span> <span class="pre">generate-feature-matrix</span></code>.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>viola generate-feature-matrix -h
@@ -383,8 +385,8 @@
 </pre></div>
 </div>
 <p>Now you have a simple feature matrix.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

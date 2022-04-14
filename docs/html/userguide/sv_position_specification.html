@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Specification of SV positions in Viola &mdash; Viola 1.0.0.dev10 documentation</title>
@@ -14,6 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
 
   
   
@@ -32,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -91,7 +93,7 @@
               
             
             
-              <p><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../signature_analysis.html">Signature Analysis Tutorial</a></li>
@@ -182,13 +184,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="specification-of-sv-positions-in-viola">
+  <div class="section" id="specification-of-sv-positions-in-viola">
 <span id="sv-position-specification"></span><h1>Specification of SV positions in Viola<a class="headerlink" href="#specification-of-sv-positions-in-viola" title="Permalink to this headline">¶</a></h1>
 <p>The specification of SV positions varies from SV caller to SV caller.
 It can be misleading to know exactly which genomic coordinates the SV of interest is located in.</p>
 <p>Viola normalises the output of different SV callers and provides a well-defined specification.</p>
 <p>Here we will explain how Viola normalises the position of SVs, with graphical examples for better understanding.</p>
-<section id="deletion">
+<div class="section" id="deletion">
 <h2>Deletion<a class="headerlink" href="#deletion" title="Permalink to this headline">¶</a></h2>
 <p>First, we’ll start from “Deletion”.</p>
 <img alt="../_images/del_image.png" src="../_images/del_image.png" />
@@ -214,8 +216,8 @@ Strands for each breakend are written in <code class="docutils literal notransla
 <li><p><code class="docutils literal notranslate"><span class="pre">end1</span></code> and <code class="docutils literal notranslate"><span class="pre">end2</span></code> columns of BEDPE are exactly same as <code class="docutils literal notranslate"><span class="pre">pos1</span></code> and <code class="docutils literal notranslate"><span class="pre">pos2</span></code> columns of Viola’s <code class="docutils literal notranslate"><span class="pre">positions</span></code> table.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">start1</span></code> and <code class="docutils literal notranslate"><span class="pre">start2</span></code> columns are 0-origin position, so the following formula holds: <code class="docutils literal notranslate"><span class="pre">start1</span></code> + 1 = <code class="docutils literal notranslate"><span class="pre">end1</span></code>, <code class="docutils literal notranslate"><span class="pre">start2</span></code> + 1 = <code class="docutils literal notranslate"><span class="pre">end2</span></code></p></li>
 </ul>
-</section>
-<section id="duplication">
+</div>
+<div class="section" id="duplication">
 <h2>Duplication<a class="headerlink" href="#duplication" title="Permalink to this headline">¶</a></h2>
 <p>Next, let’s move on “Duplication”, especially “Tandem Duplication” where a certain segment is duplicated exactly next to the other.</p>
 <img alt="../_images/dup_image.png" src="../_images/dup_image.png" />
@@ -224,8 +226,8 @@ Strands for each breakend are written in <code class="docutils literal notransla
 <img alt="../_images/dup_viola.png" src="../_images/dup_viola.png" />
 <img alt="../_images/dup_bedpe.png" src="../_images/dup_bedpe.png" />
 <p>Corresponding VCF, <code class="docutils literal notranslate"><span class="pre">positions</span></code> table, and BEDPE format are shown above.</p>
-</section>
-<section id="inversion">
+</div>
+<div class="section" id="inversion">
 <h2>Inversion<a class="headerlink" href="#inversion" title="Permalink to this headline">¶</a></h2>
 <p>Regarding to the VCF, “Inversion” is the most confusing thing, since all SV callers output with different conventions!</p>
 <img alt="../_images/inv_image.png" src="../_images/inv_image.png" />
@@ -240,8 +242,8 @@ Manta outputs the start position as 20 and the end position as 25, regardless of
 With regard to Lumpy, we have divided “Inversion” into two lines to fit our principles.</p>
 <img alt="../_images/inv_bedpe.png" src="../_images/inv_bedpe.png" />
 <p>For BEDPE output, the same method as for “Deletion” is also used here.</p>
-</section>
-<section id="translocation">
+</div>
+<div class="section" id="translocation">
 <h2>Translocation<a class="headerlink" href="#translocation" title="Permalink to this headline">¶</a></h2>
 <img alt="../_images/tra_image.png" src="../_images/tra_image.png" />
 <div class="line-block">
@@ -255,8 +257,8 @@ With regard to Lumpy, we have divided “Inversion” into two lines to fit our 
 <p>Below is the <code class="docutils literal notranslate"><span class="pre">positions</span></code> table and BEDPE output that correspond to the above VCF. Viola interprets the <code class="docutils literal notranslate"><span class="pre">ALT</span></code> field (in this case, <code class="docutils literal notranslate"><span class="pre">A[chr2:15[</span></code>) into <code class="docutils literal notranslate"><span class="pre">+</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> symbols to represent the orientations of each breakend.</p>
 <img alt="../_images/tra_viola.png" src="../_images/tra_viola.png" />
 <img alt="../_images/tra_bedpe.png" src="../_images/tra_bedpe.png" />
-</section>
-<section id="single-breakends">
+</div>
+<div class="section" id="single-breakends">
 <h2>Single Breakends<a class="headerlink" href="#single-breakends" title="Permalink to this headline">¶</a></h2>
 <p>Some breakends do not have mate breakends and are called “single breakends”.</p>
 <img alt="../_images/bnd_image.png" src="../_images/bnd_image.png" />
@@ -283,8 +285,8 @@ With regard to Lumpy, we have divided “Inversion” into two lines to fit our 
 <p class="admonition-title">Note</p>
 <p>The single breakends can be defined as the manual SV classification using <a class="reference internal" href="../reference/api/viola.Vcf.breakend2breakpoint.html"><span class="doc">viola.Vcf.breakend2breakpoint</span></a> function. This function converts breakend-based SV records into breakpoint-based ones and infers the SV type at the same time. If the BND SVs do not have mate BND, the inferred SV type remains “BND”, while the BND SVs with mate BND can be interpreted as either deletion, duplication, inversion, insertion, or translocation. As a result, the single breakends can be differentiated against other SV types by the infefred SV type.</p>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

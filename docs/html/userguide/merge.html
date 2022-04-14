@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>VCF Merging &mdash; Viola 1.0.0.dev10 documentation</title>
@@ -14,6 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
 
   
   
@@ -32,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -91,7 +93,7 @@
               
             
             
-              <p><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../signature_analysis.html">Signature Analysis Tutorial</a></li>
@@ -180,7 +182,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="vcf-merging">
+  <div class="section" id="vcf-merging">
 <span id="merge"></span><h1>VCF Merging<a class="headerlink" href="#vcf-merging" title="Permalink to this headline">¶</a></h1>
 <p>Here, we describe how to merge VCF files with Viola.</p>
 <p>First of all, let’s load the four VCF files from the different SV callers.</p>
@@ -260,7 +262,7 @@
 <span class="go">15  MDLG1h   chr4:200015   chr3:100020     ++   13.03    BND</span>
 </pre></div>
 </div>
-<section id="default-behaviour">
+<div class="section" id="default-behaviour">
 <h2>Default Behaviour<a class="headerlink" href="#default-behaviour" title="Permalink to this headline">¶</a></h2>
 <p>Now, let’s use <a class="reference internal" href="../reference/api/viola.merge.html"><span class="doc">viola.merge</span></a> function.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">merged_vcf</span> <span class="o">=</span> <span class="n">viola</span><span class="o">.</span><span class="n">merge</span><span class="p">([</span><span class="n">manta</span><span class="p">,</span> <span class="n">delly</span><span class="p">,</span> <span class="n">lumpy</span><span class="p">,</span> <span class="n">gridss</span><span class="p">],</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
@@ -314,8 +316,8 @@
 </pre></div>
 </div>
 <p>Look again at “ML1” and you will see that the Lumpy-derived SV record has been chosen. In this case, Lumpy is the 2nd priority and Manta is the 3rd.</p>
-</section>
-<section id="info-relating-to-vcf-merging">
+</div>
+<div class="section" id="info-relating-to-vcf-merging">
 <h2>INFO relating to VCF Merging<a class="headerlink" href="#info-relating-to-vcf-merging" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="../reference/api/viola.merge.html"><span class="doc">viola.merge</span></a> adds three INFOs:</p>
 <ul class="simple">
@@ -370,15 +372,15 @@ To do this, just select the ones with ‘supportingcallercount’ greater than o
 <span class="go">10    manta_MG1   chr1:400000   chr1:500001     +-  None    DEL          13                        2</span>
 </pre></div>
 </div>
-</section>
-<section id="export-vcf-file">
+</div>
+<div class="section" id="export-vcf-file">
 <h2>Export VCF file<a class="headerlink" href="#export-vcf-file" title="Permalink to this headline">¶</a></h2>
 <p>Finally, let’s export the Vcf object filtered by ‘supportingcallercount’ as a VCF file.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">filtered_vcf</span><span class="o">.</span><span class="n">to_vcf</span><span class="p">(</span><span class="s1">&#39;/path/to/the/output.vcf&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
