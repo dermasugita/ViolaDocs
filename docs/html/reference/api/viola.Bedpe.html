@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>viola.Bedpe &mdash; Viola 1.0.0.dev10 documentation</title>
+  <title>viola.Bedpe &mdash; Viola 1.0.0 documentation</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                1.0.0.dev10
+                1.0.0
               </div>
             
           
@@ -124,6 +124,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release_notes/index.html">Release Notes</a></li>
 </ul>
 
             
@@ -199,7 +200,7 @@
 <h1>viola.Bedpe<a class="headerlink" href="#viola-bedpe" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="viola.Bedpe">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Bedpe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_svpos</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">odict_df_info</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">OrderedDict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">pd.DataFrame</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Bedpe" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Bedpe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_svpos</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">odict_df_info</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">OrderedDict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">pd.DataFrame</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patient_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Bedpe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Relational database-like object containing SV position dataframes and INFO dataframes.
 The instances of this class have information equal to the BEDPE files.
 …</p>
@@ -209,6 +210,7 @@ The instances of this class have information equal to the BEDPE files.
 <li><p><strong>sv_count</strong> (<em>int</em>) – Number of SV records</p></li>
 <li><p><strong>table_list</strong> – List of names of all tables included in the object</p></li>
 <li><p><strong>ids</strong> – List of all SV id.</p></li>
+<li><p><strong>patient_name</strong> – Patient name.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Parameters</dt>
@@ -256,7 +258,7 @@ Return object is also an instance of the Bedpe object</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="viola.Bedpe.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_svpos</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">odict_df_info</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">OrderedDict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">pd.DataFrame</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Bedpe.__init__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_svpos</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">odict_df_info</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">OrderedDict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">pd.DataFrame</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patient_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.Bedpe.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -266,7 +268,7 @@ Return object is also an instance of the Bedpe object</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#viola.Bedpe.__init__" title="viola.Bedpe.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(df_svpos, odict_df_info)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#viola.Bedpe.__init__" title="viola.Bedpe.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(df_svpos, odict_df_info[, patient_name])</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="viola.Bedpe.add_info_table.html#viola.Bedpe.add_info_table" title="viola.Bedpe.add_info_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_info_table</span></code></a>(table_name, df)</p></td>
@@ -320,16 +322,19 @@ Return object is also an instance of the Bedpe object</p>
 <tr class="row-even"><td><p><a class="reference internal" href="viola.Bedpe.remove_info_table.html#viola.Bedpe.remove_info_table" title="viola.Bedpe.remove_info_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_info_table</span></code></a>(table_name)</p></td>
 <td><p>Remove an INFO table from self.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace_table</span></code>(table_name, table)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="viola.Bedpe.replace_table.html#viola.Bedpe.replace_table" title="viola.Bedpe.replace_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace_table</span></code></a>(table_name, table)</p></td>
 <td><p>Replace existing table into new table.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="viola.Bedpe.to_bedpe.html#viola.Bedpe.to_bedpe" title="viola.Bedpe.to_bedpe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_bedpe</span></code></a>(path_or_buf[, custom_infonames, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="viola.Bedpe.set_value_for_info_by_id.html#viola.Bedpe.set_value_for_info_by_id" title="viola.Bedpe.set_value_for_info_by_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_value_for_info_by_id</span></code></a>(table_name, sv_id, …)</p></td>
+<td><p>Set value to the specified info table by sv_id.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="viola.Bedpe.to_bedpe.html#viola.Bedpe.to_bedpe" title="viola.Bedpe.to_bedpe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_bedpe</span></code></a>(path_or_buf[, custom_infonames, …])</p></td>
 <td><p>to_beddpe(path_or_buf, custom_infonames, confidence_intervals) Return a BEDPE file.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="viola.Bedpe.to_bedpe_like.html#viola.Bedpe.to_bedpe_like" title="viola.Bedpe.to_bedpe_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_bedpe_like</span></code></a>([custom_infonames])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="viola.Bedpe.to_bedpe_like.html#viola.Bedpe.to_bedpe_like" title="viola.Bedpe.to_bedpe_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_bedpe_like</span></code></a>([custom_infonames])</p></td>
 <td><p>Return a DataFrame in bedpe-like format.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="viola.Bedpe.view.html#viola.Bedpe.view" title="viola.Bedpe.view"><code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code></a>(custom_infonames, return_as_dataframe)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="viola.Bedpe.view.html#viola.Bedpe.view" title="viola.Bedpe.view"><code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code></a>(custom_infonames, return_as_dataframe)</p></td>
 <td><p>Quick view function of the Vcf object.</p></td>
 </tr>
 </tbody>
@@ -350,13 +355,16 @@ Return object is also an instance of the Bedpe object</p>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">idx</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">repr_config</span></code></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">patient_name</span></code></p></td>
+<td><p>Return the name of the patient.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">repr_config</span></code></p></td>
 <td><p>Return current configuration of __repr__() function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="viola.Bedpe.sv_count.html#viola.Bedpe.sv_count" title="viola.Bedpe.sv_count"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sv_count</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="viola.Bedpe.sv_count.html#viola.Bedpe.sv_count" title="viola.Bedpe.sv_count"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sv_count</span></code></a></p></td>
 <td><p>Return number of SV records.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="viola.Bedpe.table_list.html#viola.Bedpe.table_list" title="viola.Bedpe.table_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">table_list</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="viola.Bedpe.table_list.html#viola.Bedpe.table_list" title="viola.Bedpe.table_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">table_list</span></code></a></p></td>
 <td><p>Return a list of names of all tables in the object.</p></td>
 </tr>
 </tbody>

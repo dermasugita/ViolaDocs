@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>MultiVcf &mdash; Viola 1.0.0.dev10 documentation</title>
+  <title>MultiVcf &mdash; Viola 1.0.0 documentation</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                1.0.0.dev10
+                1.0.0
               </div>
             
           
@@ -132,6 +132,14 @@
 <li class="toctree-l4"><a class="reference internal" href="api/viola.MultiVcf.get_microhomology.html">viola.MultiVcf.get_microhomology</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#conversion">Conversion</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.MultiVcf.as_bedpe_multi.html">viola.MultiVcf.as_bedpe_multi</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#representation">Representation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.MultiVcf.view.html">viola.MultiVcf.view</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#signature-analysis">Signature_analysis</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/viola.MultiVcf.classify_manual_svtype.html">viola.MultiVcf.classify_manual_svtype</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/viola.MultiVcf.get_feature_count_as_data_frame.html">viola.MultiVcf.get_feature_count_as_data_frame</a></li>
@@ -144,6 +152,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes/index.html">Release Notes</a></li>
 </ul>
 
             
@@ -310,6 +319,34 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="api/viola.MultiVcf.get_microhomology.html#viola.MultiVcf.get_microhomology" title="viola.MultiVcf.get_microhomology"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiVcf.get_microhomology</span></code></a>(fasta[, max_homlen])</p></td>
 <td><p>Infer microhomology length and sequence in each breakpoint.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="conversion">
+<h2>Conversion<a class="headerlink" href="#conversion" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/viola.MultiVcf.as_bedpe_multi.html#viola.MultiVcf.as_bedpe_multi" title="viola.MultiVcf.as_bedpe_multi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiVcf.as_bedpe_multi</span></code></a>()</p></td>
+<td><p>Convert MultiVcf object into MultiBedpe object.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="representation">
+<h2>Representation<a class="headerlink" href="#representation" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/viola.MultiVcf.view.html#viola.MultiVcf.view" title="viola.MultiVcf.view"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiVcf.view</span></code></a>(custom_infonames, …)</p></td>
+<td><p>Quick view function of the Vcf object.</p></td>
 </tr>
 </tbody>
 </table>

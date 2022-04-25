@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>viola.MultiVcf &mdash; Viola 1.0.0.dev10 documentation</title>
+  <title>viola.MultiVcf &mdash; Viola 1.0.0 documentation</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                1.0.0.dev10
+                1.0.0
               </div>
             
           
@@ -112,6 +112,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../multi_vcf.html#filtering">Filtering</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../multi_vcf.html#adding-informations">Adding Informations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../multi_vcf.html#annotation">Annotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multi_vcf.html#conversion">Conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multi_vcf.html#representation">Representation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../multi_vcf.html#signature-analysis">Signature_analysis</a></li>
 </ul>
 </li>
@@ -120,6 +122,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release_notes/index.html">Release Notes</a></li>
 </ul>
 
             
@@ -230,6 +233,12 @@ across all the samples.</p>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_infos</span></code>(base_df, ls_tablenames[, …])</p></td>
 <td><p>Append INFO tables to the right of the base_df, based on the SV id columns.</p></td>
 </tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">as_bedpe</span></code>()</p></td>
+<td><p>The same as as_bedpe_multi()</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="viola.MultiVcf.as_bedpe_multi.html#viola.MultiVcf.as_bedpe_multi" title="viola.MultiVcf.as_bedpe_multi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">as_bedpe_multi</span></code></a>()</p></td>
+<td><p>Convert MultiVcf object into MultiBedpe object.</p></td>
+</tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">breakend2breakpoint</span></code>()</p></td>
 <td><p>Converts a Vcf object into a breakpoint-based Vcf object by integrating the paired breakends (BND) and infering their SVTYPE.</p></td>
 </tr>
@@ -290,19 +299,22 @@ across all the samples.</p>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace_table</span></code>(table_name, table)</p></td>
 <td><p>Replace existing table into new table.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_bedpe</span></code>(file_or_buf[, custom_infonames, …])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_value_for_info_by_id</span></code>(table_name, sv_id, …)</p></td>
+<td><p>Set value to the specified info table by sv_id.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_bedpe</span></code>(file_or_buf[, custom_infonames, …])</p></td>
 <td><p>to_bedpe_like(file_or_buf, custom_infonames=[], add_filters, add_formats, confidence_intervals: bool=False) Return a BEDPE file.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="viola.MultiVcf.to_bedpe_like.html#viola.MultiVcf.to_bedpe_like" title="viola.MultiVcf.to_bedpe_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_bedpe_like</span></code></a>([custom_infonames])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="viola.MultiVcf.to_bedpe_like.html#viola.MultiVcf.to_bedpe_like" title="viola.MultiVcf.to_bedpe_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_bedpe_like</span></code></a>([custom_infonames])</p></td>
 <td><p>Return a DataFrame in bedpe-like format.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_vcf</span></code>(path_or_buf)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_vcf</span></code>(path_or_buf)</p></td>
 <td><p>Return a vcf-formatted String.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_vcf_like</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_vcf_like</span></code>()</p></td>
 <td><p>Return a vcf-formatted DataFrame.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code>(custom_infonames, return_as_dataframe)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="viola.MultiVcf.view.html#viola.MultiVcf.view" title="viola.MultiVcf.view"><code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code></a>(custom_infonames, return_as_dataframe)</p></td>
 <td><p>Quick view function of the Vcf object.</p></td>
 </tr>
 </tbody>
@@ -323,13 +335,16 @@ across all the samples.</p>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">idx</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">repr_config</span></code></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">patient_name</span></code></p></td>
+<td><p>Return the name of the patient.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">repr_config</span></code></p></td>
 <td><p>Return current configuration of __repr__() function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="viola.MultiVcf.sv_count.html#viola.MultiVcf.sv_count" title="viola.MultiVcf.sv_count"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sv_count</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="viola.MultiVcf.sv_count.html#viola.MultiVcf.sv_count" title="viola.MultiVcf.sv_count"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sv_count</span></code></a></p></td>
 <td><p>Return number of SV records.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="viola.MultiVcf.table_list.html#viola.MultiVcf.table_list" title="viola.MultiVcf.table_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">table_list</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="viola.MultiVcf.table_list.html#viola.MultiVcf.table_list" title="viola.MultiVcf.table_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">table_list</span></code></a></p></td>
 <td><p>Return a list of names of all tables in the object.</p></td>
 </tr>
 </tbody>

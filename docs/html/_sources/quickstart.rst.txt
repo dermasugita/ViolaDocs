@@ -39,7 +39,7 @@ In order to use Viola's features, you must first run :doc:`read_vcf<reference/ap
 .. ipython:: python
 
    url = 'https://raw.githubusercontent.com/dermasugita/ViolaDocs/main/docs/html/_static/tutorial.manta.vcf'
-   vcf = viola.read_vcf(url, variant_caller='manta') # filepath, url, and file-like object are acceptable.
+   vcf = viola.read_vcf(url, variant_caller='manta', patient_name="manta1") # filepath, url, and file-like object are acceptable.
 
 Now you're ready to perform a number of functions that the Viola package has.
 
@@ -159,7 +159,7 @@ First, let's look at a couple of examples.
    .. image:: ./_static/quickstart/value_index.png
       :width: 300
    
-   |
+   | 
    As another example, the values in the FORMAT field of Manta VCF are separated by commas.
 
    .. image:: ./_static/quickstart/value_index2.png

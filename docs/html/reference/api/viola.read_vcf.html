@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>viola.read_vcf &mdash; Viola 1.0.0.dev10 documentation</title>
+  <title>viola.read_vcf &mdash; Viola 1.0.0 documentation</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                1.0.0.dev10
+                1.0.0
               </div>
             
           
@@ -116,6 +116,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release_notes/index.html">Release Notes</a></li>
 </ul>
 
             
@@ -191,7 +192,7 @@
 <h1>viola.read_vcf<a class="headerlink" href="#viola-read-vcf" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="viola.read_vcf">
-<span class="sig-name descname"><span class="pre">read_vcf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath_or_buffer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variant_callser</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'manta'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.read_vcf" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">read_vcf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath_or_buffer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variant_callser</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'manta'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patient_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#viola.read_vcf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read vcf file of SV and return Vcf object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -200,6 +201,7 @@
 (Wether URL is acceptable or not hasn’t been tested.)
 (Acceptable types should be extended in the future)</p></li>
 <li><p><strong>variant_caller</strong> (<em>str</em>) – Let this function know which SV caller was used to create vcf file.</p></li>
+<li><p><strong>name</strong> (<em>patient</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Vcf &mdash; Viola 1.0.0.dev10 documentation</title>
+  <title>Vcf &mdash; Viola 1.0.0 documentation</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                1.0.0.dev10
+                1.0.0
               </div>
             
           
@@ -120,6 +120,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#conversion">Conversion</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.copy.html">viola.Vcf.copy</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.to_bedpe_like.html">viola.Vcf.to_bedpe_like</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.as_bedpe.html">viola.Vcf.as_bedpe</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.to_vcf_like.html">viola.Vcf.to_vcf_like</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.breakend2breakpoint.html">viola.Vcf.breakend2breakpoint</a></li>
 </ul>
@@ -141,6 +142,8 @@
 <li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.append_filters.html">viola.Vcf.append_filters</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.get_table.html">viola.Vcf.get_table</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.remove_info_table.html">viola.Vcf.remove_info_table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.replace_table.html">viola.Vcf.replace_table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/viola.Vcf.set_value_for_info_by_id.html">viola.Vcf.set_value_for_info_by_id</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#merging">Merging</a><ul>
@@ -170,6 +173,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes/index.html">Release Notes</a></li>
 </ul>
 
             
@@ -306,10 +310,13 @@
 <tr class="row-even"><td><p><a class="reference internal" href="api/viola.Vcf.to_bedpe_like.html#viola.Vcf.to_bedpe_like" title="viola.Vcf.to_bedpe_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.to_bedpe_like</span></code></a>([custom_infonames])</p></td>
 <td><p>Return a DataFrame in bedpe-like format.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/viola.Vcf.to_vcf_like.html#viola.Vcf.to_vcf_like" title="viola.Vcf.to_vcf_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.to_vcf_like</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/viola.Vcf.as_bedpe.html#viola.Vcf.as_bedpe" title="viola.Vcf.as_bedpe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.as_bedpe</span></code></a>()</p></td>
+<td><p>Convert Vcf object into Bedpe object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/viola.Vcf.to_vcf_like.html#viola.Vcf.to_vcf_like" title="viola.Vcf.to_vcf_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.to_vcf_like</span></code></a>()</p></td>
 <td><p>Return a vcf-formatted DataFrame.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/viola.Vcf.breakend2breakpoint.html#viola.Vcf.breakend2breakpoint" title="viola.Vcf.breakend2breakpoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.breakend2breakpoint</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/viola.Vcf.breakend2breakpoint.html#viola.Vcf.breakend2breakpoint" title="viola.Vcf.breakend2breakpoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.breakend2breakpoint</span></code></a>()</p></td>
 <td><p>Converts a Vcf object into a breakpoint-based Vcf object by integrating the paired breakends (BND) and infering their SVTYPE.</p></td>
 </tr>
 </tbody>
@@ -374,6 +381,12 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="api/viola.Vcf.remove_info_table.html#viola.Vcf.remove_info_table" title="viola.Vcf.remove_info_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.remove_info_table</span></code></a>(table_name)</p></td>
 <td><p>Remove an INFO table from self.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/viola.Vcf.replace_table.html#viola.Vcf.replace_table" title="viola.Vcf.replace_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.replace_table</span></code></a>(table_name, table)</p></td>
+<td><p>Replace existing table into new table.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/viola.Vcf.set_value_for_info_by_id.html#viola.Vcf.set_value_for_info_by_id" title="viola.Vcf.set_value_for_info_by_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vcf.set_value_for_info_by_id</span></code></a>(table_name, …)</p></td>
+<td><p>Set value to the specified info table by sv_id.</p></td>
 </tr>
 </tbody>
 </table>

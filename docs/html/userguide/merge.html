@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>VCF Merging &mdash; Viola 1.0.0.dev10 documentation</title>
+  <title>VCF Merging &mdash; Viola 1.0.0 documentation</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                1.0.0.dev10
+                1.0.0
               </div>
             
           
@@ -113,6 +113,7 @@
 <li class="toctree-l2"><a class="reference internal" href="annotation.html">Annotation with Viola</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes/index.html">Release Notes</a></li>
 </ul>
 
             
@@ -186,13 +187,13 @@
 <span id="merge"></span><h1>VCF Merging<a class="headerlink" href="#vcf-merging" title="Permalink to this headline">¶</a></h1>
 <p>Here, we describe how to merge VCF files with Viola.</p>
 <p>First of all, let’s load the four VCF files from the different SV callers.</p>
-<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">manta</span> <span class="o">=</span> <span class="n">viola</span><span class="o">.</span><span class="n">read_vcf</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/dermasugita/Viola-SV/master/examples/demo_merge/test.merge.manta.vcf&#39;</span><span class="p">,</span> <span class="n">variant_caller</span><span class="o">=</span><span class="s1">&#39;manta&#39;</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">manta</span> <span class="o">=</span> <span class="n">viola</span><span class="o">.</span><span class="n">read_vcf</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/dermasugita/Viola-SV/master/examples/demo_merge/test.merge.manta.vcf&#39;</span><span class="p">,</span> <span class="n">variant_caller</span><span class="o">=</span><span class="s1">&#39;manta&#39;</span><span class="p">,</span> <span class="n">patient_name</span><span class="o">=</span><span class="s1">&#39;manta1&#39;</span><span class="p">)</span>
 
-<span class="gp">In [2]: </span><span class="n">delly</span> <span class="o">=</span> <span class="n">viola</span><span class="o">.</span><span class="n">read_vcf</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/dermasugita/Viola-SV/master/examples/demo_merge/test.merge.delly.vcf&#39;</span><span class="p">,</span> <span class="n">variant_caller</span><span class="o">=</span><span class="s1">&#39;delly&#39;</span><span class="p">)</span>
+<span class="gp">In [2]: </span><span class="n">delly</span> <span class="o">=</span> <span class="n">viola</span><span class="o">.</span><span class="n">read_vcf</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/dermasugita/Viola-SV/master/examples/demo_merge/test.merge.delly.vcf&#39;</span><span class="p">,</span> <span class="n">variant_caller</span><span class="o">=</span><span class="s1">&#39;delly&#39;</span><span class="p">,</span> <span class="n">patient_name</span><span class="o">=</span><span class="s1">&#39;delly1&#39;</span><span class="p">)</span>
 
-<span class="gp">In [3]: </span><span class="n">lumpy</span> <span class="o">=</span> <span class="n">viola</span><span class="o">.</span><span class="n">read_vcf</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/dermasugita/Viola-SV/master/examples/demo_merge/test.merge.lumpy.vcf&#39;</span><span class="p">,</span> <span class="n">variant_caller</span><span class="o">=</span><span class="s1">&#39;lumpy&#39;</span><span class="p">)</span>
+<span class="gp">In [3]: </span><span class="n">lumpy</span> <span class="o">=</span> <span class="n">viola</span><span class="o">.</span><span class="n">read_vcf</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/dermasugita/Viola-SV/master/examples/demo_merge/test.merge.lumpy.vcf&#39;</span><span class="p">,</span> <span class="n">variant_caller</span><span class="o">=</span><span class="s1">&#39;lumpy&#39;</span><span class="p">,</span> <span class="n">patient_name</span><span class="o">=</span><span class="s1">&#39;lumpy1&#39;</span><span class="p">)</span>
 
-<span class="gp">In [4]: </span><span class="n">gridss</span> <span class="o">=</span> <span class="n">viola</span><span class="o">.</span><span class="n">read_vcf</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/dermasugita/Viola-SV/master/examples/demo_merge/test.merge.gridss.vcf&#39;</span><span class="p">,</span> <span class="n">variant_caller</span><span class="o">=</span><span class="s1">&#39;gridss&#39;</span><span class="p">)</span>
+<span class="gp">In [4]: </span><span class="n">gridss</span> <span class="o">=</span> <span class="n">viola</span><span class="o">.</span><span class="n">read_vcf</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/dermasugita/Viola-SV/master/examples/demo_merge/test.merge.gridss.vcf&#39;</span><span class="p">,</span> <span class="n">variant_caller</span><span class="o">=</span><span class="s1">&#39;gridss&#39;</span><span class="p">,</span> <span class="n">patient_name</span><span class="o">=</span><span class="s1">&#39;gridss&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>These are synthetic files that we have created to briefly test the functionality of <a class="reference internal" href="../reference/api/viola.merge.html"><span class="doc">viola.merge</span></a>, and they share some SVs.</p>

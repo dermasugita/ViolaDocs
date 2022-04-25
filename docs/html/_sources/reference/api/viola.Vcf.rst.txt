@@ -1,4 +1,4 @@
-viola.Vcf
+﻿viola.Vcf
 =========
 
 .. currentmodule:: viola
@@ -19,6 +19,7 @@ viola.Vcf
       ~Vcf.append_filters
       ~Vcf.append_formats
       ~Vcf.append_infos
+      ~Vcf.as_bedpe
       ~Vcf.breakend2breakpoint
       ~Vcf.calculate_info
       ~Vcf.change_repr_config
@@ -38,6 +39,7 @@ viola.Vcf
       ~Vcf.remove_info_table
       ~Vcf.replace_svid
       ~Vcf.replace_table
+      ~Vcf.set_value_for_info_by_id
       ~Vcf.to_bedpe
       ~Vcf.to_bedpe_like
       ~Vcf.to_vcf
@@ -55,6 +57,7 @@ viola.Vcf
       ~Vcf.contigs
       ~Vcf.ids
       ~Vcf.idx
+      ~Vcf.patient_name
       ~Vcf.repr_config
       ~Vcf.sv_count
       ~Vcf.table_list
