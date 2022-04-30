@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Filtering Systems &mdash; Viola 1.0.1 documentation</title>
+  <title>Viola 1.0.1 Release Notes &mdash; Viola 1.0.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
@@ -19,8 +19,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Flexible BEDPE generation" href="bedpe_generation.html" />
-    <link rel="prev" title="Viola’s Data Structure – Why tidy data?" href="data_structure.html" /> 
+    <link rel="prev" title="Viola 1.0.0 Release Notes" href="release_notes_1_0_0_stable.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,20 +45,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../signature_analysis.html">Signature Analysis Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference/index.html">API Reference</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">User Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="data_structure.html">Viola’s Data Structure – Why tidy data?</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Filtering Systems</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#completeness-id-based-filtering-system">Completeness: ID based filtering system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Release Notes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="release_notes_1_0_0_stable.html">Viola 1.0.0 Release Notes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Viola 1.0.1 Release Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#google-group-for-viola-sv-users">Google Group for Viola-SV Users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fixed-features">Fixed Features</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="bedpe_generation.html">Flexible BEDPE generation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sv_position_specification.html">Specification of SV positions in Viola</a></li>
-<li class="toctree-l2"><a class="reference internal" href="merge.html">VCF Merging</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cli.html">CLI Tutorial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="annotation.html">Annotation with Viola</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../release_notes/index.html">Release Notes</a></li>
 </ul>
 
         </div>
@@ -76,10 +71,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">User Guide</a> &raquo;</li>
-      <li>Filtering Systems</li>
+          <li><a href="index.html">Release Notes</a> &raquo;</li>
+      <li>Viola 1.0.1 Release Notes</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/userguide/filtering.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/release_notes/release_notes_1_0_1.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -87,18 +82,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="filtering-systems">
-<span id="filtering"></span><h1>Filtering Systems<a class="headerlink" href="#filtering-systems" title="Permalink to this headline"></a></h1>
-<div class="line-block">
-<div class="line">Filtering is an important step in bioinformatics.</div>
-<div class="line">Filtering functions in packaged systems need to be both complete enough to handle even the most complex filtering criteria, as well as available enough to allow simple filtering with simple coding.</div>
-<div class="line">This page explains how Viola achieves these desired functions.</div>
-</div>
-<section id="completeness-id-based-filtering-system">
-<h2>Completeness: ID based filtering system<a class="headerlink" href="#completeness-id-based-filtering-system" title="Permalink to this headline"></a></h2>
-<p>In the main Viola object, including Vcf, Bedpe, and MultiBedpe, filtering-associated functions are eventually passed to the <a class="reference internal" href="../reference/api/viola.Vcf.filter_by_id.html"><span class="doc">filter_by_id</span></a> method.
-| <a class="reference internal" href="../reference/api/viola.Vcf.filter_by_id.html"><span class="doc">filter_by_id</span></a> method receives a list of ID (SV ID or global ID) and return filtered object.
-| Any table in the object that has a column with an SV ID or global ID will also be filtered.</p>
+  <section id="viola-1-0-1-release-notes">
+<span id="release-notes-1-0-1"></span><h1>Viola 1.0.1 Release Notes<a class="headerlink" href="#viola-1-0-1-release-notes" title="Permalink to this headline"></a></h1>
+<section id="google-group-for-viola-sv-users">
+<h2>Google Group for Viola-SV Users<a class="headerlink" href="#google-group-for-viola-sv-users" title="Permalink to this headline"></a></h2>
+<p>To facilite discussion between users and developers, we’ve set up a google group for Viola-SV users!
+You can enter our group from <a class="reference external" href="https://groups.google.com/g/viola-users">here</a>.
+Feel free to join us.</p>
+</section>
+<section id="fixed-features">
+<h2>Fixed Features<a class="headerlink" href="#fixed-features" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Fixed feature in <a class="reference internal" href="../reference/api/viola.read_vcf.html"><span class="doc">viola.read_vcf</span></a> where patient_name were not reflected in the Vcf class.</p></li>
+<li><p>Fixed feature in <a class="reference internal" href="../reference/api/viola.read_bedpe.html"><span class="doc">viola.read_bedpe</span></a> where the confidence intervals were shifted by 1 to the upstream side (5’ end).</p></li>
+</ul>
 </section>
 </section>
 
@@ -106,8 +103,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="data_structure.html" class="btn btn-neutral float-left" title="Viola’s Data Structure – Why tidy data?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="bedpe_generation.html" class="btn btn-neutral float-right" title="Flexible BEDPE generation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="release_notes_1_0_0_stable.html" class="btn btn-neutral float-left" title="Viola 1.0.0 Release Notes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

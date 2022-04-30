@@ -1,79 +1,38 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Quick Start &mdash; Viola 1.0.0 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-
-  
-  
+  <title>Quick Start &mdash; Viola 1.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Signature Analysis Tutorial" href="signature_analysis.html" />
     <link rel="prev" title="Welcom to Viola Package!" href="index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="index.html" class="icon icon-home"> Viola
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                1.0.0
+                1.0.1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -81,18 +40,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
@@ -118,73 +66,32 @@
 <li class="toctree-l1"><a class="reference internal" href="release_notes/index.html">Release Notes</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Viola</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>Quick Start</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/quickstart.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="quick-start">
-<span id="quickstart"></span><h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="quick-start">
+<span id="quickstart"></span><h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline"></a></h1>
 <p>This is a short example how to manage VCF files.</p>
 <p>After you have read this page, you can</p>
 <ul class="simple">
@@ -200,14 +107,14 @@
 </ul>
 <p>In this tutorial, we will only deal with the viola.Vcf class, but many of the features available in this class are also available in the Bedpe, MultiBedpe and MultiVcf classes.</p>
 <p>Individual tutorials for classes not covered here are currently under development.</p>
-<div class="section" id="import-viola-to-your-script">
-<h2>Import Viola to your script<a class="headerlink" href="#import-viola-to-your-script" title="Permalink to this headline">¶</a></h2>
+<section id="import-viola-to-your-script">
+<h2>Import Viola to your script<a class="headerlink" href="#import-viola-to-your-script" title="Permalink to this headline"></a></h2>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">viola</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="create-vcf-object-from-vcf-file">
-<h2>Create Vcf object from VCF file.<a class="headerlink" href="#create-vcf-object-from-vcf-file" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="create-vcf-object-from-vcf-file">
+<h2>Create Vcf object from VCF file.<a class="headerlink" href="#create-vcf-object-from-vcf-file" title="Permalink to this headline"></a></h2>
 <p>In order to use Viola’s features, you must first run <a class="reference internal" href="reference/api/viola.read_vcf.html"><span class="doc">read_vcf</span></a> to create an <a class="reference internal" href="reference/vcf.html#vcf"><span class="std std-ref">viola.Vcf</span></a> object.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/dermasugita/ViolaDocs/main/docs/html/_static/tutorial.manta.vcf&#39;</span>
 
@@ -216,13 +123,13 @@
 </div>
 <p>Now you’re ready to perform a number of functions that the Viola package has.</p>
 <p>To learn detail data structure of viola.Vcf object, see <a class="reference internal" href="userguide/data_structure.html#data-structure"><span class="std std-ref">Viola’s Data Structure</span></a>.</p>
-</div>
-<div class="section" id="viewing-the-contents-of-viola-vcf-object">
-<h2>Viewing the contents of viola.Vcf object<a class="headerlink" href="#viewing-the-contents-of-viola-vcf-object" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="viewing-the-contents-of-viola-vcf-object">
+<h2>Viewing the contents of viola.Vcf object<a class="headerlink" href="#viewing-the-contents-of-viola-vcf-object" title="Permalink to this headline"></a></h2>
 <p>You may want to view the content of Vcf objects after creating them.
 To do so, you have three options.</p>
-<div class="section" id="simply-print-the-object">
-<h3>1) Simply print the object.<a class="headerlink" href="#simply-print-the-object" title="Permalink to this headline">¶</a></h3>
+<section id="simply-print-the-object">
+<h3>1) Simply print the object.<a class="headerlink" href="#simply-print-the-object" title="Permalink to this headline"></a></h3>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># The column name &#39;be&#39; stands for &#39;breakend&#39;.</span>
 <span class="gp">In [4]: </span><span class="nb">print</span><span class="p">(</span><span class="n">vcf</span><span class="p">)</span>
 <span class="go">INFO=imprecise,svtype,svlen,end,cipos,ciend,cigar,mateid,event,homlen,homseq,svinslen,svinsseq,left_svinsseq,right_svinsseq,contig,bnd_depth,mate_bnd_depth,somatic,somaticscore,junction_somaticscore,inv3,inv5</span>
@@ -237,9 +144,9 @@ To do so, you have three options.</p>
 <span class="go">6  test6_2   chr17:26470495  chr11:111134697     -+  None    BND</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="generate-bedpe-like-pandas-dataframe">
-<h3>2) Generate BEDPE like pandas.DataFrame.<a class="headerlink" href="#generate-bedpe-like-pandas-dataframe" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="generate-bedpe-like-pandas-dataframe">
+<h3>2) Generate BEDPE like pandas.DataFrame.<a class="headerlink" href="#generate-bedpe-like-pandas-dataframe" title="Permalink to this headline"></a></h3>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">vcf_bedpe_like</span> <span class="o">=</span> <span class="n">vcf</span><span class="o">.</span><span class="n">to_bedpe_like</span><span class="p">()</span>
 
 <span class="gp">In [6]: </span><span class="nb">print</span><span class="p">(</span><span class="n">vcf_bedpe_like</span><span class="p">)</span>
@@ -254,9 +161,9 @@ To do so, you have three options.</p>
 </pre></div>
 </div>
 <p>The way to add INFO, FILTER, and FORMAT to this bedpe-like DataFrame is explained <a class="reference internal" href="userguide/bedpe_generation.html#bedpe-generation"><span class="std std-ref">here</span></a>.</p>
-</div>
-<div class="section" id="use-the-get-table-method-to-get-individual-tables-composing-the-vcf-object">
-<h3>3) Use the <a class="reference internal" href="reference/api/viola.Vcf.get_table.html"><span class="doc">get_table()</span></a> method to get individual tables composing the Vcf object.<a class="headerlink" href="#use-the-get-table-method-to-get-individual-tables-composing-the-vcf-object" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="use-the-get-table-method-to-get-individual-tables-composing-the-vcf-object">
+<h3>3) Use the <a class="reference internal" href="reference/api/viola.Vcf.get_table.html"><span class="doc">get_table()</span></a> method to get individual tables composing the Vcf object.<a class="headerlink" href="#use-the-get-table-method-to-get-individual-tables-composing-the-vcf-object" title="Permalink to this headline"></a></h3>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># the returned value is pd.DataFrame</span>
 <span class="gp">In [7]: </span><span class="n">vcf</span><span class="o">.</span><span class="n">get_table</span><span class="p">(</span><span class="s1">&#39;positions&#39;</span><span class="p">)</span>
 <span class="gh">Out[7]: </span><span class="go"></span>
@@ -317,23 +224,23 @@ To do so, you have three options.</p>
 <span class="go">1  SR   None  Integer  Split reads for the ref an...</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="export-as-vcf-bedpe-file">
-<h2>Export as VCF/BEDPE file<a class="headerlink" href="#export-as-vcf-bedpe-file" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="export-as-vcf-bedpe-file">
+<h2>Export as VCF/BEDPE file<a class="headerlink" href="#export-as-vcf-bedpe-file" title="Permalink to this headline"></a></h2>
 <p>You can export VCF/BEDPE files by <code class="docutils literal notranslate"><span class="pre">to_vcf</span></code>/<code class="docutils literal notranslate"><span class="pre">to_bedpe</span></code> method.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vcf</span><span class="o">.</span><span class="n">to_vcf</span><span class="p">(</span><span class="s1">&#39;/path/to/the/output.vcf&#39;</span><span class="p">)</span>
 <span class="n">vcf</span><span class="o">.</span><span class="n">to_bedpe</span><span class="p">(</span><span class="s1">&#39;/path/to/the/output.bedpe&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="filter-vcf-object">
-<h2>Filter Vcf object<a class="headerlink" href="#filter-vcf-object" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="filter-vcf-object">
+<h2>Filter Vcf object<a class="headerlink" href="#filter-vcf-object" title="Permalink to this headline"></a></h2>
 <p>Filtering VCF file is an essential step of bioinformatics study.
 viola.Vcf object provides an intuitive way to filter SV in almost any item.</p>
 <p>You have two options for filtering.</p>
-<div class="section" id="filter-with-queries-using-filter-method">
-<h3>1) Filter with queries using filter method<a class="headerlink" href="#filter-with-queries-using-filter-method" title="Permalink to this headline">¶</a></h3>
+<section id="filter-with-queries-using-filter-method">
+<h3>1) Filter with queries using filter method<a class="headerlink" href="#filter-with-queries-using-filter-method" title="Permalink to this headline"></a></h3>
 <p>Viola has a query system that is easy to understand.</p>
 <p>First, let’s look at a couple of examples.</p>
 <p><strong>a. Filter with SVTYPE of the INFO field.</strong>
@@ -506,9 +413,9 @@ For example, the <code class="docutils literal notranslate"><span class="pre">CI
 <span class="go">[4 rows x 12 columns]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="filter-with-sv-id-using-filter-by-id-method">
-<h3>2) Filter with SV ID using filter_by_id method<a class="headerlink" href="#filter-with-sv-id-using-filter-by-id-method" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="filter-with-sv-id-using-filter-by-id-method">
+<h3>2) Filter with SV ID using filter_by_id method<a class="headerlink" href="#filter-with-sv-id-using-filter-by-id-method" title="Permalink to this headline"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">Vcf.filter</span></code> is very useful, but in some situation, you may have to filter with much more complex criteria.
 In such cases we recommend to use <a class="reference internal" href="reference/api/viola.Vcf.filter_by_id.html"><span class="doc">Vcf.filter_by_id</span></a> method.</p>
 <p>Suppose you obtained the list of SV id, such as <code class="docutils literal notranslate"><span class="pre">['test2',</span> <span class="pre">'test4']</span></code>, as a result of quite complex criterion.
@@ -522,56 +429,39 @@ In this case, your code should be:</p>
 <span class="go">1  test4  chr1:69583190  chr1:69590948     +-  None    DEL</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="signature_analysis.html" class="btn btn-neutral float-right" title="Signature Analysis Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Welcom to Viola Package!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="signature_analysis.html" class="btn btn-neutral float-right" title="Signature Analysis Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Itsuki Sugita.
-
-    </p>
+    <p>&#169; Copyright 2021, Itsuki Sugita.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
